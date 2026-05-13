@@ -66,7 +66,8 @@ export function PricingTabs({ compact = false }: { compact?: boolean }) {
               key={p.id}
               role="tab"
               aria-selected={active}
-              onClick={() => setSelectedId(p.id)}
+              id={`plan-${p.id}`}
+              onClick={() => selectPlan(p.id)}
               className={`relative flex flex-1 min-w-[72px] flex-col items-center rounded-xl px-3 py-2 text-center transition ${
                 active
                   ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]"
