@@ -7,12 +7,20 @@ import { whatsappLink } from "@/lib/contact";
 export const Route = createFileRoute("/preise")({
   head: () => ({
     meta: [
-      { title: "Preise – IPTV Jahres-Abo für €45 | IPTVs-Anbieter" },
-      { name: "description", content: "Nur €45 pro Jahr (€3,75/Monat) für über 20.000 Live-Sender, 145.000 Filme und 44.000 Serien in 4K. 30 Tage Geld-zurück-Garantie." },
+      { title: "Preise – IPTV Abo ab €19 | IPTVs-Anbieter" },
+      { name: "description", content: "IPTV-Abos ab €19 für 3 Monate. 6 Monate €35, 12 Monate €45, 24 Monate €80. Über 20.000 Live-Sender, 4K UHD, 30 Tage Geld-zurück." },
     ],
   }),
   component: PreisePage,
 });
+
+const plans = [
+  { id: "3m", duration: "3 Monate", months: 3, price: 19, badge: null as string | null, highlight: false },
+  { id: "6m", duration: "6 Monate", months: 6, price: 35, badge: null, highlight: false },
+  { id: "12m", duration: "12 Monate", months: 12, price: 45, badge: "Beliebt", highlight: true },
+  { id: "24m", duration: "24 Monate", months: 24, price: 80, badge: "Bester Preis", highlight: false },
+];
+
 
 const features = [
   "20.000+ Live-TV-Sender weltweit",
