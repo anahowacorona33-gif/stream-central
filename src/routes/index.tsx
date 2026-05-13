@@ -190,9 +190,6 @@ function HomePage() {
             </div>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Button asChild variant="outline"><Link to="/anleitungen">Installationsanleitungen ansehen</Link></Button>
-        </div>
       </section>
 
       {/* Pricing tiers */}
