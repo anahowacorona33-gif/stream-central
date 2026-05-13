@@ -27,17 +27,27 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-primary" }}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
-            >
-              {n.label}
-            </Link>
-          ))}
+          {nav.map((n) =>
+            n.anchor ? (
+              <a
+                key={n.to}
+                href={n.to}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
+              >
+                {n.label}
+              </a>
+            ) : (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: n.to === "/" }}
+                activeProps={{ className: "text-primary" }}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
+              >
+                {n.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
