@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Check, MessageCircle, ShieldCheck, Zap, RefreshCcw, CreditCard } from "lucide-react";
-import { whatsappLink } from "@/lib/contact";
+import { ShieldCheck, Zap, RefreshCcw, CreditCard } from "lucide-react";
+import { PricingTabs } from "@/components/PricingTabs";
 
 export const Route = createFileRoute("/preise")({
   head: () => ({
