@@ -1,15 +1,19 @@
-## Tighten Features section header on mobile
+## Compact features layout on mobile
 
-The "Alles, was du erwartest – und mehr" section header (line 125-131 in `src/routes/index.tsx`) takes too much vertical space on phones because of `py-20` + `mb-12` + `text-4xl`.
+The 6 feature cards (EPG, Multi-View, Catch-Up, AirPlay, Adaptive Buffering, Multi-Screen) currently render as a 1-column stack of large `p-6` cards on mobile — each ~150px tall, totaling ~900px.
 
-### Changes (mobile-only, desktop unchanged)
-- Section padding: `py-20` → `py-12 md:py-20`
-- Header wrapper: `mb-12` → `mb-8 md:mb-12`
-- H2 size: `text-4xl md:text-5xl` → `text-3xl md:text-5xl`
-- Subtitle: `mt-3` → `mt-2 md:mt-3`, add `text-sm md:text-base`
+### Change
+Switch to a compact 2-column horizontal-icon layout on mobile, keeping the existing 3-column rich-card layout from `md` upward.
 
-That alone removes ~80px of vertical space on phones while keeping the desktop look identical.
+In `src/routes/index.tsx`, replace the features grid (lines 132-140) with a responsive structure:
+
+- Mobile (`<md`): 2-column grid, each item is a small tile with the icon on the left, title + 1-line description on the right, `p-3`, `text-sm` title, `text-xs` description, `truncate`/clamp-2 desc. Tighter borders, no hover glow.
+- Desktop (`md+`): keep the current 3-column rich card layout exactly as today (icon top, h3, full description, hover glow).
+
+Implemented as a single `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5` with conditional Tailwind classes inside each Card, OR two parallel JSX blocks (`md:hidden` compact + `hidden md:grid` rich). I'll use the dual-block approach for cleanest CSS.
+
+This roughly halves the vertical footprint on phones while leaving desktop untouched.
 
 ### Out of scope
-- No content/copy changes
-- No changes to other sections
+- No copy / icon changes
+- No edits to other sections

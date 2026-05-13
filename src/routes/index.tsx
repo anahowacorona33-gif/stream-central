@@ -129,7 +129,20 @@ function HomePage() {
             Modernste Player-Technologie, durchdachte Funktionen und ein TV-Erlebnis auf höchstem Niveau.
           </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {/* Mobile: compact 2-col tiles */}
+        <div className="grid grid-cols-2 gap-3 md:hidden">
+          {features.map((f) => (
+            <Card key={f.title} className="flex items-start gap-3 border-border/60 bg-card/60 p-3">
+              <f.icon className="h-5 w-5 shrink-0 text-primary" />
+              <div className="min-w-0">
+                <h3 className="text-sm font-semibold leading-tight">{f.title}</h3>
+                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{f.desc}</p>
+              </div>
+            </Card>
+          ))}
+        </div>
+        {/* Desktop: rich cards */}
+        <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
             <Card key={f.title} className="border-border/60 bg-card/60 p-6 transition hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
               <f.icon className="h-8 w-8 text-primary" />
