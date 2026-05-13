@@ -10,14 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PreiseRouteImport } from './routes/preise'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as KanaeleRouteImport } from './routes/kanaele'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AnleitungenRouteImport } from './routes/anleitungen'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as AnleitungenDeviceRouteImport } from './routes/anleitungen.$device'
 import { Route as ApiPublicBlogCronRouteImport } from './routes/api/public/blog-cron'
 
 const PreiseRoute = PreiseRouteImport.update({
@@ -25,29 +20,9 @@ const PreiseRoute = PreiseRouteImport.update({
   path: '/preise',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KanaeleRoute = KanaeleRouteImport.update({
-  id: '/kanaele',
-  path: '/kanaele',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AnleitungenRoute = AnleitungenRouteImport.update({
-  id: '/anleitungen',
-  path: '/anleitungen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -60,11 +35,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
-const AnleitungenDeviceRoute = AnleitungenDeviceRouteImport.update({
-  id: '/$device',
-  path: '/$device',
-  getParentRoute: () => AnleitungenRoute,
-} as any)
 const ApiPublicBlogCronRoute = ApiPublicBlogCronRouteImport.update({
   id: '/api/public/blog-cron',
   path: '/api/public/blog-cron',
@@ -73,87 +43,43 @@ const ApiPublicBlogCronRoute = ApiPublicBlogCronRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/kanaele': typeof KanaeleRoute
-  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
-  '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/kanaele': typeof KanaeleRoute
-  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
-  '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/kanaele': typeof KanaeleRoute
-  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
-  '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/anleitungen'
-    | '/blog'
-    | '/faq'
-    | '/kanaele'
-    | '/kontakt'
-    | '/preise'
-    | '/anleitungen/$device'
-    | '/blog/$slug'
-    | '/api/public/blog-cron'
+  fullPaths: '/' | '/blog' | '/preise' | '/blog/$slug' | '/api/public/blog-cron'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/anleitungen'
-    | '/blog'
-    | '/faq'
-    | '/kanaele'
-    | '/kontakt'
-    | '/preise'
-    | '/anleitungen/$device'
-    | '/blog/$slug'
-    | '/api/public/blog-cron'
+  to: '/' | '/blog' | '/preise' | '/blog/$slug' | '/api/public/blog-cron'
   id:
     | '__root__'
     | '/'
-    | '/anleitungen'
     | '/blog'
-    | '/faq'
-    | '/kanaele'
-    | '/kontakt'
     | '/preise'
-    | '/anleitungen/$device'
     | '/blog/$slug'
     | '/api/public/blog-cron'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AnleitungenRoute: typeof AnleitungenRouteWithChildren
   BlogRoute: typeof BlogRouteWithChildren
-  FaqRoute: typeof FaqRoute
-  KanaeleRoute: typeof KanaeleRoute
-  KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
   ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
 }
@@ -167,39 +93,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreiseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kanaele': {
-      id: '/kanaele'
-      path: '/kanaele'
-      fullPath: '/kanaele'
-      preLoaderRoute: typeof KanaeleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog': {
       id: '/blog'
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/anleitungen': {
-      id: '/anleitungen'
-      path: '/anleitungen'
-      fullPath: '/anleitungen'
-      preLoaderRoute: typeof AnleitungenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -216,13 +114,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
-    '/anleitungen/$device': {
-      id: '/anleitungen/$device'
-      path: '/$device'
-      fullPath: '/anleitungen/$device'
-      preLoaderRoute: typeof AnleitungenDeviceRouteImport
-      parentRoute: typeof AnleitungenRoute
-    }
     '/api/public/blog-cron': {
       id: '/api/public/blog-cron'
       path: '/api/public/blog-cron'
@@ -232,18 +123,6 @@ declare module '@tanstack/react-router' {
     }
   }
 }
-
-interface AnleitungenRouteChildren {
-  AnleitungenDeviceRoute: typeof AnleitungenDeviceRoute
-}
-
-const AnleitungenRouteChildren: AnleitungenRouteChildren = {
-  AnleitungenDeviceRoute: AnleitungenDeviceRoute,
-}
-
-const AnleitungenRouteWithChildren = AnleitungenRoute._addFileChildren(
-  AnleitungenRouteChildren,
-)
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
@@ -257,11 +136,7 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AnleitungenRoute: AnleitungenRouteWithChildren,
   BlogRoute: BlogRouteWithChildren,
-  FaqRoute: FaqRoute,
-  KanaeleRoute: KanaeleRoute,
-  KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
   ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,
 }

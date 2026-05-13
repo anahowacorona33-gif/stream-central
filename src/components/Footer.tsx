@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-border/60 bg-card/40">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
@@ -28,16 +28,8 @@ export function Footer() {
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Produkt</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/preise" className="hover:text-primary">Preise</Link></li>
-              <li><Link to="/kanaele" className="hover:text-primary">Kanäle</Link></li>
-              <li><Link to="/anleitungen" className="hover:text-primary">Anleitungen</Link></li>
-              <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Unternehmen</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/kontakt" className="hover:text-primary">Kontakt</Link></li>
               <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
+              <li><a href="/#faq" className="hover:text-primary">FAQ</a></li>
             </ul>
           </div>
           <div>

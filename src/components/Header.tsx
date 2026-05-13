@@ -5,15 +5,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, SITE_NAME } from "@/lib/contact";
 
-const nav = [
+type NavItem = { to: string; label: string; anchor?: boolean };
+
+const nav: NavItem[] = [
   { to: "/", label: "Start" },
   { to: "/preise", label: "Preise" },
-  { to: "/kanaele", label: "Kanäle" },
-  { to: "/anleitungen", label: "Anleitungen" },
   { to: "/blog", label: "Blog" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+  { to: "/#faq", label: "FAQ", anchor: true },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -28,17 +27,27 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-primary" }}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
-            >
-              {n.label}
-            </Link>
-          ))}
+          {nav.map((n) =>
+            n.anchor ? (
+              <a
+                key={n.to}
+                href={n.to}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
+              >
+                {n.label}
+              </a>
+            ) : (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: n.to === "/" }}
+                activeProps={{ className: "text-primary" }}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-foreground"
+              >
+                {n.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -55,18 +64,29 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-72 bg-background">
               <div className="mt-8 flex flex-col gap-1">
-                {nav.map((n) => (
-                  <Link
-                    key={n.to}
-                    to={n.to}
-                    onClick={() => setOpen(false)}
-                    activeOptions={{ exact: n.to === "/" }}
-                    activeProps={{ className: "bg-accent text-primary" }}
-                    className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
-                  >
-                    {n.label}
-                  </Link>
-                ))}
+                {nav.map((n) =>
+                  n.anchor ? (
+                    <a
+                      key={n.to}
+                      href={n.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
+                    >
+                      {n.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={n.to}
+                      to={n.to}
+                      onClick={() => setOpen(false)}
+                      activeOptions={{ exact: n.to === "/" }}
+                      activeProps={{ className: "bg-accent text-primary" }}
+                      className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
+                    >
+                      {n.label}
+                    </Link>
+                  )
+                )}
                 <Button asChild className="mt-4 bg-success text-success-foreground hover:bg-success/90">
                   <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-4 w-4" /> WhatsApp Bestellen

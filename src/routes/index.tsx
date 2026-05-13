@@ -59,7 +59,7 @@ const devices = [
 const faq = [
   { q: "Wie schnell erhalte ich meinen Zugang?", a: "Nach Zahlungseingang wird dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
   { q: "Brauche ich einen Vertrag?", a: "Nein. Es gibt keine Vertragsbindung. Du kannst jederzeit kündigen oder einfach nicht verlängern." },
-  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr. Anleitungen findest du auf unserer Anleitungs-Seite." },
+  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr." },
   { q: "Bekomme ich mein Geld zurück, wenn ich unzufrieden bin?", a: "Ja – wir bieten eine 30-Tage Geld-zurück-Garantie ohne Wenn und Aber." },
 ];
 
@@ -190,9 +190,6 @@ function HomePage() {
             </div>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Button asChild variant="outline"><Link to="/anleitungen">Installationsanleitungen ansehen</Link></Button>
-        </div>
       </section>
 
       {/* Pricing tiers */}
@@ -212,7 +209,7 @@ function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-4 py-20">
+      <section id="faq" className="mx-auto max-w-3xl scroll-mt-24 px-4 py-20">
         <h2 className="font-display text-4xl md:text-5xl">Häufige Fragen</h2>
         <Accordion type="single" collapsible className="mt-6">
           {faq.map((f, i) => (
@@ -222,9 +219,6 @@ function HomePage() {
             </AccordionItem>
           ))}
         </Accordion>
-        <div className="mt-6">
-          <Link to="/faq" className="text-sm text-primary hover:underline">Alle Fragen ansehen →</Link>
-        </div>
       </section>
 
       {/* Final CTA */}
