@@ -64,18 +64,29 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-72 bg-background">
               <div className="mt-8 flex flex-col gap-1">
-                {nav.map((n) => (
-                  <Link
-                    key={n.to}
-                    to={n.to}
-                    onClick={() => setOpen(false)}
-                    activeOptions={{ exact: n.to === "/" }}
-                    activeProps={{ className: "bg-accent text-primary" }}
-                    className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
-                  >
-                    {n.label}
-                  </Link>
-                ))}
+                {nav.map((n) =>
+                  n.anchor ? (
+                    <a
+                      key={n.to}
+                      href={n.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
+                    >
+                      {n.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={n.to}
+                      to={n.to}
+                      onClick={() => setOpen(false)}
+                      activeOptions={{ exact: n.to === "/" }}
+                      activeProps={{ className: "bg-accent text-primary" }}
+                      className="rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
+                    >
+                      {n.label}
+                    </Link>
+                  )
+                )}
                 <Button asChild className="mt-4 bg-success text-success-foreground hover:bg-success/90">
                   <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-4 w-4" /> WhatsApp Bestellen
