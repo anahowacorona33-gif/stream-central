@@ -12,12 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as KanaeleRouteImport } from './routes/kanaele'
-import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AnleitungenRouteImport } from './routes/anleitungen'
-import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AnleitungenDeviceRouteImport } from './routes/anleitungen.$device'
@@ -37,19 +34,9 @@ const KanaeleRoute = KanaeleRouteImport.update({
   path: '/kanaele',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ImpressumRoute = ImpressumRouteImport.update({
-  id: '/impressum',
-  path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DatenschutzRoute = DatenschutzRouteImport.update({
-  id: '/datenschutz',
-  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -60,11 +47,6 @@ const BlogRoute = BlogRouteImport.update({
 const AnleitungenRoute = AnleitungenRouteImport.update({
   id: '/anleitungen',
   path: '/anleitungen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AgbRoute = AgbRouteImport.update({
-  id: '/agb',
-  path: '/agb',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -85,12 +67,9 @@ const AnleitungenDeviceRoute = AnleitungenDeviceRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/agb': typeof AgbRoute
   '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
-  '/impressum': typeof ImpressumRoute
   '/kanaele': typeof KanaeleRoute
   '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
@@ -99,12 +78,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/agb': typeof AgbRoute
   '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
-  '/impressum': typeof ImpressumRoute
   '/kanaele': typeof KanaeleRoute
   '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
@@ -114,12 +90,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/agb': typeof AgbRoute
   '/anleitungen': typeof AnleitungenRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
-  '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
-  '/impressum': typeof ImpressumRoute
   '/kanaele': typeof KanaeleRoute
   '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
@@ -130,12 +103,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/agb'
     | '/anleitungen'
     | '/blog'
-    | '/datenschutz'
     | '/faq'
-    | '/impressum'
     | '/kanaele'
     | '/kontakt'
     | '/preise'
@@ -144,12 +114,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/agb'
     | '/anleitungen'
     | '/blog'
-    | '/datenschutz'
     | '/faq'
-    | '/impressum'
     | '/kanaele'
     | '/kontakt'
     | '/preise'
@@ -158,12 +125,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/agb'
     | '/anleitungen'
     | '/blog'
-    | '/datenschutz'
     | '/faq'
-    | '/impressum'
     | '/kanaele'
     | '/kontakt'
     | '/preise'
@@ -173,12 +137,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AgbRoute: typeof AgbRoute
   AnleitungenRoute: typeof AnleitungenRouteWithChildren
   BlogRoute: typeof BlogRouteWithChildren
-  DatenschutzRoute: typeof DatenschutzRoute
   FaqRoute: typeof FaqRoute
-  ImpressumRoute: typeof ImpressumRoute
   KanaeleRoute: typeof KanaeleRoute
   KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
@@ -207,25 +168,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KanaeleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/impressum': {
-      id: '/impressum'
-      path: '/impressum'
-      fullPath: '/impressum'
-      preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/datenschutz': {
-      id: '/datenschutz'
-      path: '/datenschutz'
-      fullPath: '/datenschutz'
-      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -240,13 +187,6 @@ declare module '@tanstack/react-router' {
       path: '/anleitungen'
       fullPath: '/anleitungen'
       preLoaderRoute: typeof AnleitungenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/agb': {
-      id: '/agb'
-      path: '/agb'
-      fullPath: '/agb'
-      preLoaderRoute: typeof AgbRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -297,12 +237,9 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AgbRoute: AgbRoute,
   AnleitungenRoute: AnleitungenRouteWithChildren,
   BlogRoute: BlogRouteWithChildren,
-  DatenschutzRoute: DatenschutzRoute,
   FaqRoute: FaqRoute,
-  ImpressumRoute: ImpressumRoute,
   KanaeleRoute: KanaeleRoute,
   KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
