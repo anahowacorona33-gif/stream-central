@@ -5,7 +5,7 @@ import { MarkdownBody } from "@/lib/markdown";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
-    const p = loaderData?.post;
+    const p = (loaderData as { post?: { title: string; excerpt: string } } | undefined)?.post;
     return {
       meta: [
         { title: `${p?.title ?? "Artikel"} | IPTVs-Anbieter Blog` },
