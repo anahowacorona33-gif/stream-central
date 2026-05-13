@@ -18,6 +18,7 @@ import { Route as AnleitungenRouteImport } from './routes/anleitungen'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AnleitungenDeviceRouteImport } from './routes/anleitungen.$device'
+import { Route as ApiPublicBlogCronRouteImport } from './routes/api/public/blog-cron'
 
 const PreiseRoute = PreiseRouteImport.update({
   id: '/preise',
@@ -64,6 +65,11 @@ const AnleitungenDeviceRoute = AnleitungenDeviceRouteImport.update({
   path: '/$device',
   getParentRoute: () => AnleitungenRoute,
 } as any)
+const ApiPublicBlogCronRoute = ApiPublicBlogCronRouteImport.update({
+  id: '/api/public/blog-cron',
+  path: '/api/public/blog-cron',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/preise': typeof PreiseRoute
   '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/preise': typeof PreiseRoute
   '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/preise': typeof PreiseRoute
   '/anleitungen/$device': typeof AnleitungenDeviceRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/preise'
     | '/anleitungen/$device'
     | '/blog/$slug'
+    | '/api/public/blog-cron'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/preise'
     | '/anleitungen/$device'
     | '/blog/$slug'
+    | '/api/public/blog-cron'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/preise'
     | '/anleitungen/$device'
     | '/blog/$slug'
+    | '/api/public/blog-cron'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   KanaeleRoute: typeof KanaeleRoute
   KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
+  ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -210,6 +223,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnleitungenDeviceRouteImport
       parentRoute: typeof AnleitungenRoute
     }
+    '/api/public/blog-cron': {
+      id: '/api/public/blog-cron'
+      path: '/api/public/blog-cron'
+      fullPath: '/api/public/blog-cron'
+      preLoaderRoute: typeof ApiPublicBlogCronRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   KanaeleRoute: KanaeleRoute,
   KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
+  ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

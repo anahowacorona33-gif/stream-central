@@ -1,21 +1,24 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { posts } from "./blog";
+import { getPost } from "@/lib/blog.functions";
+import { MarkdownBody } from "@/lib/markdown";
 
 export const Route = createFileRoute("/blog/$slug")({
-  head: ({ params }) => {
-    const p = posts.find((x) => x.slug === params.slug);
+  head: ({ loaderData }) => {
+    const p = (loaderData as { post?: { title: string; excerpt: string } } | undefined)?.post;
     return {
       meta: [
         { title: `${p?.title ?? "Artikel"} | IPTVs-Anbieter Blog` },
         { name: "description", content: p?.excerpt ?? "" },
+        { property: "og:title", content: p?.title ?? "Artikel" },
+        { property: "og:description", content: p?.excerpt ?? "" },
       ],
     };
   },
-  loader: ({ params }) => {
-    const p = posts.find((x) => x.slug === params.slug);
-    if (!p) throw notFound();
-    return p;
+  loader: async ({ params }) => {
+    const { post } = await getPost({ data: { slug: params.slug } });
+    if (!post) throw notFound();
+    return { post };
   },
   component: PostPage,
   notFoundComponent: () => (
@@ -34,19 +37,19 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function PostPage() {
-  const post = Route.useLoaderData();
+  const { post } = Route.useLoaderData();
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 md:py-24">
       <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
         <ArrowLeft className="h-4 w-4" /> Zurück zum Blog
       </Link>
       <div className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">
-        {new Date(post.date).toLocaleDateString("de-DE")}
+        {new Date(post.published_at).toLocaleDateString("de-DE")}
       </div>
       <h1 className="mt-2 font-display text-4xl md:text-5xl">{post.title}</h1>
       <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p>
-      <div className="prose prose-invert mt-8 max-w-none whitespace-pre-line text-foreground/90">
-        {post.body}
+      <div className="mt-8 max-w-none text-foreground/90">
+        <MarkdownBody source={post.body} />
       </div>
     </article>
   );
