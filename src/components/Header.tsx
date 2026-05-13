@@ -5,15 +5,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { whatsappLink, SITE_NAME } from "@/lib/contact";
 
-const nav = [
+type NavItem = { to: string; label: string; anchor?: boolean };
+
+const nav: NavItem[] = [
   { to: "/", label: "Start" },
   { to: "/preise", label: "Preise" },
-  { to: "/kanaele", label: "Kanäle" },
-  { to: "/anleitungen", label: "Anleitungen" },
   { to: "/blog", label: "Blog" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+  { to: "/#faq", label: "FAQ", anchor: true },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
