@@ -30,6 +30,25 @@ const baseMonthly = plans[0].price / plans[0].months; // 3-Monats-Tarif als Refe
 
 export function PricingTabs({ compact = false }: { compact?: boolean }) {
   const [selectedId, setSelectedId] = useState("12m");
+
+  // Sync with URL hash
+  useEffect(() => {
+    const apply = () => {
+      const id = window.location.hash.replace("#", "");
+      if (plans.some((p) => p.id === id)) setSelectedId(id);
+    };
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
+  }, []);
+
+  const selectPlan = (id: string) => {
+    setSelectedId(id);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+  };
+
   const plan = plans.find((p) => p.id === selectedId)!;
   const perMonthNum = plan.price / plan.months;
   const perMonth = perMonthNum.toFixed(2).replace(".", ",");
