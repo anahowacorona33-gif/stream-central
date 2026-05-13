@@ -9,6 +9,7 @@ import {
 import heroImg from "@/assets/hero-stadium.jpg";
 import sportImg from "@/assets/sport-highlight.jpg";
 import { whatsappLink } from "@/lib/contact";
+import { SeoChunks } from "@/components/SeoChunks";
 
 export const Route = createFileRoute("/")({
   head: () => ({
