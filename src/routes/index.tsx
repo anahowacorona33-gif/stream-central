@@ -59,7 +59,7 @@ const devices = [
 const faq = [
   { q: "Wie schnell erhalte ich meinen Zugang?", a: "Nach Zahlungseingang wird dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
   { q: "Brauche ich einen Vertrag?", a: "Nein. Es gibt keine Vertragsbindung. Du kannst jederzeit kündigen oder einfach nicht verlängern." },
-  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr. Anleitungen findest du auf unserer Anleitungs-Seite." },
+  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr." },
   { q: "Bekomme ich mein Geld zurück, wenn ich unzufrieden bin?", a: "Ja – wir bieten eine 30-Tage Geld-zurück-Garantie ohne Wenn und Aber." },
 ];
 
