@@ -13,28 +13,6 @@ export const Route = createFileRoute("/preise")({
   component: PreisePage,
 });
 
-const plans = [
-  { id: "3m", duration: "3 Monate", months: 3, price: 19, badge: null as string | null, highlight: false },
-  { id: "6m", duration: "6 Monate", months: 6, price: 35, badge: null, highlight: false },
-  { id: "12m", duration: "12 Monate", months: 12, price: 45, badge: "Beliebt", highlight: true },
-  { id: "24m", duration: "24 Monate", months: 24, price: 80, badge: "Bester Preis", highlight: false },
-];
-
-
-const features = [
-  "20.000+ Live-TV-Sender weltweit",
-  "145.000+ Filme on-demand",
-  "44.000+ Serien & Episoden",
-  "4K UHD Bild- und Tonqualität",
-  "Premium Sport (Bundesliga, CL, F1, UFC…)",
-  "EPG TV-Guide mit Timeline",
-  "7-Tage Catch-Up TV",
-  "Multi-View (bis zu 4 Streams)",
-  "AirPlay & Multi-Screen Support",
-  "Adaptive Buffering für stabile Wiedergabe",
-  "Funktioniert auf allen Geräten",
-  "24/7 WhatsApp Support",
-];
 
 const guarantees = [
   { icon: ShieldCheck, t: "30 Tage Geld-zurück", d: "Nicht zufrieden? Volle Erstattung – ohne Diskussion." },
