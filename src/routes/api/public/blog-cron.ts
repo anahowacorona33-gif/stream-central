@@ -19,7 +19,7 @@ const PostSchema = z.object({
   title: z.string().min(20).max(120),
   excerpt: z.string().min(60).max(220),
   topic: z.string().min(3).max(60),
-  body: z.string().min(800),
+  body: z.string().min(4000),
 });
 
 async function generatePost(existing: { title: string; topic: string }[]) {
