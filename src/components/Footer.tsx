@@ -38,9 +38,6 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/kontakt" className="hover:text-primary">Kontakt</Link></li>
               <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
-              <li><Link to="/impressum" className="hover:text-primary">Impressum</Link></li>
-              <li><Link to="/datenschutz" className="hover:text-primary">Datenschutz</Link></li>
-              <li><Link to="/agb" className="hover:text-primary">AGB & Widerruf</Link></li>
             </ul>
           </div>
           <div>
