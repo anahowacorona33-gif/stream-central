@@ -202,54 +202,10 @@ function HomePage() {
             Faire Preise. Alle Features inklusive. Kein Vertrag.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
-          {[
-            { id: "3m", duration: "3 Monate", months: 3, price: 19, badge: null as string | null, highlight: false },
-            { id: "6m", duration: "6 Monate", months: 6, price: 35, badge: null, highlight: false },
-            { id: "12m", duration: "12 Monate", months: 12, price: 45, badge: "Beliebt", highlight: true },
-            { id: "24m", duration: "24 Monate", months: 24, price: 80, badge: "Bester Preis", highlight: false },
-          ].map((p) => {
-            const perMonth = (p.price / p.months).toFixed(2).replace(".", ",");
-            const msg = `Hallo, ich möchte das ${p.duration}-Abo (€${p.price}) bestellen.`;
-            return (
-              <Card
-                key={p.id}
-                className={`relative flex flex-col p-4 md:p-6 ${
-                  p.highlight
-                    ? "border-primary/60 bg-gradient-to-br from-card to-background shadow-[var(--shadow-glow)]"
-                    : "border-border/60 bg-card/60"
-                }`}
-              >
-                {p.badge && (
-                  <span
-                    className={`absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider md:text-xs ${
-                      p.highlight ? "bg-primary text-primary-foreground" : "bg-success text-success-foreground"
-                    }`}
-                  >
-                    {p.badge}
-                  </span>
-                )}
-                <div className="text-center">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{p.duration}</div>
-                  <div className="mt-2 font-display text-3xl text-primary md:text-5xl">€{p.price}</div>
-                  <div className="mt-1 text-[11px] text-muted-foreground md:text-xs">€{perMonth}/Monat</div>
-                </div>
-                <Button
-                  asChild
-                  size="sm"
-                  className={`mt-4 w-full ${p.highlight ? "bg-success text-success-foreground hover:bg-success/90" : ""}`}
-                >
-                  <a href={whatsappLink(msg)} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4" /> Bestellen
-                  </a>
-                </Button>
-              </Card>
-            );
-          })}
-        </div>
+        <PricingTabs compact />
         <div className="mt-6 text-center">
           <Link to="/preise" className="text-sm text-primary hover:underline">
-            Alle Features & Garantien ansehen →
+            Garantien & Zahlungsmethoden ansehen →
           </Link>
         </div>
       </section>
