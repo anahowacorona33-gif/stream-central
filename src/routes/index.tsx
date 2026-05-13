@@ -209,7 +209,7 @@ function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-4 py-20">
+      <section id="faq" className="mx-auto max-w-3xl scroll-mt-24 px-4 py-20">
         <h2 className="font-display text-4xl md:text-5xl">Häufige Fragen</h2>
         <Accordion type="single" collapsible className="mt-6">
           {faq.map((f, i) => (
@@ -219,9 +219,6 @@ function HomePage() {
             </AccordionItem>
           ))}
         </Accordion>
-        <div className="mt-6">
-          <Link to="/faq" className="text-sm text-primary hover:underline">Alle Fragen ansehen →</Link>
-        </div>
       </section>
 
       {/* Final CTA */}
