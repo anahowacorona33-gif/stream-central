@@ -1,50 +1,60 @@
-## Revised plan (no extra secret needed)
+## Goal
 
-Cron will call `/api/public/blog-cron` with the existing Supabase anon key in the `apikey` header — no `BLOG_CRON_SECRET` to add.
+Match the French sample's depth and structure, but in German for the IPTV site. Apply the same style to the daily AI-generated post.
 
-### Already done
-- `/preise#3m`, `#6m`, `#12m`, `#24m` hash links in `PricingTabs`.
-- Deleted `agb.tsx`, `datenschutz.tsx`, `impressum.tsx` and removed footer links.
-- Created `blog_posts` table (public read-only RLS) + enabled `pg_cron` & `pg_net`.
+## Long-form article structure (template)
 
-### Remaining
+Every article — seed and AI-generated — must follow this skeleton:
 
-1. **Seed 3 blog articles** (German, SEO-chunk format, source='seed') via insert tool.
-   - Topics: "IPTV Anbieter Vergleich 2026", "Bundesliga per IPTV streamen", "Fire TV Stick einrichten".
-   - Body uses `## H2`, `**bold**` for entities, lists/tables, 80–120 word chunks.
+```text
+H1 title
+Intro paragraph (hook + promise)
+## Warum ... (Why section)
+  ### Numbered subsections (1. Feature, 2. Feature ...) with bold lead-ins + bullet lists
+## Vergleich: IPTV vs ...
+  Bullet price/feature breakdown + a markdown comparison table
+## Die besten ... Kanäle auf IPTV
+## [Topic deep-dive sections — sport, serien, filme, geräte, etc.]
+## Erweiterte Funktionen
+## Optimale Konfiguration (Internet, Geräte, Apps)
+## Tipps & Tricks
+## Rechtliches & Sicherheit (VPN-Hinweis)
+## Erfahrungsberichte (3 Testimonials with name, age, profile)
+## Fazit (bullet recap of benefits + CTA to /preise)
+```
 
-2. **Server functions** `src/lib/blog.functions.ts`:
-   - `listPosts()` → returns id, slug, title, excerpt, published_at (latest first).
-   - `getPost(slug)` → single post.
+Word target: 1500–2500 words. Markdown features used: `##`, `###`, `**bold**`, bullet lists, numbered lists, tables. The existing `MarkdownBody` parser already supports these.
 
-3. **Cron endpoint** `src/routes/api/public/blog-cron.ts`:
-   - POST handler. Validates `apikey` header against `SUPABASE_PUBLISHABLE_KEY`.
-   - Reads last 30 post titles+topics for dedupe.
-   - Calls Lovable AI (`google/gemini-3-flash-preview`) via Lovable AI Gateway (`@ai-sdk/openai-compatible` + `LOVABLE_API_KEY`) with `Output.object` for structured `{ title, slug, excerpt, body, topic }`.
-   - Strict system prompt: German, SEO-chunk style, no overlap with provided list, brand voice.
-   - Inserts via service-role client. Retries up to 2x on slug/topic collision.
-   - Returns `{ slug }` or 4xx/5xx with details.
+## Seed posts (replace all 3)
 
-4. **Schedule cron** via `insert` tool:
-   ```sql
-   select cron.schedule(
-     'daily-iptv-blog',
-     '0 6 * * *',
-     $$ select net.http_post(
-       url := 'https://project--c3430f45-38de-4dbf-bb7e-eed00b41a3e1.lovable.app/api/public/blog-cron',
-       headers := '{"Content-Type":"application/json","apikey":"<ANON_KEY>"}'::jsonb,
-       body := '{}'::jsonb
-     ); $$
-   );
-   ```
+Delete the current 3 posts and insert 3 new long-form German articles following the template:
 
-5. **Frontend**:
-   - `src/routes/blog.tsx` → loader calls `listPosts()`, renders DB rows.
-   - `src/routes/blog.$slug.tsx` → loader calls `getPost(params.slug)`, renders body with a tiny inline `**bold**` + `## h2` parser.
+1. **IPTV für Sport: Der ultimative Guide für Fans 2026** — direct German adaptation of the sample (Bundesliga, Champions League, Premier League, Tennis, F1, NBA, UFC, multi-screen, replay, calendar 2026).
+2. **IPTV für Serien & Filme: Netflix, Disney+ & Sky in einem Abo** — VOD focus, Mediatheken, 4K HDR, multi-audio (DE/EN), Untertitel, Familienprofile.
+3. **IPTV einrichten: Fire TV Stick, Smart TV & Android Box im Vergleich** — device guide, TiviMate/IPTV Smarters setup, Internet-Anforderungen, VPN, Troubleshooting.
 
-6. **Add an npm dep**: `@ai-sdk/openai-compatible` and `ai` if not present.
+Done via `supabase--insert` (DELETE existing 3 + INSERT 3 new). Each links to `/preise` in the Fazit CTA.
 
-### Out of scope
-- No admin UI to edit/delete posts.
-- No images per post.
-- No `BLOG_CRON_SECRET` (uses existing anon key instead).
+## Daily AI cron — prompt rewrite
+
+Update `src/routes/api/public/blog-cron.ts` system prompt to enforce:
+- German only, 1500–2500 words
+- Mandatory section skeleton above (Warum / Vergleich+table / Funktionen / Konfiguration / Tipps / Rechtliches+VPN / 3 Erfahrungsberichte / Fazit+CTA)
+- At least one markdown comparison table and 5+ bullet lists
+- `**bold**` on entities (channel names, leagues, devices, prices)
+- End with CTA linking to `/preise`
+- Original topic — pass last 30 titles + topics to avoid duplication (already implemented, keep)
+- Topic pool expanded: sport sub-niches (Bundesliga, Champions League, Tennis, F1, NBA, UFC), VOD (Netflix-Alternative, Kids, Dokus), devices (Fire TV, Apple TV, Nvidia Shield, Smart TV Samsung/LG), how-to (Einrichtung, VPN, EPG, Aufnahme), regional (Türkisches IPTV, Arabisches IPTV), comparisons (IPTV vs Sky, vs DAZN, vs Magenta TV)
+
+Keep model `google/gemini-3-flash-preview`, keep `Output.object` schema (title, slug, excerpt, body, topic), keep dedup retry, keep cron at 06:00 UTC.
+
+## Frontend
+
+No changes needed — `/blog` list and `/blog/$slug` detail already render `MarkdownBody` which supports all required markdown.
+
+## Out of scope
+
+- No new images
+- No admin UI
+- No legal pages (already removed)
+- No new dependencies
