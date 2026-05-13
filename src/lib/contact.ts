@@ -1,5 +1,5 @@
-export const WHATSAPP_NUMBER = "+4915123456789"; // TODO: Echte Nummer eintragen
-export const WHATSAPP_DISPLAY = "+49 151 234 567 89";
+export const WHATSAPP_NUMBER = "+447446431335";
+export const WHATSAPP_DISPLAY = "+44 7446 431335";
 export const SUPPORT_EMAIL = "support@iptvs-anbieter.de";
 export const SITE_NAME = "IPTVs-Anbieter";
 export const SITE_DOMAIN = "iptvs-anbieter.de";
