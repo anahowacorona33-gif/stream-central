@@ -39,7 +39,7 @@ function BlogLayout() {
         <p className="mt-10 text-muted-foreground">Noch keine Artikel.</p>
       ) : (
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {posts.map((p) => (
+          {posts.map((p: { slug: string; title: string; excerpt: string; published_at: string }) => (
             <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }}>
               <Card className="group h-full border-border/60 bg-card/60 p-6 transition hover:border-primary/50">
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">
