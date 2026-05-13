@@ -240,6 +240,8 @@ function HomePage() {
           </Button>
         </Card>
       </section>
+
+      <SeoChunks />
     </div>
   );
 }
