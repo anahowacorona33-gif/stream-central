@@ -9,38 +9,246 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as KanaeleRouteImport } from './routes/kanaele'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AnleitungenRouteImport } from './routes/anleitungen'
+import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AnleitungenDeviceRouteImport } from './routes/anleitungen.$device'
 
+const PreiseRoute = PreiseRouteImport.update({
+  id: '/preise',
+  path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KanaeleRoute = KanaeleRouteImport.update({
+  id: '/kanaele',
+  path: '/kanaele',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnleitungenRoute = AnleitungenRouteImport.update({
+  id: '/anleitungen',
+  path: '/anleitungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgbRoute = AgbRouteImport.update({
+  id: '/agb',
+  path: '/agb',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const AnleitungenDeviceRoute = AnleitungenDeviceRouteImport.update({
+  id: '/$device',
+  path: '/$device',
+  getParentRoute: () => AnleitungenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/anleitungen': typeof AnleitungenRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/kanaele': typeof KanaeleRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/anleitungen/$device': typeof AnleitungenDeviceRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/anleitungen': typeof AnleitungenRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/kanaele': typeof KanaeleRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/anleitungen/$device': typeof AnleitungenDeviceRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/anleitungen': typeof AnleitungenRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/kanaele': typeof KanaeleRoute
+  '/kontakt': typeof KontaktRoute
+  '/preise': typeof PreiseRoute
+  '/anleitungen/$device': typeof AnleitungenDeviceRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agb'
+    | '/anleitungen'
+    | '/blog'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/kanaele'
+    | '/kontakt'
+    | '/preise'
+    | '/anleitungen/$device'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agb'
+    | '/anleitungen'
+    | '/blog'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/kanaele'
+    | '/kontakt'
+    | '/preise'
+    | '/anleitungen/$device'
+    | '/blog/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/agb'
+    | '/anleitungen'
+    | '/blog'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/kanaele'
+    | '/kontakt'
+    | '/preise'
+    | '/anleitungen/$device'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgbRoute: typeof AgbRoute
+  AnleitungenRoute: typeof AnleitungenRouteWithChildren
+  BlogRoute: typeof BlogRouteWithChildren
+  DatenschutzRoute: typeof DatenschutzRoute
+  FaqRoute: typeof FaqRoute
+  ImpressumRoute: typeof ImpressumRoute
+  KanaeleRoute: typeof KanaeleRoute
+  KontaktRoute: typeof KontaktRoute
+  PreiseRoute: typeof PreiseRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/preise': {
+      id: '/preise'
+      path: '/preise'
+      fullPath: '/preise'
+      preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kanaele': {
+      id: '/kanaele'
+      path: '/kanaele'
+      fullPath: '/kanaele'
+      preLoaderRoute: typeof KanaeleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anleitungen': {
+      id: '/anleitungen'
+      path: '/anleitungen'
+      fullPath: '/anleitungen'
+      preLoaderRoute: typeof AnleitungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agb': {
+      id: '/agb'
+      path: '/agb'
+      fullPath: '/agb'
+      preLoaderRoute: typeof AgbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +256,57 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/anleitungen/$device': {
+      id: '/anleitungen/$device'
+      path: '/$device'
+      fullPath: '/anleitungen/$device'
+      preLoaderRoute: typeof AnleitungenDeviceRouteImport
+      parentRoute: typeof AnleitungenRoute
+    }
   }
 }
 
+interface AnleitungenRouteChildren {
+  AnleitungenDeviceRoute: typeof AnleitungenDeviceRoute
+}
+
+const AnleitungenRouteChildren: AnleitungenRouteChildren = {
+  AnleitungenDeviceRoute: AnleitungenDeviceRoute,
+}
+
+const AnleitungenRouteWithChildren = AnleitungenRoute._addFileChildren(
+  AnleitungenRouteChildren,
+)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgbRoute: AgbRoute,
+  AnleitungenRoute: AnleitungenRouteWithChildren,
+  BlogRoute: BlogRouteWithChildren,
+  DatenschutzRoute: DatenschutzRoute,
+  FaqRoute: FaqRoute,
+  ImpressumRoute: ImpressumRoute,
+  KanaeleRoute: KanaeleRoute,
+  KontaktRoute: KontaktRoute,
+  PreiseRoute: PreiseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
