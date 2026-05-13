@@ -61,34 +61,68 @@ function PreisePage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-3xl">
-        <Card className="overflow-hidden border-primary/50 bg-gradient-to-br from-card to-background p-8 md:p-12 shadow-[var(--shadow-glow)]">
-          <div className="text-center">
-            <span className="inline-flex rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">Premium Jahres-Abo</span>
-            <div className="mt-4 flex items-baseline justify-center gap-2">
-              <span className="font-display text-7xl text-primary md:text-8xl">€45</span>
-              <span className="text-muted-foreground">/Jahr</span>
-            </div>
-            <div className="text-sm text-muted-foreground">Entspricht <strong className="text-foreground">€3,75/Monat</strong></div>
-            <div className="mt-2 inline-flex rounded-full bg-success/15 px-3 py-1 text-xs font-semibold text-success">95% günstiger als klassische Streaming-Abos</div>
-          </div>
+      <div className="mx-auto mt-12 grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {plans.map((p) => {
+          const perMonth = (p.price / p.months).toFixed(2).replace(".", ",");
+          const msg = `Hallo, ich möchte das ${p.duration}-Abo (€${p.price}) bestellen.`;
+          return (
+            <Card
+              key={p.id}
+              className={`relative flex flex-col p-6 ${
+                p.highlight
+                  ? "border-primary/60 bg-gradient-to-br from-card to-background shadow-[var(--shadow-glow)]"
+                  : "border-border/60 bg-card/60"
+              }`}
+            >
+              {p.badge && (
+                <span
+                  className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
+                    p.highlight
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-success text-success-foreground"
+                  }`}
+                >
+                  {p.badge}
+                </span>
+              )}
+              <div className="text-center">
+                <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">{p.duration}</div>
+                <div className="mt-3 flex items-baseline justify-center gap-1">
+                  <span className="font-display text-5xl text-primary">€{p.price}</span>
+                  <span className="text-sm text-muted-foreground">/Gesamt</span>
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  entspricht <strong className="text-foreground">€{perMonth}/Monat</strong>
+                </div>
+              </div>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {features.map((f) => (
-              <li key={f} className="flex items-start gap-2 text-sm">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
+              <ul className="mt-6 flex-1 space-y-2">
+                {features.slice(0, 6).map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+                <li className="pt-1 text-xs text-muted-foreground">+ alle weiteren Premium-Features</li>
+              </ul>
 
-          <Button asChild size="lg" className="mt-8 w-full bg-success text-success-foreground hover:bg-success/90">
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp bestellen
-            </a>
-          </Button>
-          <p className="mt-3 text-center text-xs text-muted-foreground">Sofortige Aktivierung · 30 Tage Geld-zurück</p>
-        </Card>
+              <Button
+                asChild
+                size="lg"
+                className={`mt-6 w-full ${
+                  p.highlight
+                    ? "bg-success text-success-foreground hover:bg-success/90"
+                    : ""
+                }`}
+              >
+                <a href={whatsappLink(msg)} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5" /> Per WhatsApp bestellen
+                </a>
+              </Button>
+              <p className="mt-2 text-center text-[11px] text-muted-foreground">Sofort-Aktivierung · 30 Tage Geld-zurück</p>
+            </Card>
+          );
+        })}
       </div>
 
       <div className="mx-auto mt-16 grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-4">
