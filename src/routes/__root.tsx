@@ -54,6 +54,90 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const ORGANIZATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://iptvs-anbieter.de/#organization",
+  name: "IPTVs-Anbieter",
+  alternateName: "IPTVs Anbieter",
+  url: "https://iptvs-anbieter.de",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://iptvs-anbieter.de/logo.png",
+    width: 512,
+    height: 512,
+  },
+  description:
+    "Deutschsprachiger IPTV-Anbieter: Premium-Abos für 3, 6, 12 und 24 Monate mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Kompatibel mit Smart TV, Fire TV, Apple TV, Android, iOS, MAG, VLC und Kodi.",
+  knowsAbout: [
+    { "@type": "Thing", name: "Internet Protocol Television", sameAs: "https://de.wikipedia.org/wiki/Internet_Protocol_Television" },
+    { "@type": "Thing", name: "Smart TV", sameAs: "https://de.wikipedia.org/wiki/Smart-TV" },
+    { "@type": "Thing", name: "Amazon Fire TV", sameAs: "https://de.wikipedia.org/wiki/Amazon_Fire_TV" },
+    { "@type": "Thing", name: "Apple TV", sameAs: "https://de.wikipedia.org/wiki/Apple_TV" },
+    { "@type": "Thing", name: "Android TV", sameAs: "https://de.wikipedia.org/wiki/Android_TV" },
+    { "@type": "Thing", name: "Kodi", sameAs: "https://de.wikipedia.org/wiki/Kodi_(Software)" },
+    { "@type": "Thing", name: "VLC media player", sameAs: "https://de.wikipedia.org/wiki/VLC_media_player" },
+    { "@type": "Thing", name: "MAG Set-Top-Box", sameAs: "https://de.wikipedia.org/wiki/Infomir" },
+    { "@type": "Thing", name: "Ultra High Definition Television", sameAs: "https://de.wikipedia.org/wiki/Ultra_High_Definition_Television" },
+    { "@type": "Thing", name: "Fußball-Bundesliga", sameAs: "https://de.wikipedia.org/wiki/Fu%C3%9Fball-Bundesliga" },
+    { "@type": "Thing", name: "UEFA Champions League", sameAs: "https://de.wikipedia.org/wiki/UEFA_Champions_League" },
+    { "@type": "Thing", name: "Formel 1", sameAs: "https://de.wikipedia.org/wiki/Formel_1" },
+  ],
+  areaServed: { "@type": "Country", name: "Germany" },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    telephone: "+44-7446-431335",
+    availableLanguage: ["German", "English"],
+  },
+  sameAs: [
+    "https://x.com/TAnbieter44116",
+    "https://web.archive.org/web/20260514203741/http://iptvs-anbieter.de/",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "IPTV-Abonnements",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "IPTV Abo 3 Monate",
+        price: "19.00",
+        priceCurrency: "EUR",
+        url: "https://iptvs-anbieter.de/abonnement-3-monate",
+        eligibleDuration: { "@type": "QuantitativeValue", value: 3, unitCode: "MON" },
+        itemOffered: { "@type": "Service", name: "IPTV-Abonnement 3 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-3-monate" },
+      },
+      {
+        "@type": "Offer",
+        name: "IPTV Abo 6 Monate",
+        price: "35.00",
+        priceCurrency: "EUR",
+        url: "https://iptvs-anbieter.de/abonnement-6-monate",
+        eligibleDuration: { "@type": "QuantitativeValue", value: 6, unitCode: "MON" },
+        itemOffered: { "@type": "Service", name: "IPTV-Abonnement 6 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-6-monate" },
+      },
+      {
+        "@type": "Offer",
+        name: "IPTV Abo 12 Monate",
+        price: "45.00",
+        priceCurrency: "EUR",
+        url: "https://iptvs-anbieter.de/abonnement-12-monate",
+        eligibleDuration: { "@type": "QuantitativeValue", value: 12, unitCode: "MON" },
+        itemOffered: { "@type": "Service", name: "IPTV-Abonnement 12 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-12-monate" },
+      },
+      {
+        "@type": "Offer",
+        name: "IPTV Abo 24 Monate",
+        price: "80.00",
+        priceCurrency: "EUR",
+        url: "https://iptvs-anbieter.de/abonnement-24-monate",
+        eligibleDuration: { "@type": "QuantitativeValue", value: 24, unitCode: "MON" },
+        itemOffered: { "@type": "Service", name: "IPTV-Abonnement 24 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-24-monate" },
+      },
+    ],
+  },
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -75,94 +159,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" },
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://iptvs-anbieter.de/#organization",
-          name: "IPTVs-Anbieter",
-          alternateName: "IPTVs Anbieter",
-          url: "https://iptvs-anbieter.de",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://iptvs-anbieter.de/logo.png",
-            width: 512,
-            height: 512,
-          },
-          description:
-            "Deutschsprachiger IPTV-Anbieter: Premium-Abos für 3, 6, 12 und 24 Monate mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Kompatibel mit Smart TV, Fire TV, Apple TV, Android, iOS, MAG, VLC und Kodi.",
-          knowsAbout: [
-            { "@type": "Thing", name: "Internet Protocol Television", sameAs: "https://de.wikipedia.org/wiki/Internet_Protocol_Television" },
-            { "@type": "Thing", name: "Smart TV", sameAs: "https://de.wikipedia.org/wiki/Smart-TV" },
-            { "@type": "Thing", name: "Amazon Fire TV", sameAs: "https://de.wikipedia.org/wiki/Amazon_Fire_TV" },
-            { "@type": "Thing", name: "Apple TV", sameAs: "https://de.wikipedia.org/wiki/Apple_TV" },
-            { "@type": "Thing", name: "Android TV", sameAs: "https://de.wikipedia.org/wiki/Android_TV" },
-            { "@type": "Thing", name: "Kodi", sameAs: "https://de.wikipedia.org/wiki/Kodi_(Software)" },
-            { "@type": "Thing", name: "VLC media player", sameAs: "https://de.wikipedia.org/wiki/VLC_media_player" },
-            { "@type": "Thing", name: "MAG Set-Top-Box", sameAs: "https://de.wikipedia.org/wiki/Infomir" },
-            { "@type": "Thing", name: "Ultra High Definition Television", sameAs: "https://de.wikipedia.org/wiki/Ultra_High_Definition_Television" },
-            { "@type": "Thing", name: "Fußball-Bundesliga", sameAs: "https://de.wikipedia.org/wiki/Fu%C3%9Fball-Bundesliga" },
-            { "@type": "Thing", name: "UEFA Champions League", sameAs: "https://de.wikipedia.org/wiki/UEFA_Champions_League" },
-            { "@type": "Thing", name: "Formel 1", sameAs: "https://de.wikipedia.org/wiki/Formel_1" },
-          ],
-          areaServed: { "@type": "Country", name: "Germany" },
-          contactPoint: {
-            "@type": "ContactPoint",
-            contactType: "customer support",
-            telephone: "+44-7446-431335",
-            availableLanguage: ["German", "English"],
-          },
-          sameAs: [
-            "https://x.com/TAnbieter44116",
-            "https://web.archive.org/web/20260514203741/http://iptvs-anbieter.de/",
-          ],
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "IPTV-Abonnements",
-            itemListElement: [
-              {
-                "@type": "Offer",
-                name: "IPTV Abo 3 Monate",
-                price: "19.00",
-                priceCurrency: "EUR",
-                url: "https://iptvs-anbieter.de/abonnement-3-monate",
-                eligibleDuration: { "@type": "QuantitativeValue", value: 3, unitCode: "MON" },
-                itemOffered: { "@type": "Service", name: "IPTV-Abonnement 3 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-3-monate" },
-              },
-              {
-                "@type": "Offer",
-                name: "IPTV Abo 6 Monate",
-                price: "35.00",
-                priceCurrency: "EUR",
-                url: "https://iptvs-anbieter.de/abonnement-6-monate",
-                eligibleDuration: { "@type": "QuantitativeValue", value: 6, unitCode: "MON" },
-                itemOffered: { "@type": "Service", name: "IPTV-Abonnement 6 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-6-monate" },
-              },
-              {
-                "@type": "Offer",
-                name: "IPTV Abo 12 Monate",
-                price: "45.00",
-                priceCurrency: "EUR",
-                url: "https://iptvs-anbieter.de/abonnement-12-monate",
-                eligibleDuration: { "@type": "QuantitativeValue", value: 12, unitCode: "MON" },
-                itemOffered: { "@type": "Service", name: "IPTV-Abonnement 12 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-12-monate" },
-              },
-              {
-                "@type": "Offer",
-                name: "IPTV Abo 24 Monate",
-                price: "80.00",
-                priceCurrency: "EUR",
-                url: "https://iptvs-anbieter.de/abonnement-24-monate",
-                eligibleDuration: { "@type": "QuantitativeValue", value: 24, unitCode: "MON" },
-                itemOffered: { "@type": "Service", name: "IPTV-Abonnement 24 Monate", sameAs: "https://iptvs-anbieter.de/abonnement-24-monate" },
-              },
-            ],
-          },
-        }),
-      },
-    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -175,6 +171,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="de" className="dark">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+        />
       </head>
       <body>
         {children}
