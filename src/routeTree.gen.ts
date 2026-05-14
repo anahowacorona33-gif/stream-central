@@ -12,6 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as Abonnement6MonateRouteImport } from './routes/abonnement-6-monate'
+import { Route as Abonnement3MonateRouteImport } from './routes/abonnement-3-monate'
+import { Route as Abonnement24MonateRouteImport } from './routes/abonnement-24-monate'
+import { Route as Abonnement12MonateRouteImport } from './routes/abonnement-12-monate'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiPublicBlogCronRouteImport } from './routes/api/public/blog-cron'
@@ -29,6 +33,26 @@ const PreiseRoute = PreiseRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Abonnement6MonateRoute = Abonnement6MonateRouteImport.update({
+  id: '/abonnement-6-monate',
+  path: '/abonnement-6-monate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Abonnement3MonateRoute = Abonnement3MonateRouteImport.update({
+  id: '/abonnement-3-monate',
+  path: '/abonnement-3-monate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Abonnement24MonateRoute = Abonnement24MonateRouteImport.update({
+  id: '/abonnement-24-monate',
+  path: '/abonnement-24-monate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Abonnement12MonateRoute = Abonnement12MonateRouteImport.update({
+  id: '/abonnement-12-monate',
+  path: '/abonnement-12-monate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,6 +73,10 @@ const ApiPublicBlogCronRoute = ApiPublicBlogCronRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/abonnement-12-monate': typeof Abonnement12MonateRoute
+  '/abonnement-24-monate': typeof Abonnement24MonateRoute
+  '/abonnement-3-monate': typeof Abonnement3MonateRoute
+  '/abonnement-6-monate': typeof Abonnement6MonateRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -57,6 +85,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/abonnement-12-monate': typeof Abonnement12MonateRoute
+  '/abonnement-24-monate': typeof Abonnement24MonateRoute
+  '/abonnement-3-monate': typeof Abonnement3MonateRoute
+  '/abonnement-6-monate': typeof Abonnement6MonateRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -66,6 +98,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/abonnement-12-monate': typeof Abonnement12MonateRoute
+  '/abonnement-24-monate': typeof Abonnement24MonateRoute
+  '/abonnement-3-monate': typeof Abonnement3MonateRoute
+  '/abonnement-6-monate': typeof Abonnement6MonateRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -76,6 +112,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/abonnement-12-monate'
+    | '/abonnement-24-monate'
+    | '/abonnement-3-monate'
+    | '/abonnement-6-monate'
     | '/blog'
     | '/preise'
     | '/sitemap.xml'
@@ -84,6 +124,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/abonnement-12-monate'
+    | '/abonnement-24-monate'
+    | '/abonnement-3-monate'
+    | '/abonnement-6-monate'
     | '/blog'
     | '/preise'
     | '/sitemap.xml'
@@ -92,6 +136,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/abonnement-12-monate'
+    | '/abonnement-24-monate'
+    | '/abonnement-3-monate'
+    | '/abonnement-6-monate'
     | '/blog'
     | '/preise'
     | '/sitemap.xml'
@@ -101,6 +149,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Abonnement12MonateRoute: typeof Abonnement12MonateRoute
+  Abonnement24MonateRoute: typeof Abonnement24MonateRoute
+  Abonnement3MonateRoute: typeof Abonnement3MonateRoute
+  Abonnement6MonateRoute: typeof Abonnement6MonateRoute
   BlogRoute: typeof BlogRouteWithChildren
   PreiseRoute: typeof PreiseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -128,6 +180,34 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abonnement-6-monate': {
+      id: '/abonnement-6-monate'
+      path: '/abonnement-6-monate'
+      fullPath: '/abonnement-6-monate'
+      preLoaderRoute: typeof Abonnement6MonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abonnement-3-monate': {
+      id: '/abonnement-3-monate'
+      path: '/abonnement-3-monate'
+      fullPath: '/abonnement-3-monate'
+      preLoaderRoute: typeof Abonnement3MonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abonnement-24-monate': {
+      id: '/abonnement-24-monate'
+      path: '/abonnement-24-monate'
+      fullPath: '/abonnement-24-monate'
+      preLoaderRoute: typeof Abonnement24MonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abonnement-12-monate': {
+      id: '/abonnement-12-monate'
+      path: '/abonnement-12-monate'
+      fullPath: '/abonnement-12-monate'
+      preLoaderRoute: typeof Abonnement12MonateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -166,6 +246,10 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Abonnement12MonateRoute: Abonnement12MonateRoute,
+  Abonnement24MonateRoute: Abonnement24MonateRoute,
+  Abonnement3MonateRoute: Abonnement3MonateRoute,
+  Abonnement6MonateRoute: Abonnement6MonateRoute,
   BlogRoute: BlogRouteWithChildren,
   PreiseRoute: PreiseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

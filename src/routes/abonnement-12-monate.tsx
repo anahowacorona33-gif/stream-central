@@ -1,0 +1,39 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { PricingTabs } from "@/components/PricingTabs";
+
+export const Route = createFileRoute("/abonnement-12-monate")({
+  head: () => ({
+    meta: [
+      { title: "IPTV Abo 12 Monate – €45 | IPTVs-Anbieter" },
+      { name: "description", content: "Beliebtester Tarif: IPTV-Abo 12 Monate für €45 – nur €3,75/Monat. 20.000+ Live-Sender, 4K UHD, kein Vertrag, 30 Tage Geld-zurück." },
+      { property: "og:title", content: "IPTV Abo 12 Monate – €45 (Beliebt)" },
+      { property: "og:description", content: "Unser beliebtester Tarif: 12 Monate Premium IPTV für nur €45." },
+      { property: "og:url", content: "/abonnement-12-monate" },
+      { property: "og:type", content: "product" },
+    ],
+    links: [{ rel: "canonical", href: "/abonnement-12-monate" }],
+  }),
+  component: Page,
+});
+
+function Page() {
+  return (
+    <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+      <div className="text-center">
+        <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+          Beliebtester Tarif
+        </span>
+        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTV Abo 12 Monate – €45</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          Ein ganzes Jahr Premium-IPTV für nur €45 – das entspricht €3,75 pro Monat. 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.
+        </p>
+      </div>
+      <div className="mt-10">
+        <PricingTabs />
+      </div>
+      <p className="mt-10 text-center text-sm text-muted-foreground">
+        Noch mehr sparen? <Link to="/abonnement-24-monate" className="text-primary underline">24-Monats-Tarif ansehen</Link>
+      </p>
+    </div>
+  );
+}
