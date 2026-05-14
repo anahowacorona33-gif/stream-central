@@ -141,7 +141,7 @@ function HomePage() {
           ))}
         </div>
         {/* Desktop: rich cards */}
-        <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
+        <div className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
             <Card key={f.title} className="border-border/60 bg-card/60 p-6 transition hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
               <f.icon className="h-8 w-8 text-primary" />
