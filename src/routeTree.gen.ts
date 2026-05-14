@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiPublicBlogCronRouteImport } from './routes/api/public/blog-cron'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PreiseRoute = PreiseRouteImport.update({
   id: '/preise',
   path: '/preise',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/preise': typeof PreiseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/api/public/blog-cron': typeof ApiPublicBlogCronRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/preise' | '/blog/$slug' | '/api/public/blog-cron'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/preise'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/api/public/blog-cron'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/preise' | '/blog/$slug' | '/api/public/blog-cron'
+  to:
+    | '/'
+    | '/blog'
+    | '/preise'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/api/public/blog-cron'
   id:
     | '__root__'
     | '/'
     | '/blog'
     | '/preise'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/api/public/blog-cron'
   fileRoutesById: FileRoutesById
@@ -81,11 +103,19 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
   PreiseRoute: typeof PreiseRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/preise': {
       id: '/preise'
       path: '/preise'
@@ -138,6 +168,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
   PreiseRoute: PreiseRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,
 }
 export const routeTree = rootRouteImport
