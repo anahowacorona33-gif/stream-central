@@ -5,7 +5,18 @@ import { MarkdownBody } from "@/lib/markdown";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
-    const p = (loaderData as { post?: { title: string; excerpt: string } } | undefined)?.post;
+    const p = (loaderData as { post?: { title: string; excerpt: string; published_at: string } } | undefined)?.post;
+    const articleJsonLd = p
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: p.title,
+          description: p.excerpt,
+          datePublished: p.published_at,
+          author: { "@type": "Organization", name: "IPTVs-Anbieter" },
+          publisher: { "@type": "Organization", name: "IPTVs-Anbieter" },
+        }
+      : null;
     return {
       meta: [
         { title: `${p?.title ?? "Artikel"} | IPTVs-Anbieter Blog` },
@@ -14,6 +25,9 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: p?.excerpt ?? "" },
         { property: "og:type", content: "article" },
       ],
+      scripts: articleJsonLd
+        ? [{ type: "application/ld+json", children: JSON.stringify(articleJsonLd) }]
+        : [],
     };
   },
   loader: async ({ params }) => {

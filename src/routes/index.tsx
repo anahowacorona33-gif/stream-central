@@ -12,6 +12,23 @@ import { whatsappLink } from "@/lib/contact";
 import { SeoChunks } from "@/components/SeoChunks";
 import { PricingTabs } from "@/components/PricingTabs";
 
+const faq = [
+  { q: "Wie schnell erhalte ich meinen Zugang?", a: "Nach Zahlungseingang wird dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
+  { q: "Brauche ich einen Vertrag?", a: "Nein. Es gibt keine Vertragsbindung. Du kannst jederzeit kündigen oder einfach nicht verlängern." },
+  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr." },
+  { q: "Bekomme ich mein Geld zurück, wenn ich unzufrieden bin?", a: "Ja – wir bieten eine 30-Tage Geld-zurück-Garantie ohne Wenn und Aber." },
+];
+
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -19,6 +36,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Premium IPTV mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
       { property: "og:title", content: "IPTVs-Anbieter – Premium IPTV in 4K" },
       { property: "og:description", content: "20.000+ Sender, 145.000+ Filme, 44.000+ Serien für nur €45/Jahr." },
+    ],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
     ],
   }),
   component: HomePage,
@@ -52,13 +72,6 @@ const devices = [
   { icon: Cast, name: "Apple TV" },
   { icon: Radio, name: "MAG Box" },
   { icon: Film, name: "VLC & Kodi" },
-];
-
-const faq = [
-  { q: "Wie schnell erhalte ich meinen Zugang?", a: "Nach Zahlungseingang wird dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
-  { q: "Brauche ich einen Vertrag?", a: "Nein. Es gibt keine Vertragsbindung. Du kannst jederzeit kündigen oder einfach nicht verlängern." },
-  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr." },
-  { q: "Bekomme ich mein Geld zurück, wenn ich unzufrieden bin?", a: "Ja – wir bieten eine 30-Tage Geld-zurück-Garantie ohne Wenn und Aber." },
 ];
 
 function HomePage() {
