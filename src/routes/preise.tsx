@@ -8,7 +8,11 @@ export const Route = createFileRoute("/preise")({
     meta: [
       { title: "Preise – IPTV Abo ab €19 | IPTVs-Anbieter" },
       { name: "description", content: "IPTV-Abos ab €19 für 3 Monate. 6 Monate €35, 12 Monate €45, 24 Monate €80. Über 20.000 Live-Sender, 4K UHD, 30 Tage Geld-zurück." },
+      { property: "og:title", content: "IPTV-Preise ab €19 – Pakete & Garantien" },
+      { property: "og:description", content: "Transparente IPTV-Pakete: 3, 6, 12 oder 24 Monate. 20.000+ Sender, 4K, kein Vertrag, 30 Tage Geld-zurück." },
+      { property: "og:url", content: "/preise" },
     ],
+    links: [{ rel: "canonical", href: "/preise" }],
   }),
   component: PreisePage,
 });
