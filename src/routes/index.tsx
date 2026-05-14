@@ -35,9 +35,7 @@ const features = [
   { icon: Calendar, title: "EPG TV-Guide", desc: "Vollständiger TV-Guide mit Timeline-Ansicht für alle Sender." },
   { icon: Layers, title: "Multi-View", desc: "Bis zu 4 Streams gleichzeitig im Splitscreen ansehen." },
   { icon: Clock, title: "7-Tage Catch-Up", desc: "Verpasste Sendungen bis zu 7 Tage rückwirkend ansehen." },
-  { icon: Cast, title: "AirPlay & Cast", desc: "Streame nahtlos auf Apple TV, Chromecast und Smart TVs." },
-  { icon: Wifi, title: "Adaptive Buffering", desc: "Stabile Wiedergabe – auch bei schwankender Bandbreite." },
-  { icon: Smartphone, title: "Multi-Screen", desc: "Mehrere Geräte parallel nutzen, mit Hintergrund-Steuerung." },
+  { icon: Wifi, title: "Anti-Freeze Adaptive Buffering", desc: "Intelligentes Anti-Freeze-System mit adaptivem Buffering für ruckelfreie 4K-Wiedergabe – auch bei schwankender Bandbreite." },
 ];
 
 const trust = [
