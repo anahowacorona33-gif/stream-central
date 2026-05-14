@@ -59,7 +59,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "IPTVs-Anbieter – Premium IPTV ab €3,75/Monat | 20.000+ Sender in 4K" },
+      { title: "IPTVs-Anbieter – Premium IPTV 4K ab €3,75/Monat" },
       { name: "description", content: "Premium IPTV mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. €45/Jahr, 30 Tage Geld-zurück, sofortige Aktivierung." },
       { name: "author", content: "IPTVs-Anbieter" },
       { property: "og:title", content: "IPTVs-Anbieter – Premium IPTV in 4K" },
