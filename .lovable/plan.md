@@ -1,34 +1,30 @@
-## Goal
-
-Remove the **Kontakt**, **Kanäle**, and **Anleitungen** pages. Make the **FAQ** nav link scroll to the existing FAQ section on the homepage (above the footer) instead of opening a separate `/faq` page.
-
 ## Changes
 
-### 1. Delete route files
-- `src/routes/kontakt.tsx`
-- `src/routes/kanaele.tsx`
-- `src/routes/anleitungen.tsx`
-- `src/routes/anleitungen.$device.tsx`
-- `src/routes/faq.tsx`
+### 1. Hero section (`src/routes/index.tsx`)
+- Remove "alles in einer App" phrasing. Replace the hero subtitle with: *"Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung, kein Vertrag, 30 Tage Geld-zurück-Garantie."*
+- This avoids implying a single proprietary app.
 
-### 2. `src/components/Header.tsx`
-- Remove nav entries for `/kanaele`, `/anleitungen`, `/kontakt`.
-- Replace the `/faq` `<Link>` with an `<a href="/#faq">` so it works from any route and scrolls to the FAQ section on the homepage.
+### 2. Features grid (`src/routes/index.tsx`)
+- Remove the **"AirPlay & Cast"** feature card (Cast icon entry).
+- Remove the **"Multi-Screen"** feature card (Smartphone icon entry).
+- Keep / strengthen **Adaptive Buffering** as the anti-freeze feature. Rename and rewrite:
+  - Title: **"Anti-Freeze Adaptive Buffering"**
+  - Desc: *"Intelligentes Anti-Freeze-System mit adaptivem Buffering für ruckelfreie 4K-Wiedergabe – auch bei schwankender Bandbreite."*
+- Result: 4 feature cards instead of 6 (EPG, Multi-View, 7-Tage Catch-Up, Anti-Freeze Adaptive Buffering). Grid still works on `lg:grid-cols-3` (wraps to 3+1) — adjust to `md:grid-cols-2 lg:grid-cols-4` so all four fit cleanly in one row on desktop.
 
-### 3. `src/components/Footer.tsx`
-- Remove links to `/kanaele`, `/anleitungen`, `/kontakt`.
-- Change the FAQ link to `/#faq`.
-- Clean up any now-empty footer column.
+### 3. SEO chunks back to collapsed — without losing SEO (`src/components/SeoChunks.tsx`)
+Switch from always-visible `<article>` blocks back to a collapsible UI, **but keep all chunk body content in the server-rendered DOM** so BERT / passage ranking / AI Overviews can still extract it.
 
-### 4. `src/routes/index.tsx`
-- Add `id="faq"` and `scroll-mt-24` to the FAQ `<section>` (line 215) so the sticky header doesn't cover the heading.
-- Remove the "Installationsanleitungen ansehen" button (line 194) that links to `/anleitungen`.
-- Remove the "Alle Fragen ansehen →" link (line 226) that points to `/faq`.
-- Tweak the FAQ answer on line 62 to drop the "Anleitungs-Seite" reference.
+Technical approach: native HTML `<details>` / `<summary>` instead of Radix `Accordion`.
+- `<details>` content is part of the SSR HTML (unlike Radix Accordion, which mounts content only when open).
+- `<summary>` element contains a real `<h2>` so the heading stays a true H2 in the DOM outline.
+- Default state: closed (`<details>` without `open` attribute).
+- Styling: chevron rotates via `[&[open]>summary>svg]:rotate-180`, border separators between items, hover state on summary.
+- Keep `id="faq"` on the wrapping `<section>` and `scroll-mt-24` on each `<details>` so the Header FAQ anchor still scrolls to the right place.
+- Keep all 10 expanded chunk bodies (80–120 words, lists/tables, bold entities) exactly as written — no content loss.
 
-### 5. Sweep remaining references
-Grep `src/` for `/kontakt`, `/kanaele`, `/anleitungen`, `/faq` and update or remove any remaining references (e.g. in `SeoChunks.tsx`, blog seed content, sitemap).
+### Why `<details>` and not Radix Accordion
+Radix `AccordionContent` uses `data-state` to mount/unmount; closed items render with `hidden` and often empty children in SSR HTML. `<details>` keeps all child markup in the DOM at all times — Google indexes it, the user just sees it collapsed. Best of both worlds.
 
-## Out of scope
-- No visual redesign of the FAQ section.
-- No new pages or content rewrites beyond removing dead-link sentences.
+### Out of scope
+No copy changes to SEO chunks themselves, no changes to pricing, footer, or other sections.
