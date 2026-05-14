@@ -1,6 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PricingTabs } from "@/components/PricingTabs";
 
+const PRODUCT_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "IPTV Abo 12 Monate",
+  description: "Premium IPTV-Abo für 12 Monate (€3,75/Monat): 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.",
+  brand: { "@type": "Brand", name: "IPTVs-Anbieter" },
+  offers: {
+    "@type": "Offer",
+    price: "45.00",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "/abonnement-12-monate",
+  },
+};
+
 export const Route = createFileRoute("/abonnement-12-monate")({
   head: () => ({
     meta: [
@@ -12,6 +27,7 @@ export const Route = createFileRoute("/abonnement-12-monate")({
       { property: "og:type", content: "product" },
     ],
     links: [{ rel: "canonical", href: "/abonnement-12-monate" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(PRODUCT_JSONLD) }],
   }),
   component: Page,
 });
