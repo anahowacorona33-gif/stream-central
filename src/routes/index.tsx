@@ -84,7 +84,7 @@ function HomePage() {
               4K. Nur <span className="text-primary">€3,75</span>/Monat.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Live-Sport, Filme, Serien und Premium-Pakete – alles in einer App. Sofortige Aktivierung,
+              Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
               kein Vertrag, 30 Tage Geld-zurück-Garantie.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
