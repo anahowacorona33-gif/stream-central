@@ -12,6 +12,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "description", content: p?.excerpt ?? "" },
         { property: "og:title", content: p?.title ?? "Artikel" },
         { property: "og:description", content: p?.excerpt ?? "" },
+        { property: "og:type", content: "article" },
       ],
     };
   },

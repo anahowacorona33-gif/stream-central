@@ -8,7 +8,11 @@ export const Route = createFileRoute("/blog")({
     meta: [
       { title: "Blog & IPTV-Ratgeber | IPTVs-Anbieter" },
       { name: "description", content: "Tipps, Anleitungen und Hintergründe rund um IPTV, Streaming und Live-Sport. Täglich neue Artikel." },
+      { property: "og:title", content: "IPTV-Blog & Ratgeber – Tipps, Geräte, Sport-Streaming" },
+      { property: "og:description", content: "Aktuelle Artikel zu IPTV-Setup, Smart TV, Fire TV Stick, 4K-Streaming und Live-Sport. Täglich neue Beiträge." },
+      { property: "og:url", content: "/blog" },
     ],
+    links: [{ rel: "canonical", href: "/blog" }],
   }),
   loader: () => listPosts(),
   component: BlogLayout,
