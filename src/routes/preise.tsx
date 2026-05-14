@@ -46,15 +46,18 @@ function PreisePage() {
         <PricingTabs />
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {guarantees.map((g) => (
-          <Card key={g.t} className="border-border/60 bg-card/60 p-5">
-            <g.icon className="h-7 w-7 text-primary" />
-            <h3 className="mt-3 font-semibold">{g.t}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{g.d}</p>
-          </Card>
-        ))}
-      </div>
+      <section className="mx-auto mt-16 max-w-5xl">
+        <h2 className="text-center font-display text-3xl md:text-4xl">Unsere Garantien</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {guarantees.map((g) => (
+            <Card key={g.t} className="border-border/60 bg-card/60 p-5">
+              <g.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{g.t}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{g.d}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
 
       <div className="mx-auto mt-16 max-w-5xl">
         <h2 className="text-center font-display text-3xl md:text-4xl">Akzeptierte Zahlungsmethoden</h2>
