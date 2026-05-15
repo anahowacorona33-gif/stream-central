@@ -137,6 +137,7 @@ function PreisePage() {
             Bestes Paket sichern – 12 Monate
           </Link>
           <p className="text-xs text-muted-foreground">30 Tage Geld-zurück-Garantie</p>
+        </div>
       </section>
 
       {/* Supported devices band */}
@@ -156,6 +157,9 @@ function PreisePage() {
           />
         </div>
       </section>
+
+      <section className="mx-auto mt-20 max-w-5xl">
+        <h2 className="text-center font-display text-3xl md:text-4xl">Unsere Garantien</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {guarantees.map((g) => (
             <Card key={g.t} className="border-border/60 bg-card/60 p-5">
