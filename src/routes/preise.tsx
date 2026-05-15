@@ -6,10 +6,10 @@ import { PricingTabs } from "@/components/PricingTabs";
 export const Route = createFileRoute("/preise")({
   head: () => ({
     meta: [
-      { title: "IPTVs Anbieter Preise – IPTV Abo ab €19" },
-      { name: "description", content: "IPTVs Anbieter mit Abos ab €19 für 3 Monate. 6 Monate €35, 12 Monate €45, 24 Monate €80. Über 20.000 Live-Sender, 4K UHD, 30 Tage Geld-zurück." },
-      { property: "og:title", content: "IPTVs Anbieter Preise ab €19 – Pakete & Garantien" },
-      { property: "og:description", content: "Transparente Pakete vom IPTVs Anbieter: 3, 6, 12 oder 24 Monate. 20.000+ Sender, 4K, kein Vertrag, 30 Tage Geld-zurück." },
+      { title: "IPTV Anbieter Preise – IPTV Abo ab €19" },
+      { name: "description", content: "IPTV Anbieter mit Abos ab €19 für 3 Monate. 6 Monate €35, 12 Monate €45, 24 Monate €80. Über 20.000 Live-Sender, 4K UHD, 30 Tage Geld-zurück." },
+      { property: "og:title", content: "IPTV Anbieter Preise ab €19 – Pakete & Garantien" },
+      { property: "og:description", content: "Transparente Pakete vom IPTV Anbieter: 3, 6, 12 oder 24 Monate. 20.000+ Sender, 4K, kein Vertrag, 30 Tage Geld-zurück." },
       { property: "og:url", content: "/preise" },
     ],
     links: [{ rel: "canonical", href: "/preise" }],
@@ -36,9 +36,9 @@ function PreisePage() {
     <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
       <div className="text-center">
         <span className="inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">Transparent · Fair · Premium</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTVs Anbieter – ein Preis. Alles drin.</h1>
+        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTV Anbieter – ein Preis. Alles drin.</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          Wir sind ein IPTVs Anbieter mit einfachen Preisen – kein Paket-Wirrwarr, keine versteckten Kosten.
+          Wir sind ein IPTV Anbieter mit einfachen Preisen – kein Paket-Wirrwarr, keine versteckten Kosten.
         </p>
       </div>
 

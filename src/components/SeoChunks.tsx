@@ -1,11 +1,11 @@
 const chunks = [
   {
     id: "anbieter-de",
-    title: "IPTVs Anbieter in Deutschland",
+    title: "IPTV Anbieter in Deutschland",
     content: (
       <>
         <p className="text-foreground/90">
-          Ein <strong>IPTVs Anbieter</strong> liefert Fernsehen über das Internetprotokoll statt über <strong>DVB-T2</strong>, <strong>Kabel</strong> oder <strong>Satellit</strong>. Premium-Dienste in <strong>Deutschland</strong>, <strong>Österreich</strong> und der <strong>Schweiz</strong> bündeln <strong>Bundesliga</strong>, <strong>Sky</strong>, <strong>DAZN</strong>, <strong>WOW</strong> sowie internationale Sender in einem einzigen Abo. Ausgespielt wird über <strong>HLS</strong>- und <strong>MPEG-DASH</strong>-Streams, kompatibel mit jedem modernen Endgerät.
+          Ein <strong>IPTV Anbieter</strong> liefert Fernsehen über das Internetprotokoll statt über <strong>DVB-T2</strong>, <strong>Kabel</strong> oder <strong>Satellit</strong>. Premium-Dienste in <strong>Deutschland</strong>, <strong>Österreich</strong> und der <strong>Schweiz</strong> bündeln <strong>Bundesliga</strong>, <strong>Sky</strong>, <strong>DAZN</strong>, <strong>WOW</strong> sowie internationale Sender in einem einzigen Abo. Ausgespielt wird über <strong>HLS</strong>- und <strong>MPEG-DASH</strong>-Streams, kompatibel mit jedem modernen Endgerät.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Über <strong>20.000</strong> Live-Sender weltweit, davon <strong>3.500+</strong> deutschsprachig</li>
@@ -93,7 +93,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Mit einem Premium-Abo beim richtigen <strong>IPTVs Anbieter</strong> bündelst du <strong>Bundesliga</strong>, <strong>UEFA Champions League</strong>, <strong>UEFA Europa League</strong>, <strong>Premier League</strong>, <strong>LaLiga</strong>, <strong>Serie A</strong>, <strong>Formel 1</strong>, <strong>NFL</strong>, <strong>NBA</strong> und <strong>UFC</strong> in einer einzigen App – ohne <strong>Sky</strong>, <strong>DAZN</strong> und <strong>WOW</strong> separat zu abonnieren. Streams laufen in <strong>Full HD</strong> oder <strong>4K</strong> mit deutscher und Originalkommentar-Tonspur.
+          Mit einem Premium-Abo beim richtigen <strong>IPTV Anbieter</strong> bündelst du <strong>Bundesliga</strong>, <strong>UEFA Champions League</strong>, <strong>UEFA Europa League</strong>, <strong>Premier League</strong>, <strong>LaLiga</strong>, <strong>Serie A</strong>, <strong>Formel 1</strong>, <strong>NFL</strong>, <strong>NBA</strong> und <strong>UFC</strong> in einer einzigen App – ohne <strong>Sky</strong>, <strong>DAZN</strong> und <strong>WOW</strong> separat zu abonnieren. Streams laufen in <strong>Full HD</strong> oder <strong>4K</strong> mit deutscher und Originalkommentar-Tonspur.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li><strong>Sky Sport</strong>, <strong>DAZN 1</strong>, <strong>DAZN 2</strong> in <strong>Full HD</strong> und <strong>4K</strong></li>
@@ -112,7 +112,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Die <strong>VOD</strong>-Bibliothek beim richtigen <strong>IPTVs Anbieter</strong> ersetzt mehrere Streaming-Dienste wie <strong>Netflix</strong>, <strong>Disney+</strong>, <strong>Amazon Prime Video</strong>, <strong>Apple TV+</strong> und <strong>Paramount+</strong> – mit über <strong>145.000 Filmen</strong> und <strong>44.000 Serien</strong> in <strong>Full HD</strong> bis <strong>4K HDR</strong>. Inhalte werden auf Abruf gestreamt, mit mehrsprachigen <strong>Tonspuren</strong> (Deutsch, Englisch, Türkisch, Französisch) und <strong>Untertiteln</strong>.
+          Die <strong>VOD</strong>-Bibliothek beim richtigen <strong>IPTV Anbieter</strong> ersetzt mehrere Streaming-Dienste wie <strong>Netflix</strong>, <strong>Disney+</strong>, <strong>Amazon Prime Video</strong>, <strong>Apple TV+</strong> und <strong>Paramount+</strong> – mit über <strong>145.000 Filmen</strong> und <strong>44.000 Serien</strong> in <strong>Full HD</strong> bis <strong>4K HDR</strong>. Inhalte werden auf Abruf gestreamt, mit mehrsprachigen <strong>Tonspuren</strong> (Deutsch, Englisch, Türkisch, Französisch) und <strong>Untertiteln</strong>.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Hollywood-Blockbuster und deutsche Eigenproduktionen</li>
@@ -150,7 +150,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Ein professioneller <strong>IPTVs Anbieter</strong> setzt auf Anti-Freeze-Server mit <strong>Load Balancing</strong>, <strong>CDN</strong>-Verteilung und <strong>adaptivem Buffering</strong>, um Bildaussetzer auch bei Live-Events mit Millionen Zuschauern zu vermeiden. Premium-Infrastruktur in <strong>Frankfurt</strong>, <strong>Amsterdam</strong> und <strong>Paris</strong> garantiert eine <strong>Uptime von 99,9 %</strong> sowie <strong>Low Latency Streaming</strong> unter 3 Sekunden – entscheidend für Sport-Übertragungen ohne Spoiler aus sozialen Netzwerken.
+          Ein professioneller <strong>IPTV Anbieter</strong> setzt auf Anti-Freeze-Server mit <strong>Load Balancing</strong>, <strong>CDN</strong>-Verteilung und <strong>adaptivem Buffering</strong>, um Bildaussetzer auch bei Live-Events mit Millionen Zuschauern zu vermeiden. Premium-Infrastruktur in <strong>Frankfurt</strong>, <strong>Amsterdam</strong> und <strong>Paris</strong> garantiert eine <strong>Uptime von 99,9 %</strong> sowie <strong>Low Latency Streaming</strong> unter 3 Sekunden – entscheidend für Sport-Übertragungen ohne Spoiler aus sozialen Netzwerken.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Premium-Server in <strong>Frankfurt</strong>, <strong>Amsterdam</strong> und <strong>Paris</strong></li>
@@ -188,7 +188,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Ein internationaler <strong>IPTVs Anbieter</strong> umfasst über <strong>20.000</strong> Kanäle aus <strong>Deutschland</strong>, <strong>Österreich</strong>, der <strong>Schweiz</strong>, der <strong>Türkei</strong>, dem <strong>Vereinigten Königreich</strong>, den <strong>USA</strong>, <strong>Frankreich</strong>, <strong>Italien</strong>, <strong>Spanien</strong>, den <strong>Niederlanden</strong> und der <strong>arabischen Welt</strong>. Ideal für mehrsprachige Haushalte und <strong>Expats</strong>, mit <strong>EPG</strong> in jeder Sprache und passenden <strong>Tonspuren</strong>.
+          Ein internationaler <strong>IPTV Anbieter</strong> umfasst über <strong>20.000</strong> Kanäle aus <strong>Deutschland</strong>, <strong>Österreich</strong>, der <strong>Schweiz</strong>, der <strong>Türkei</strong>, dem <strong>Vereinigten Königreich</strong>, den <strong>USA</strong>, <strong>Frankreich</strong>, <strong>Italien</strong>, <strong>Spanien</strong>, den <strong>Niederlanden</strong> und der <strong>arabischen Welt</strong>. Ideal für mehrsprachige Haushalte und <strong>Expats</strong>, mit <strong>EPG</strong> in jeder Sprache und passenden <strong>Tonspuren</strong>.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Deutsch: <strong>Das Erste</strong>, <strong>ZDF</strong>, <strong>RTL</strong>, <strong>ProSieben</strong>, <strong>Sat.1</strong></li>
@@ -207,9 +207,9 @@ export function SeoChunks() {
   return (
     <section className="mx-auto max-w-5xl px-4 pb-20">
       <div className="mb-10">
-        <h2 className="font-display text-4xl md:text-5xl">IPTVs Anbieter – Wissen, Geräte & Setup</h2>
+        <h2 className="font-display text-4xl md:text-5xl">IPTV Anbieter – Wissen, Geräte & Setup</h2>
         <p className="mt-3 text-muted-foreground">
-          Kompakte Antworten zu Installation, Bildqualität, Sport, VOD und mehr – damit du den richtigen IPTVs Anbieter findest.
+          Kompakte Antworten zu Installation, Bildqualität, Sport, VOD und mehr – damit du den richtigen IPTV Anbieter findest.
         </p>
       </div>
 
