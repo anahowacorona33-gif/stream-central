@@ -188,7 +188,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Ein internationales IPTV-Paket umfasst über <strong>20.000</strong> Kanäle aus <strong>Deutschland</strong>, <strong>Österreich</strong>, der <strong>Schweiz</strong>, der <strong>Türkei</strong>, dem <strong>Vereinigten Königreich</strong>, den <strong>USA</strong>, <strong>Frankreich</strong>, <strong>Italien</strong>, <strong>Spanien</strong>, den <strong>Niederlanden</strong> und der <strong>arabischen Welt</strong>. Ideal für mehrsprachige Haushalte und <strong>Expats</strong>, mit <strong>EPG</strong> in jeder Sprache und passenden <strong>Tonspuren</strong>.
+          Ein internationaler <strong>IPTVs Anbieter</strong> umfasst über <strong>20.000</strong> Kanäle aus <strong>Deutschland</strong>, <strong>Österreich</strong>, der <strong>Schweiz</strong>, der <strong>Türkei</strong>, dem <strong>Vereinigten Königreich</strong>, den <strong>USA</strong>, <strong>Frankreich</strong>, <strong>Italien</strong>, <strong>Spanien</strong>, den <strong>Niederlanden</strong> und der <strong>arabischen Welt</strong>. Ideal für mehrsprachige Haushalte und <strong>Expats</strong>, mit <strong>EPG</strong> in jeder Sprache und passenden <strong>Tonspuren</strong>.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Deutsch: <strong>Das Erste</strong>, <strong>ZDF</strong>, <strong>RTL</strong>, <strong>ProSieben</strong>, <strong>Sat.1</strong></li>
