@@ -379,14 +379,25 @@ function HomePage() {
 
       {/* DACH region */}
       <section className="mx-auto max-w-7xl px-4 pb-12 md:pb-20">
-        <div className="mb-8 max-w-3xl">
-          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter in Deutschland, Österreich & Schweiz</h2>
-          <p className="mt-3 text-muted-foreground">
-            Als spezialisierter IPTV Anbieter für den DACH-Raum liefern wir das komplette deutschsprachige Senderpaket – inklusive Free-TV, Pay-TV und regionalen Sendern aus allen drei Ländern.
-          </p>
-          <p className="mt-3 text-muted-foreground">
-            Über 3.500 deutschsprachige Kanäle in einem einzigen Abo: Bundesliga und 2. Bundesliga, ÖFB-Cup, Schweizer Super League, ARD, ZDF, RTL, ProSieben, Sat.1, ORF, SRF und alle Sky- und DAZN-Pakete – ohne mehrere Streaming-Verträge gleichzeitig zu unterhalten.
-          </p>
+        <div className="mb-8 grid gap-8 md:grid-cols-2 md:items-center">
+          <div className="max-w-3xl">
+            <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter in Deutschland, Österreich & Schweiz</h2>
+            <p className="mt-3 text-muted-foreground">
+              Als spezialisierter IPTV Anbieter für den DACH-Raum liefern wir das komplette deutschsprachige Senderpaket – inklusive Free-TV, Pay-TV und regionalen Sendern aus allen drei Ländern.
+            </p>
+            <p className="mt-3 text-muted-foreground">
+              Über 3.500 deutschsprachige Kanäle in einem einzigen Abo: Bundesliga und 2. Bundesliga, ÖFB-Cup, Schweizer Super League, ARD, ZDF, RTL, ProSieben, Sat.1, ORF, SRF und alle Sky- und DAZN-Pakete – ohne mehrere Streaming-Verträge gleichzeitig zu unterhalten.
+            </p>
+          </div>
+          <img
+            src={dachRegionImg}
+            alt="IPTV Anbieter für Deutschland, Österreich und Schweiz — DACH-Senderpaket"
+            width={1280}
+            height={736}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto rounded-xl object-cover max-h-64 md:max-h-none"
+          />
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {[
