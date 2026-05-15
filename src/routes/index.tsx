@@ -220,6 +220,16 @@ function HomePage() {
             </Card>
           ))}
         </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
+            <Link to="/preise">Jetzt Paket wählen</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-primary/40">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5" /> Kostenlosen Test anfragen
+            </a>
+          </Button>
+        </div>
       </section>
 
       {/* Sport highlight */}
@@ -283,6 +293,12 @@ function HomePage() {
               <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
             </Card>
           ))}
+        </div>
+        <div className="mt-10 flex flex-col items-center gap-3 text-center">
+          <p className="text-sm text-muted-foreground">Du erfüllst alle Kriterien? Wir auch.</p>
+          <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
+            <Link to="/preise">Pakete vergleichen</Link>
+          </Button>
         </div>
       </section>
 
