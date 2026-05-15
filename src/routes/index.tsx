@@ -206,7 +206,7 @@ function HomePage() {
       {/* Pricing tiers */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="mb-8 text-center md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">Wähle dein Paket</h2>
+          <h2 className="font-display text-3xl md:text-5xl">IPTVs Anbieter – wähle dein Paket</h2>
           <p className="mt-2 text-sm text-muted-foreground md:text-base">
             Faire Preise. Alle Features inklusive. Kein Vertrag.
           </p>
