@@ -1,19 +1,17 @@
-## Remove white backgrounds from the two device images
+## Regenerate the supported-devices image from scratch
 
-### 1. Regenerate both images as transparent PNGs
-Use `imagegen--edit_image` with `transparent_background: true` (and PNG output) on the source uploads:
+The current PNG is technically transparent, but the original logos contain dark text (Samsung, MagBox, Shield, IPTV Smarter, Webplayer, LG Smart) which disappears on the dark site background. Editing the source can't fix that — I need to generate fresh light-colored logos.
 
-- `user-uploads://Channels-abonnement-iptv-01-1024x350.jpg` → `src/assets/supported-devices.png`
-  Prompt: keep all 12 device-platform logos exactly as-is, remove the white background, output transparent PNG.
-- `user-uploads://iptv-premium-multidevicespic.jpg` → `src/assets/iptv-anbieter-multidevice.png`
-  Prompt: replace "IPTV Premium" lion mark in top-left with white "IPTV Anbieter" wordmark; remove the white background entirely; keep all devices/screens; output transparent PNG.
+### What I'll do
+Use `imagegen--generate_image` (premium, for legible text) with `transparent_background: true` to create `src/assets/supported-devices.png` from a written description: a clean 3-row × 4-column grid of platform wordmarks/logos, all rendered in **white / light tones** with their original brand accent colors where appropriate (e.g. Android green, Apple rainbow), on a fully transparent background. 12 tiles:
 
-### 2. Update imports + remove the white card wrapper
-- `src/routes/index.tsx`: change imports `.jpg` → `.png` for both. Drop the `bg-white` wrapper card around `supported-devices` (no longer needed since logos are transparent and the dark site bg works directly).
-- `src/routes/preise.tsx`: same — change import to `.png` and drop the `bg-white rounded-2xl border` wrapper.
+Row 1: Fire TV Stick · Samsung Smart TV · Android TV · iOS (Apple)
+Row 2: MagBox · Nvidia Shield · Android · IPTV Smarters Pro
+Row 3: Xbox Live · Webplayer · LG Smart TV · Windows
 
-### 3. Delete the now-unused `.jpg` versions
-Remove `src/assets/supported-devices.jpg` and `src/assets/iptv-anbieter-multidevice.jpg`.
+Dimensions 1536 × 512 (3:1), text rendered in white/light gray so it stays readable on the dark site background.
+
+The multidevice hero PNG is already fine (dark photographic content reads well on dark bg) — leave it untouched.
 
 ### Out of scope
-No layout, copy, or section changes — purely swapping the image assets and dropping the white card wrappers.
+No layout changes; the existing `<img>` tags and section markup stay the same, only the asset bytes change.
