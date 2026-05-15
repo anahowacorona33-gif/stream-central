@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { PricingTabs } from "@/components/PricingTabs";
 import { SeoChunks } from "@/components/SeoChunks";
+import supportedDevicesImg from "@/assets/supported-devices.jpg";
 
 const pricingFaq = [
   { q: "Welcher IPTV Anbieter Tarif lohnt sich am meisten?", a: "Der 12-Monats-Tarif für €45 ist mit nur €3,75/Monat unser beliebtester Tarif – das beste Verhältnis aus Preis, Laufzeit und Flexibilität. Wer langfristig sparen möchte, wählt 24 Monate für €80 (€3,33/Monat)." },
@@ -51,8 +52,8 @@ const guarantees = [
 const tarifGuide = [
   { to: "/abonnement-3-monate" as const, badge: "Tester", title: "3 Monate – €19", desc: "Perfekt zum Ausprobieren. Du willst zuerst sehen, ob ein IPTV Anbieter wirklich hält, was er verspricht? Drei Monate kosten €19 – ohne Folgekosten." },
   { to: "/abonnement-6-monate" as const, badge: "Halbjahr", title: "6 Monate – €35", desc: "Für die Sport-Saison oder ein halbes Jahr Auslandsaufenthalt. €5,83/Monat und du hast alle Bundesliga-Spiele und 145.000+ Filme inklusive." },
-  { to: "/abonnement-12-monate" as const, badge: "Beliebt", title: "12 Monate – €45", desc: "Unser meistgewählter Tarif. Mit €3,75/Monat das beste Preis-Leistungs-Verhältnis bei einem Premium-IPTV-Anbieter – ein ganzes Jahr volle Sender." },
-  { to: "/abonnement-24-monate" as const, badge: "Bester Preis", title: "24 Monate – €80", desc: "Für Sparfüchse: nur €3,33/Monat. Zwei Jahre Premium-IPTV-Anbieter ohne Preiserhöhung – günstiger geht es nicht." },
+  { to: "/abonnement-12-monate" as const, badge: "Beliebt", title: "12 Monate – €45", desc: "Unser meistgewählter Tarif. Mit €3,75/Monat das beste Preis-Leistungs-Verhältnis bei einem Premium-IPTV Anbieter – ein ganzes Jahr volle Sender." },
+  { to: "/abonnement-24-monate" as const, badge: "Bester Preis", title: "24 Monate – €80", desc: "Für Sparfüchse: nur €3,33/Monat. Zwei Jahre Premium-IPTV Anbieter ohne Preiserhöhung – günstiger geht es nicht." },
 ];
 
 const inclusions = [
@@ -136,6 +137,24 @@ function PreisePage() {
             Bestes Paket sichern – 12 Monate
           </Link>
           <p className="text-xs text-muted-foreground">30 Tage Geld-zurück-Garantie</p>
+        </div>
+      </section>
+
+      {/* Supported devices band */}
+      <section className="mx-auto mt-16 max-w-6xl">
+        <div className="mb-6 text-center">
+          <h2 className="font-display text-3xl md:text-4xl">Auf allen Geräten verfügbar</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Funktioniert auf Smart TV, Fire TV, Apple TV, Android, iOS, MAG, Nvidia Shield, Xbox, Windows u.v.m.</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-white p-6 md:p-10">
+          <img
+            src={supportedDevicesImg}
+            alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
+            width={1024}
+            height={350}
+            loading="lazy"
+            className="mx-auto w-full max-w-4xl h-auto"
+          />
         </div>
       </section>
 
