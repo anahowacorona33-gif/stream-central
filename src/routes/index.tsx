@@ -252,6 +252,32 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Why German users use IPTV */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">Warum nutzen deutsche Zuschauer einen IPTV Anbieter?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Im DACH-Raum wechseln immer mehr Haushalte vom klassischen Kabel- oder Sat-TV zu einem IPTV Anbieter. Die Gründe sind eindeutig – und sie haben mit Geld, Auswahl und Flexibilität zu tun.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Trophy, title: "Bundesliga & Champions League", desc: "Alle Spiele live – ohne mehrere Sky-, DAZN- und WOW-Abos parallel zu bezahlen." },
+            { icon: Film, title: "Sky, DAZN & WOW gebündelt", desc: "Premium-Pay-TV in einem einzigen Abo statt drei monatlichen Rechnungen." },
+            { icon: CreditCard, title: "Bis zu 80 % Kostenersparnis", desc: "Statt 50–80 € im Monat für Kabel zahlst du ab 3,75 € pro Monat – komplett." },
+            { icon: Layers, title: "Internationale Sender", desc: "Türkische, arabische, polnische, englische und italienische Kanäle – ideal für mehrsprachige Haushalte." },
+            { icon: Clock, title: "Zeitversetzt schauen", desc: "7-Tage Catch-Up: verpasste Sendungen einfach nachholen, wann es dir passt." },
+            { icon: RefreshCcw, title: "Kein Vertrag, keine Bindung", desc: "Monatlich kündbar – kein 24-Monats-Vertrag wie bei Vodafone, Telekom oder MagentaTV." },
+          ].map((c) => (
+            <Card key={c.title} className="border-border/60 bg-card/60 p-5">
+              <c.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Features */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 max-w-2xl md:mb-12">
