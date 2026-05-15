@@ -1,17 +1,19 @@
-## Regenerate the supported-devices image from scratch
+## Regenerate the multi-device hero image from scratch
 
-The current PNG is technically transparent, but the original logos contain dark text (Samsung, MagBox, Shield, IPTV Smarter, Webplayer, LG Smart) which disappears on the dark site background. Editing the source can't fix that — I need to generate fresh light-colored logos.
+Replace `src/assets/iptv-anbieter-multidevice.png` with a fresh AI-generated image (description-based, transparent background) — same approach we just used for the device-logos strip.
 
 ### What I'll do
-Use `imagegen--generate_image` (premium, for legible text) with `transparent_background: true` to create `src/assets/supported-devices.png` from a written description: a clean 3-row × 4-column grid of platform wordmarks/logos, all rendered in **white / light tones** with their original brand accent colors where appropriate (e.g. Android green, Apple rainbow), on a fully transparent background. 12 tiles:
+Use `imagegen--generate_image` with `model: premium`, `transparent_background: true`, aspect ratio ~21:9 (e.g. 1792×768), prompt describing:
 
-Row 1: Fire TV Stick · Samsung Smart TV · Android TV · iOS (Apple)
-Row 2: MagBox · Nvidia Shield · Android · IPTV Smarters Pro
-Row 3: Xbox Live · Webplayer · LG Smart TV · Windows
+A premium product-shot composition of multiple consumer streaming devices clustered together, all powered on showing colorful TV/streaming content on their screens:
+- Center-back: large modern flat-screen Smart TV displaying a cinematic film scene with the white wordmark "IPTV Anbieter" overlaid in the top-left
+- Open MacBook/laptop on the left showing a music/concert stream
+- iPad/tablet on the right showing a movie grid UI
+- Smartphone on the far right showing an EPG/guide UI
+- Foreground: Apple TV box, Roku stick, Amazon Fire TV Stick, Google Chromecast with remote, Nvidia Shield remote, Mag box — arranged naturally
+- Photoreal, studio lighting, no white background (transparent), soft contact shadows only
 
-Dimensions 1536 × 512 (3:1), text rendered in white/light gray so it stays readable on the dark site background.
-
-The multidevice hero PNG is already fine (dark photographic content reads well on dark bg) — leave it untouched.
+Save to `src/assets/iptv-anbieter-multidevice.png` (overwrites). The existing import in `src/routes/index.tsx` already points to that path — no code changes needed.
 
 ### Out of scope
-No layout changes; the existing `<img>` tags and section markup stay the same, only the asset bytes change.
+No layout or copy changes; only the image bytes change.
