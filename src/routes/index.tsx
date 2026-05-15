@@ -236,11 +236,11 @@ function HomePage() {
         <img
           src={featuresPlayerImg}
           alt="IPTV Anbieter Player mit EPG, Multi-View und 7-Tage Catch-Up auf Smart TV"
-          width={1280}
-          height={736}
+          width={1536}
+          height={1024}
           loading="lazy"
           decoding="async"
-          className="mb-8 w-full h-auto rounded-xl object-cover max-h-56 md:max-h-72"
+          className="mx-auto mb-8 w-full max-w-3xl h-auto rounded-xl"
         />
         {/* Mobile: compact 2-col tiles */}
         <div className="grid grid-cols-2 gap-3 md:hidden">
