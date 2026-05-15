@@ -59,7 +59,7 @@ const ORGANIZATION_JSONLD = {
   "@type": "Organization",
   "@id": "https://iptvs-anbieter.de/#organization",
   name: "IPTVs-Anbieter",
-  alternateName: "IPTVs Anbieter",
+  alternateName: ["IPTVs Anbieter", "IPTV Anbieter"],
   url: "https://iptvs-anbieter.de",
   logo: {
     "@type": "ImageObject",
