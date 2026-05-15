@@ -19,10 +19,10 @@ const PRODUCT_JSONLD = {
 export const Route = createFileRoute("/abonnement-12-monate")({
   head: () => ({
     meta: [
-      { title: "IPTV Abo 12 Monate – €45 | IPTVs-Anbieter" },
-      { name: "description", content: "Beliebtester Tarif: IPTV-Abo 12 Monate für €45 – nur €3,75/Monat. 20.000+ Live-Sender, 4K UHD, kein Vertrag, 30 Tage Geld-zurück." },
-      { property: "og:title", content: "IPTV Abo 12 Monate – €45 (Beliebt)" },
-      { property: "og:description", content: "Unser beliebtester Tarif: 12 Monate Premium IPTV für nur €45." },
+      { title: "IPTVs Anbieter – IPTV Abo 12 Monate für €45" },
+      { name: "description", content: "Beliebtester Tarif beim IPTVs Anbieter: 12 Monate für €45 – nur €3,75/Monat. 20.000+ Live-Sender, 4K UHD, kein Vertrag, 30 Tage Geld-zurück." },
+      { property: "og:title", content: "IPTVs Anbieter – 12 Monate Abo für €45 (Beliebt)" },
+      { property: "og:description", content: "Unser beliebtester Tarif: 12 Monate Premium IPTVs Anbieter für nur €45." },
       { property: "og:url", content: "/abonnement-12-monate" },
       { property: "og:type", content: "product" },
     ],
