@@ -93,7 +93,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Mit einem Premium-IPTV-Abo bündelst du <strong>Bundesliga</strong>, <strong>UEFA Champions League</strong>, <strong>UEFA Europa League</strong>, <strong>Premier League</strong>, <strong>LaLiga</strong>, <strong>Serie A</strong>, <strong>Formel 1</strong>, <strong>NFL</strong>, <strong>NBA</strong> und <strong>UFC</strong> in einer einzigen App – ohne <strong>Sky</strong>, <strong>DAZN</strong> und <strong>WOW</strong> separat zu abonnieren. Streams laufen in <strong>Full HD</strong> oder <strong>4K</strong> mit deutscher und Originalkommentar-Tonspur.
+          Mit einem Premium-Abo beim richtigen <strong>IPTVs Anbieter</strong> bündelst du <strong>Bundesliga</strong>, <strong>UEFA Champions League</strong>, <strong>UEFA Europa League</strong>, <strong>Premier League</strong>, <strong>LaLiga</strong>, <strong>Serie A</strong>, <strong>Formel 1</strong>, <strong>NFL</strong>, <strong>NBA</strong> und <strong>UFC</strong> in einer einzigen App – ohne <strong>Sky</strong>, <strong>DAZN</strong> und <strong>WOW</strong> separat zu abonnieren. Streams laufen in <strong>Full HD</strong> oder <strong>4K</strong> mit deutscher und Originalkommentar-Tonspur.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li><strong>Sky Sport</strong>, <strong>DAZN 1</strong>, <strong>DAZN 2</strong> in <strong>Full HD</strong> und <strong>4K</strong></li>
