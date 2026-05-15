@@ -207,9 +207,9 @@ export function SeoChunks() {
   return (
     <section className="mx-auto max-w-5xl px-4 pb-20">
       <div className="mb-10">
-        <h2 className="font-display text-4xl md:text-5xl">IPTV Anbieter – Wissen, Geräte & Setup</h2>
+        <h2 className="font-display text-4xl md:text-5xl">IPTVs Anbieter – Wissen, Geräte & Setup</h2>
         <p className="mt-3 text-muted-foreground">
-          Kompakte Antworten zu Installation, Bildqualität, Sport, VOD und mehr – damit du den richtigen IPTV-Anbieter findest.
+          Kompakte Antworten zu Installation, Bildqualität, Sport, VOD und mehr – damit du den richtigen IPTVs Anbieter findest.
         </p>
       </div>
 
