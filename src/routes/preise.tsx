@@ -127,6 +127,15 @@ function PreisePage() {
             </Card>
           ))}
         </div>
+        <div className="mt-10 flex flex-col items-center gap-2 text-center">
+          <Link
+            to="/abonnement-12-monate"
+            className="inline-flex items-center justify-center rounded-md bg-success px-8 py-3 text-base font-medium text-success-foreground shadow transition hover:bg-success/90"
+          >
+            Bestes Paket sichern – 12 Monate
+          </Link>
+          <p className="text-xs text-muted-foreground">30 Tage Geld-zurück-Garantie</p>
+        </div>
       </section>
 
       <section className="mx-auto mt-20 max-w-5xl">
