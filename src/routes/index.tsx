@@ -190,7 +190,7 @@ function HomePage() {
       {/* Devices */}
       <section className="mx-auto max-w-7xl px-4 py-20">
         <div className="mb-10 text-center">
-          <h2 className="font-display text-4xl md:text-5xl">Auf jedem Gerät verfügbar</h2>
+          <h2 className="font-display text-4xl md:text-5xl">IPTVs Anbieter für jedes Gerät</h2>
           <p className="mt-3 text-muted-foreground">Schau, wo und wie du willst – nahtlos auf allen Plattformen.</p>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
