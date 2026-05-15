@@ -32,10 +32,10 @@ const FAQ_JSONLD = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "IPTVs-Anbieter – 20.000+ Sender & 4K für €3,75/Monat" },
-      { name: "description", content: "Premium IPTV mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
-      { property: "og:title", content: "IPTVs-Anbieter – Premium IPTV in 4K" },
-      { property: "og:description", content: "20.000+ Sender, 145.000+ Filme, 44.000+ Serien für nur €45/Jahr." },
+      { title: "IPTVs Anbieter – 20.000+ Sender & 4K UHD ab €3,75/Monat" },
+      { name: "description", content: "IPTVs Anbieter mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
+      { property: "og:title", content: "IPTVs Anbieter – Premium IPTV in 4K" },
+      { property: "og:description", content: "IPTVs Anbieter mit 20.000+ Sendern, 145.000+ Filmen und 44.000+ Serien für nur €45/Jahr." },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
@@ -90,14 +90,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-24 md:py-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTV 2026
+              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTVs Anbieter 2026
             </span>
             <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl lg:text-8xl">
-              Über <span className="text-primary">20.000 Sender.</span><br />
-              4K. Nur <span className="text-primary">€3,75</span>/Monat.
+              Dein <span className="text-primary">IPTVs Anbieter</span><br />
+              20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
+              Als zuverlässiger IPTVs Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
               kein Vertrag, 30 Tage Geld-zurück-Garantie.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -136,7 +136,7 @@ function HomePage() {
       {/* Features */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 max-w-2xl md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">Alles, was du erwartest – und mehr</h2>
+          <h2 className="font-display text-3xl md:text-5xl">Was unseren IPTVs Anbieter ausmacht</h2>
           <p className="mt-2 text-sm text-muted-foreground md:mt-3 md:text-base">
             Modernste Player-Technologie, durchdachte Funktionen und ein TV-Erlebnis auf höchstem Niveau.
           </p>
@@ -175,7 +175,7 @@ function HomePage() {
             <Trophy className="h-10 w-10 text-primary" />
             <h2 className="mt-4 font-display text-4xl md:text-5xl">Premium Sport. Live. In 4K.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Bundesliga, Champions League, Premier League, Formel 1, NFL, NBA, UFC, Boxen, Tennis und mehr –
+              Als IPTVs Anbieter mit Sport-Fokus bündeln wir Bundesliga, Champions League, Premier League, Formel 1, NFL, NBA, UFC, Boxen, Tennis und mehr –
               jedes Spiel, jede Sekunde, ohne Kompromisse.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-2 text-sm">
@@ -190,7 +190,7 @@ function HomePage() {
       {/* Devices */}
       <section className="mx-auto max-w-7xl px-4 py-20">
         <div className="mb-10 text-center">
-          <h2 className="font-display text-4xl md:text-5xl">Auf jedem Gerät verfügbar</h2>
+          <h2 className="font-display text-4xl md:text-5xl">IPTVs Anbieter für jedes Gerät</h2>
           <p className="mt-3 text-muted-foreground">Schau, wo und wie du willst – nahtlos auf allen Plattformen.</p>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
@@ -206,7 +206,7 @@ function HomePage() {
       {/* Pricing tiers */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="mb-8 text-center md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">Wähle dein Paket</h2>
+          <h2 className="font-display text-3xl md:text-5xl">IPTVs Anbieter – wähle dein Paket</h2>
           <p className="mt-2 text-sm text-muted-foreground md:text-base">
             Faire Preise. Alle Features inklusive. Kein Vertrag.
           </p>
@@ -235,7 +235,7 @@ function HomePage() {
       {/* Final CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <Card className="bg-gradient-to-r from-primary to-primary-glow p-10 text-center text-primary-foreground">
-          <h2 className="font-display text-4xl md:text-5xl">Bereit für besseres TV?</h2>
+          <h2 className="font-display text-4xl md:text-5xl">Bereit für deinen neuen IPTVs Anbieter?</h2>
           <p className="mx-auto mt-3 max-w-xl opacity-90">Sofort-Aktivierung, kein Vertrag, 30 Tage Geld-zurück.</p>
           <Button asChild size="lg" variant="secondary" className="mt-6">
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
