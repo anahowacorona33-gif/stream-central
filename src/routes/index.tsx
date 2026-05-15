@@ -157,6 +157,33 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Was ist IPTV */}
+      <section className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+        <h2 className="font-display text-3xl md:text-5xl">Was ist IPTV?</h2>
+        <p className="mt-4 text-muted-foreground">
+          IPTV steht für „Internet Protocol Television" – also Fernsehen, das nicht über Antenne, Satellit oder Kabel, sondern direkt über das Internet zu dir nach Hause gestreamt wird. Statt einer Schüssel auf dem Dach oder einem Kabelanschluss in der Wand brauchst du nur eine stabile Internetverbindung und ein kompatibles Gerät.
+        </p>
+        <p className="mt-3 text-muted-foreground">
+          Ein moderner IPTV Anbieter bündelt Live-TV, Pay-TV, Sport-Pakete und eine riesige On-Demand-Bibliothek mit Filmen und Serien in einer einzigen App. Du wechselst per Knopfdruck zwischen Bundesliga, Netflix-ähnlichen VOD-Inhalten und internationalen Sendern aus über 50 Ländern – alles in 4K UHD, ohne zusätzliche Hardware.
+        </p>
+        <p className="mt-3 text-muted-foreground">
+          Der größte Unterschied zum klassischen Fernsehen: Du bist nicht an feste Sendezeiten gebunden. EPG, 7-Tage Catch-Up und Multi-View geben dir die volle Kontrolle über dein TV-Erlebnis – wann und wo du willst.
+        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {[
+            { icon: Wifi, title: "1. Internet", desc: "Eine stabile Verbindung ab 25 Mbit/s reicht für 4K-Streams." },
+            { icon: Smartphone, title: "2. App / Player", desc: "IPTV Smarters, TiviMate, VLC oder die App deines Smart TVs." },
+            { icon: Tv, title: "3. Bildschirm", desc: "Smart TV, Fire Stick, Apple TV, Tablet oder Smartphone – freie Wahl." },
+          ].map((s) => (
+            <Card key={s.title} className="border-border/60 bg-card/60 p-5">
+              <s.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Why IPTV Anbieter */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:items-center">
@@ -220,6 +247,32 @@ function HomePage() {
                   <li key={c} className="flex items-start gap-2 text-muted-foreground"><span className="mt-0.5 inline-block h-4 w-4 shrink-0 text-center leading-none">✕</span>{c}</li>
                 ))}
               </ul>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Why German users use IPTV */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">Warum nutzen deutsche Zuschauer einen IPTV Anbieter?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Im DACH-Raum wechseln immer mehr Haushalte vom klassischen Kabel- oder Sat-TV zu einem IPTV Anbieter. Die Gründe sind eindeutig – und sie haben mit Geld, Auswahl und Flexibilität zu tun.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Trophy, title: "Bundesliga & Champions League", desc: "Alle Spiele live – ohne mehrere Sky-, DAZN- und WOW-Abos parallel zu bezahlen." },
+            { icon: Film, title: "Sky, DAZN & WOW gebündelt", desc: "Premium-Pay-TV in einem einzigen Abo statt drei monatlichen Rechnungen." },
+            { icon: CreditCard, title: "Bis zu 80 % Kostenersparnis", desc: "Statt 50–80 € im Monat für Kabel zahlst du ab 3,75 € pro Monat – komplett." },
+            { icon: Layers, title: "Internationale Sender", desc: "Türkische, arabische, polnische, englische und italienische Kanäle – ideal für mehrsprachige Haushalte." },
+            { icon: Clock, title: "Zeitversetzt schauen", desc: "7-Tage Catch-Up: verpasste Sendungen einfach nachholen, wann es dir passt." },
+            { icon: RefreshCcw, title: "Kein Vertrag, keine Bindung", desc: "Monatlich kündbar – kein 24-Monats-Vertrag wie bei Vodafone, Telekom oder MagentaTV." },
+          ].map((c) => (
+            <Card key={c.title} className="border-border/60 bg-card/60 p-5">
+              <c.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
             </Card>
           ))}
         </div>
@@ -329,6 +382,42 @@ function HomePage() {
               <d.icon className="h-4 w-4 text-primary" /> {d.name}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Why choose us */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">Warum uns als IPTV Anbieter wählen?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Es gibt viele IPTV Anbieter – aber nur wenige liefern wirklich stabile 4K-Streams, ehrlichen Support und faire Preise. Das macht uns anders:
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Zap, title: "Sofortige Aktivierung", desc: "Nach Zahlungseingang ist dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
+            { icon: ShieldCheck, title: "30 Tage Geld-zurück", desc: "Volle Garantie ohne Wenn und Aber. Nicht zufrieden? Geld zurück, keine Diskussion." },
+            { icon: Wifi, title: "Anti-Freeze 4K-Server", desc: "Premium-Infrastruktur in Frankfurt, Amsterdam und Paris – 99,9 % Uptime, kein Buffering bei Live-Sport." },
+            { icon: MessageCircle, title: "24/7 WhatsApp Support", desc: "Echte Menschen, deutschsprachig, rund um die Uhr erreichbar – nicht nur ein Chatbot." },
+            { icon: RefreshCcw, title: "Kein Vertrag", desc: "Jederzeit kündbar oder einfach nicht verlängern – keine versteckten Klauseln, keine Falle." },
+            { icon: Trophy, title: "Sport komplett inklusive", desc: "Bundesliga, Champions League, Premier League, Formel 1, NFL, UFC – alles in einem Abo." },
+          ].map((c) => (
+            <Card key={c.title} className="border-border/60 bg-card/60 p-5">
+              <c.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp starten
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-primary/40">
+            <Link to="/preise">Pakete ansehen</Link>
+          </Button>
         </div>
       </section>
 
