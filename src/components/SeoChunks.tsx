@@ -112,7 +112,7 @@ const chunks = [
     content: (
       <>
         <p className="text-foreground/90">
-          Die <strong>VOD</strong>-Bibliothek eines IPTV-Anbieters ersetzt mehrere Streaming-Dienste wie <strong>Netflix</strong>, <strong>Disney+</strong>, <strong>Amazon Prime Video</strong>, <strong>Apple TV+</strong> und <strong>Paramount+</strong> – mit über <strong>145.000 Filmen</strong> und <strong>44.000 Serien</strong> in <strong>Full HD</strong> bis <strong>4K HDR</strong>. Inhalte werden auf Abruf gestreamt, mit mehrsprachigen <strong>Tonspuren</strong> (Deutsch, Englisch, Türkisch, Französisch) und <strong>Untertiteln</strong>.
+          Die <strong>VOD</strong>-Bibliothek beim richtigen <strong>IPTVs Anbieter</strong> ersetzt mehrere Streaming-Dienste wie <strong>Netflix</strong>, <strong>Disney+</strong>, <strong>Amazon Prime Video</strong>, <strong>Apple TV+</strong> und <strong>Paramount+</strong> – mit über <strong>145.000 Filmen</strong> und <strong>44.000 Serien</strong> in <strong>Full HD</strong> bis <strong>4K HDR</strong>. Inhalte werden auf Abruf gestreamt, mit mehrsprachigen <strong>Tonspuren</strong> (Deutsch, Englisch, Türkisch, Französisch) und <strong>Untertiteln</strong>.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Hollywood-Blockbuster und deutsche Eigenproduktionen</li>
