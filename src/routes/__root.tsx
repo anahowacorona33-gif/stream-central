@@ -58,7 +58,7 @@ const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://iptvs-anbieter.de/#organization",
-  name: "IPTVs-Anbieter",
+  name: "IPTV-Anbieter",
   alternateName: ["IPTV Anbieter", "IPTV Anbieter"],
   url: "https://iptvs-anbieter.de",
   logo: {
