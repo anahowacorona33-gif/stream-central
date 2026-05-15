@@ -133,6 +133,63 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Why IPTV Anbieter */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <div className="mb-8 max-w-3xl md:mb-12">
+          <h2 className="font-display text-3xl md:text-5xl">Warum einen IPTV Anbieter wählen?</h2>
+          <p className="mt-4 text-muted-foreground">
+            Ein IPTV Anbieter liefert klassisches Fernsehen über das Internet – ohne Satellitenschüssel, ohne Kabelanschluss, ohne lange Vertragsbindung. Statt nur 100 Free-TV-Sender zu empfangen, hast du mit einem modernen IPTV Anbieter Zugriff auf über 20.000 Live-Kanäle aus aller Welt, dazu eine riesige On-Demand-Bibliothek mit Filmen und Serien in 4K UHD.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Der Vorteil: Du brauchst nur eine stabile Internetverbindung und ein kompatibles Gerät – Smart TV, Fire TV Stick, Apple TV, Android, iOS, MAG-Box oder einfach VLC und Kodi auf deinem Computer. Sky, DAZN, WOW und alle Bundesliga-Spiele kommen über einen einzigen IPTV Anbieter ins Wohnzimmer, statt drei Streaming-Abos parallel zu bezahlen.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Wer 2026 noch monatlich 50–80 € für Kabel oder Sat zahlt, verschenkt Geld. Ein Premium-IPTV-Anbieter wie wir kostet ab €3,75 pro Monat – inklusive Live-Sport, internationaler Sender, EPG, Catch-Up und Anti-Freeze-Streaming. Kein Vertrag, jederzeit kündbar, 30 Tage Geld-zurück.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: "Kabel-TV",
+              price: "ab 25 €/Monat",
+              tone: "muted",
+              pros: ["Stabile Bildqualität"],
+              cons: ["Nur 100–200 Sender", "Lange Vertragsbindung", "Kein internationales Programm", "Hardware-Box nötig"],
+            },
+            {
+              title: "Satellit (DVB-S)",
+              price: "ab 15 €/Monat + Hardware",
+              tone: "muted",
+              pros: ["Viele Free-TV-Sender"],
+              cons: ["Schüssel + Receiver Pflicht", "Wetterabhängig", "Pay-TV separat (Sky)", "Kein VOD inklusive"],
+            },
+            {
+              title: "IPTV Anbieter (wir)",
+              price: "ab 3,75 €/Monat",
+              tone: "primary",
+              pros: ["20.000+ Sender weltweit", "Sky, DAZN, WOW inklusive", "4K UHD + 145.000 Filme", "Kein Vertrag, kein Receiver"],
+              cons: [],
+            },
+          ].map((opt) => (
+            <Card
+              key={opt.title}
+              className={`p-6 ${opt.tone === "primary" ? "border-primary/60 bg-primary/5 shadow-[var(--shadow-glow)]" : "border-border/60 bg-card/60"}`}
+            >
+              <h3 className="font-display text-xl">{opt.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{opt.price}</p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {opt.pros.map((p) => (
+                  <li key={p} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{p}</li>
+                ))}
+                {opt.cons.map((c) => (
+                  <li key={c} className="flex items-start gap-2 text-muted-foreground"><span className="mt-0.5 inline-block h-4 w-4 shrink-0 text-center leading-none">✕</span>{c}</li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Features */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 max-w-2xl md:mb-12">
