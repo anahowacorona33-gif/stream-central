@@ -8,8 +8,8 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-stadium.jpg";
 import sportImg from "@/assets/sport-highlight.jpg";
-import multiDeviceImg from "@/assets/iptv-anbieter-multidevice.jpg";
-import supportedDevicesImg from "@/assets/supported-devices.jpg";
+import multiDeviceImg from "@/assets/iptv-anbieter-multidevice.png";
+import supportedDevicesImg from "@/assets/supported-devices.png";
 import { whatsappLink } from "@/lib/contact";
 import { SeoChunks } from "@/components/SeoChunks";
 import { PricingTabs } from "@/components/PricingTabs";
@@ -284,16 +284,14 @@ function HomePage() {
           <h2 className="font-display text-4xl md:text-5xl">IPTV Anbieter für jedes Gerät</h2>
           <p className="mt-3 text-muted-foreground">Schau, wo und wie du willst – nahtlos auf allen Plattformen.</p>
         </div>
-        <div className="rounded-2xl border border-border/60 bg-white p-6 md:p-10">
-          <img
-            src={supportedDevicesImg}
-            alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
-            width={1024}
-            height={350}
-            loading="lazy"
-            className="mx-auto w-full max-w-4xl h-auto"
-          />
-        </div>
+        <img
+          src={supportedDevicesImg}
+          alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
+          width={1024}
+          height={350}
+          loading="lazy"
+          className="mx-auto w-full max-w-4xl h-auto"
+        />
         <div className="mt-6 grid grid-cols-2 gap-4 text-sm text-muted-foreground md:grid-cols-3 lg:grid-cols-6">
           {devices.map((d) => (
             <div key={d.name} className="flex items-center gap-2">
