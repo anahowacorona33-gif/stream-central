@@ -20,7 +20,7 @@ const features = [
   "EPG TV-Guide mit Timeline",
   "7-Tage Catch-Up TV",
   "Multi-View (bis zu 4 Streams)",
-  "AirPlay & Multi-Screen Support",
+  
   "Adaptive Buffering für stabile Wiedergabe",
   "Funktioniert auf allen Geräten",
   "24/7 WhatsApp Support",
