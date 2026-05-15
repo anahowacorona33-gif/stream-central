@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { PricingTabs } from "@/components/PricingTabs";
 import { SeoChunks } from "@/components/SeoChunks";
-import supportedDevicesImg from "@/assets/supported-devices.jpg";
+import supportedDevicesImg from "@/assets/supported-devices.png";
 
 const pricingFaq = [
   { q: "Welcher IPTV Anbieter Tarif lohnt sich am meisten?", a: "Der 12-Monats-Tarif für €45 ist mit nur €3,75/Monat unser beliebtester Tarif – das beste Verhältnis aus Preis, Laufzeit und Flexibilität. Wer langfristig sparen möchte, wählt 24 Monate für €80 (€3,33/Monat)." },

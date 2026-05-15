@@ -8,8 +8,8 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-stadium.jpg";
 import sportImg from "@/assets/sport-highlight.jpg";
-import multiDeviceImg from "@/assets/iptv-anbieter-multidevice.jpg";
-import supportedDevicesImg from "@/assets/supported-devices.jpg";
+import multiDeviceImg from "@/assets/iptv-anbieter-multidevice.png";
+import supportedDevicesImg from "@/assets/supported-devices.png";
 import { whatsappLink } from "@/lib/contact";
 import { SeoChunks } from "@/components/SeoChunks";
 import { PricingTabs } from "@/components/PricingTabs";
