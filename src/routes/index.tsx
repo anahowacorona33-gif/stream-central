@@ -385,6 +385,42 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Why choose us */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">Warum uns als IPTV Anbieter wählen?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Es gibt viele IPTV Anbieter – aber nur wenige liefern wirklich stabile 4K-Streams, ehrlichen Support und faire Preise. Das macht uns anders:
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Zap, title: "Sofortige Aktivierung", desc: "Nach Zahlungseingang ist dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
+            { icon: ShieldCheck, title: "30 Tage Geld-zurück", desc: "Volle Garantie ohne Wenn und Aber. Nicht zufrieden? Geld zurück, keine Diskussion." },
+            { icon: Wifi, title: "Anti-Freeze 4K-Server", desc: "Premium-Infrastruktur in Frankfurt, Amsterdam und Paris – 99,9 % Uptime, kein Buffering bei Live-Sport." },
+            { icon: MessageCircle, title: "24/7 WhatsApp Support", desc: "Echte Menschen, deutschsprachig, rund um die Uhr erreichbar – nicht nur ein Chatbot." },
+            { icon: RefreshCcw, title: "Kein Vertrag", desc: "Jederzeit kündbar oder einfach nicht verlängern – keine versteckten Klauseln, keine Falle." },
+            { icon: Trophy, title: "Sport komplett inklusive", desc: "Bundesliga, Champions League, Premier League, Formel 1, NFL, UFC – alles in einem Abo." },
+          ].map((c) => (
+            <Card key={c.title} className="border-border/60 bg-card/60 p-5">
+              <c.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp starten
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-primary/40">
+            <Link to="/preise">Pakete ansehen</Link>
+          </Button>
+        </div>
+      </section>
+
       {/* IPTV Anbieter Vergleich */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="mb-8 max-w-3xl">
