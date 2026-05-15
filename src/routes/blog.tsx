@@ -6,10 +6,10 @@ import { listPosts } from "@/lib/blog.functions";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "IPTVs Anbieter Blog & Ratgeber" },
-      { name: "description", content: "IPTVs Anbieter Blog mit Tipps, Anleitungen und Hintergründen rund um IPTV, Streaming und Live-Sport. Täglich neue Artikel." },
-      { property: "og:title", content: "IPTVs Anbieter Blog – Tipps, Geräte, Sport-Streaming" },
-      { property: "og:description", content: "Aktuelle Artikel vom IPTVs Anbieter zu Setup, Smart TV, Fire TV Stick, 4K-Streaming und Live-Sport. Täglich neue Beiträge." },
+      { title: "IPTV Anbieter Blog & Ratgeber" },
+      { name: "description", content: "IPTV Anbieter Blog mit Tipps, Anleitungen und Hintergründen rund um IPTV, Streaming und Live-Sport. Täglich neue Artikel." },
+      { property: "og:title", content: "IPTV Anbieter Blog – Tipps, Geräte, Sport-Streaming" },
+      { property: "og:description", content: "Aktuelle Artikel vom IPTV Anbieter zu Setup, Smart TV, Fire TV Stick, 4K-Streaming und Live-Sport. Täglich neue Beiträge." },
       { property: "og:url", content: "/blog" },
     ],
     links: [{ rel: "canonical", href: "/blog" }],
@@ -34,9 +34,9 @@ function BlogLayout() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-      <h1 className="font-display text-5xl md:text-6xl">IPTVs Anbieter Blog & Ratgeber</h1>
+      <h1 className="font-display text-5xl md:text-6xl">IPTV Anbieter Blog & Ratgeber</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Hilfreiche Artikel vom IPTVs Anbieter rund um Setup, Geräte, Sport-Streaming und mehr. Täglich kommt ein neuer KI-generierter Artikel hinzu.
+        Hilfreiche Artikel vom IPTV Anbieter rund um Setup, Geräte, Sport-Streaming und mehr. Täglich kommt ein neuer KI-generierter Artikel hinzu.
       </p>
 
       {posts.length === 0 ? (

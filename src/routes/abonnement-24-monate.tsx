@@ -19,10 +19,10 @@ const PRODUCT_JSONLD = {
 export const Route = createFileRoute("/abonnement-24-monate")({
   head: () => ({
     meta: [
-      { title: "IPTVs Anbieter – IPTV Abo 24 Monate für €80" },
-      { name: "description", content: "Bester Preis beim IPTVs Anbieter: 24 Monate für €80 – nur €3,33/Monat. 20.000+ Live-Sender, 4K UHD, sofortige Aktivierung, 30 Tage Geld-zurück." },
-      { property: "og:title", content: "IPTVs Anbieter – 24 Monate Abo für €80 (Bester Preis)" },
-      { property: "og:description", content: "Maximale Ersparnis: 24 Monate Premium IPTVs Anbieter für nur €80." },
+      { title: "IPTV Anbieter – IPTV Abo 24 Monate für €80" },
+      { name: "description", content: "Bester Preis beim IPTV Anbieter: 24 Monate für €80 – nur €3,33/Monat. 20.000+ Live-Sender, 4K UHD, sofortige Aktivierung, 30 Tage Geld-zurück." },
+      { property: "og:title", content: "IPTV Anbieter – 24 Monate Abo für €80 (Bester Preis)" },
+      { property: "og:description", content: "Maximale Ersparnis: 24 Monate Premium IPTV Anbieter für nur €80." },
       { property: "og:url", content: "/abonnement-24-monate" },
       { property: "og:type", content: "product" },
     ],
@@ -39,9 +39,9 @@ function Page() {
         <span className="inline-flex rounded-full bg-success px-3 py-1 text-xs font-semibold uppercase tracking-wider text-success-foreground">
           Bester Preis
         </span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTVs Anbieter – 24 Monate Abo für €80</h1>
+        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTV Anbieter – 24 Monate Abo für €80</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          Zwei Jahre beim Premium-IPTVs Anbieter für nur €80 – das sind unschlagbare €3,33 pro Monat. 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.
+          Zwei Jahre beim Premium-IPTV Anbieter für nur €80 – das sind unschlagbare €3,33 pro Monat. 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.
         </p>
       </div>
       <div className="mt-10">
