@@ -203,6 +203,32 @@ function HomePage() {
         </div>
       </section>
 
+      {/* IPTV Anbieter Vergleich */}
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter Vergleich – worauf solltest du achten?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Nicht jeder IPTV Anbieter liefert die gleiche Qualität. Diese sechs Kriterien trennen einen seriösen Premium-IPTV-Anbieter von einem unzuverlässigen Billig-Dienst – und genau hier liefern wir.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Tv, title: "Sender-Anzahl & Vielfalt", desc: "Ein guter IPTV Anbieter bietet 20.000+ Live-Sender aus 50+ Ländern – nicht nur 500 deutsche Kanäle." },
+            { icon: Film, title: "4K UHD & HEVC", desc: "Echte 4K-Streams mit HEVC-Codec, HDR10 und Dolby Atmos – kein hochskaliertes Full HD." },
+            { icon: Wifi, title: "Anti-Freeze-Server", desc: "Premium-Infrastruktur in Frankfurt, Amsterdam und Paris für 99,9 % Uptime ohne Buffering bei Live-Sport." },
+            { icon: Calendar, title: "EPG & 7-Tage Catch-Up", desc: "Vollständiger TV-Guide plus 7 Tage Rückspulen – Standard bei jedem ernsthaften IPTV Anbieter." },
+            { icon: Smartphone, title: "Geräte-Kompatibilität", desc: "Smart TV, Fire TV, Apple TV, Android, iOS, MAG, VLC, Kodi – ein IPTV Anbieter sollte überall laufen." },
+            { icon: ShieldCheck, title: "Support & Garantie", desc: "24/7 WhatsApp-Support, transparente Preise und 30 Tage Geld-zurück – ein vertrauenswürdiger IPTV Anbieter steht dazu." },
+          ].map((c) => (
+            <Card key={c.title} className="border-border/60 bg-card/60 p-5">
+              <c.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Pricing tiers */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="mb-8 text-center md:mb-12">
