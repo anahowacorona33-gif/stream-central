@@ -220,14 +220,9 @@ function HomePage() {
             </Card>
           ))}
         </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex justify-center">
           <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
             <Link to="/preise">Jetzt Paket wählen</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="border-primary/40">
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5" /> Kostenlosen Test anfragen
-            </a>
           </Button>
         </div>
       </section>
@@ -251,6 +246,22 @@ function HomePage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* Pricing tiers */}
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div className="mb-8 text-center md:mb-12">
+          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter – wähle dein Paket</h2>
+          <p className="mt-2 text-sm text-muted-foreground md:text-base">
+            Faire Preise. Alle Features inklusive. Kein Vertrag.
+          </p>
+        </div>
+        <PricingTabs compact />
+        <div className="mt-6 text-center">
+          <Link to="/preise" className="text-sm text-primary hover:underline">
+            Garantien & Zahlungsmethoden ansehen →
+          </Link>
         </div>
       </section>
 
@@ -299,22 +310,6 @@ function HomePage() {
           <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
             <Link to="/preise">Pakete vergleichen</Link>
           </Button>
-        </div>
-      </section>
-
-      {/* Pricing tiers */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <div className="mb-8 text-center md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter – wähle dein Paket</h2>
-          <p className="mt-2 text-sm text-muted-foreground md:text-base">
-            Faire Preise. Alle Features inklusive. Kein Vertrag.
-          </p>
-        </div>
-        <PricingTabs compact />
-        <div className="mt-6 text-center">
-          <Link to="/preise" className="text-sm text-primary hover:underline">
-            Garantien & Zahlungsmethoden ansehen →
-          </Link>
         </div>
       </section>
 

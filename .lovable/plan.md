@@ -1,32 +1,16 @@
-## Strategic CTAs – Home & Pricing
+## Two small fixes
 
-Add only 3 inline CTAs total — placed where reading intent peaks, not everywhere.
+### 1. Remove "Kostenlosen Test anfragen" button
+File: `src/routes/index.tsx` — in the CTA row I just added after "Was unseren IPTV Anbieter ausmacht", drop the outline WhatsApp button and keep only the primary `Jetzt Paket wählen` → `/preise`.
 
-### Home (`src/routes/index.tsx`)
-Currently CTAs only exist in the Hero (top) and Final CTA (bottom). The long middle has none.
+### 2. Move pricing section higher on home page
+Current home order:
+Hero → Trust → Warum → Was uns ausmacht (+CTA) → Sport → Devices → Vergleich (+CTA) → **Pricing** → FAQ → Regional → Final CTA
 
-1. **After "Was unseren IPTV Anbieter ausmacht" (line 223)** — single primary button row:
-   - Primary: `Jetzt Paket wählen` → `/preise`
-   - Ghost: `Kostenlosen Test anfragen` → `#kontakt` or WhatsApp link (use whatever pattern Footer uses)
-   - Reason: user just read the value props, peak conversion moment.
+New order:
+Hero → Trust → Warum → Was uns ausmacht (+CTA) → Sport → **Pricing** → Devices → Vergleich (+CTA) → FAQ → Regional → Final CTA
 
-2. **After "IPTV Anbieter Vergleich" checklist (line 287)** — single line + button:
-   - Text: "Du erfüllst alle Kriterien? Wir auch."
-   - Primary button: `Pakete vergleichen` → `/preise`
-   - Reason: comparison just primed them; convert before the pricing teaser.
-
-### Pricing (`src/routes/preise.tsx`)
-Pricing page has tariff links but no decisive CTA between sections.
-
-3. **After "Was im IPTV Anbieter Abo enthalten ist" (line ~130)** — single primary button centered:
-   - Primary: `Bestes Paket sichern – 12 Monate` → `/abonnement-12-monate`
-   - Small text below: "30 Tage Geld-zurück-Garantie"
-   - Reason: features just shown, anchor the most popular plan.
-
-### Style rules
-- Reuse existing `Button` component with same variants already used in Hero (`bg-success` primary, `outline` secondary).
-- No new sections, no banners, no sticky bars — purely inline button rows inside existing section padding.
-- Keep Hero and Final CTA unchanged.
+Reason: pricing appears right after the Sport hype section — peak intent moment, still above the comparison/FAQ funnel. The CTA after the Vergleich section continues to point to `/preise` so it still works.
 
 ### Out of scope
-No copy rewrites, no design tokens, no new routes, no schema changes.
+No copy changes, no design changes, no new sections.
