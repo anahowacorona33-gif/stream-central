@@ -1,74 +1,32 @@
-## Goal
+## Strategic CTAs – Home & Pricing
 
-1. **Switch keyword**: replace every occurrence of `IPTVs Anbieter` with `IPTV Anbieter` (drop the trailing "s") across all source/content files. Brand name `IPTVs-Anbieter` (hyphenated, in JSON-LD `name`, `Footer SITE_NAME`, contact lib) stays untouched — only the keyword phrase changes.
-2. **Boost SEO content** on the **home page** and **pricing page** with substantial, keyword-rich German copy.
+Add only 3 inline CTAs total — placed where reading intent peaks, not everywhere.
 
-## Part 1 — Global keyword swap
+### Home (`src/routes/index.tsx`)
+Currently CTAs only exist in the Hero (top) and Final CTA (bottom). The long middle has none.
 
-Files touched (12 occurrences total = ~52 instances):
+1. **After "Was unseren IPTV Anbieter ausmacht" (line 223)** — single primary button row:
+   - Primary: `Jetzt Paket wählen` → `/preise`
+   - Ghost: `Kostenlosen Test anfragen` → `#kontakt` or WhatsApp link (use whatever pattern Footer uses)
+   - Reason: user just read the value props, peak conversion moment.
 
-- `src/routes/__root.tsx` — meta title/desc, og:title/desc, author, alternateName array
-- `src/routes/index.tsx` — meta + hero + 5 H2s + sport copy + final CTA
-- `src/routes/preise.tsx` — meta + H1 + lede
-- `src/routes/abonnement-3-monate.tsx`, `-6-`, `-12-`, `-24-monate.tsx` — meta + H1 + body
-- `src/routes/blog.tsx` — meta + H1 + lede
-- `src/components/SeoChunks.tsx` — section H2, intro, chunk #1 title + 5 chunk paragraphs
-- `src/components/Footer.tsx` — tagline
-- `public/llms.txt` — title + description + intro
+2. **After "IPTV Anbieter Vergleich" checklist (line 287)** — single line + button:
+   - Text: "Du erfüllst alle Kriterien? Wir auch."
+   - Primary button: `Pakete vergleichen` → `/preise`
+   - Reason: comparison just primed them; convert before the pricing teaser.
 
-Method: simple `IPTVs Anbieter` → `IPTV Anbieter` find-replace per file. The hyphenated brand `IPTVs-Anbieter` is unaffected (different string).
+### Pricing (`src/routes/preise.tsx`)
+Pricing page has tariff links but no decisive CTA between sections.
 
-## Part 2 — Home page content expansion (`src/routes/index.tsx`)
+3. **After "Was im IPTV Anbieter Abo enthalten ist" (line ~130)** — single primary button centered:
+   - Primary: `Bestes Paket sichern – 12 Monate` → `/abonnement-12-monate`
+   - Small text below: "30 Tage Geld-zurück-Garantie"
+   - Reason: features just shown, anchor the most popular plan.
 
-Add **3 new content sections** between existing sections, each rich with the keyword and supporting LSI terms (Streaming, Smart TV, 4K, Sport, Bundesliga, Live-TV, Sender):
+### Style rules
+- Reuse existing `Button` component with same variants already used in Hero (`bg-success` primary, `outline` secondary).
+- No new sections, no banners, no sticky bars — purely inline button rows inside existing section padding.
+- Keep Hero and Final CTA unchanged.
 
-### A. "Warum IPTV Anbieter wählen?" — after Stats, before Features
-- H2 + 4-paragraph intro (~250 words) explaining what an IPTV Anbieter does, why the user needs one, advantages over Kabel/Sat/DVB-T2.
-- 3-column comparison card: **Kabel-TV vs Satellit vs IPTV Anbieter** with a short pro/con list.
-
-### B. "IPTV Anbieter Vergleich – worauf achten?" — after Devices, before Pricing
-- H2 + intro paragraph.
-- 6-tile checklist grid (icon + title + 1-line desc):
-  Sender-Anzahl, 4K-Qualität, Anti-Freeze-Server, EPG & Catch-Up, Geräte-Kompatibilität, Support & Garantie.
-- Each tile mentions "IPTV Anbieter" naturally in the description.
-
-### C. "IPTV Anbieter in Deutschland, Österreich & Schweiz" — after FAQ, before final CTA
-- H2 + 2-paragraph regional copy (~180 words) covering DACH market, deutsche/österreichische/Schweizer Sender, Bundesliga/SRG/ORF.
-- 3-column flag/region cards.
-
-Adds ~600–800 words of natural, keyword-dense German copy. Keyword density target: 8–12 additional `IPTV Anbieter` mentions on `/`.
-
-## Part 3 — Pricing page content expansion (`src/routes/preise.tsx`)
-
-Currently very thin (just hero + tabs + guarantees + payments). Add:
-
-### A. "Welcher IPTV Anbieter Tarif passt zu mir?" — after PricingTabs
-- H2 + intro paragraph.
-- 4 cards (one per duration): "3 Monate – Tester", "6 Monate – Halbjahr", "12 Monate – Beliebt", "24 Monate – Bester Preis", each with 2-sentence guidance and `<Link>` to the matching `/abonnement-*` route.
-
-### B. "Was im IPTV Anbieter Abo enthalten ist" — after the new tarif cards
-- H2 + intro.
-- 8-tile feature grid (Sender, VOD, Sport, EPG, Catch-Up, Multi-View, Anti-Freeze, Geräte) — 1 sentence each, keyword sprinkled naturally.
-
-### C. "Warum unser IPTV Anbieter?" — after guarantees
-- H2 + 3-paragraph trust copy (~180 words) covering Infrastruktur (Frankfurt/Amsterdam/Paris), Uptime, Support, 30-Tage-Garantie.
-
-### D. Pricing FAQ block — after payments
-- H2 "Häufige Fragen zum IPTV Anbieter Abo".
-- 5-item Accordion: "Welcher Tarif lohnt sich am meisten?", "Wie funktioniert die 30-Tage-Garantie?", "Bekomme ich eine Rechnung?", "Kann ich später upgraden?", "Was passiert nach Ablauf des Abos?".
-- Add `FAQPage` JSON-LD for the 5 Q&A pairs to `head().scripts`.
-
-Adds ~700–900 words to the pricing page, plus a structured FAQ schema for rich-snippet eligibility on a money keyword.
-
-## Out of scope
-
-- No design system, font, or layout changes.
-- No new routes, no DB/auth changes.
-- No changes to the brand string `IPTVs-Anbieter` (hyphenated) in JSON-LD `name`, `SITE_NAME`, `support@iptvs-anbieter.de`, domain references — only the keyword phrase swap.
-
-## Verification
-
-After edits, run:
-- `rg -c "IPTVs Anbieter" src/ public/` → should be 0
-- `rg -c "IPTV Anbieter" src/ public/` → high count, present on every key page
-- Visual check `/` and `/preise` at 1257px — sections render cleanly, hero still fits.
+### Out of scope
+No copy rewrites, no design tokens, no new routes, no schema changes.
