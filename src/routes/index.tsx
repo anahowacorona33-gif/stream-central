@@ -232,6 +232,32 @@ function HomePage() {
         </Accordion>
       </section>
 
+      {/* DACH region */}
+      <section className="mx-auto max-w-7xl px-4 pb-12 md:pb-20">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter in Deutschland, Österreich & Schweiz</h2>
+          <p className="mt-3 text-muted-foreground">
+            Als spezialisierter IPTV Anbieter für den DACH-Raum liefern wir das komplette deutschsprachige Senderpaket – inklusive Free-TV, Pay-TV und regionalen Sendern aus allen drei Ländern.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Über 3.500 deutschsprachige Kanäle in einem einzigen Abo: Bundesliga und 2. Bundesliga, ÖFB-Cup, Schweizer Super League, ARD, ZDF, RTL, ProSieben, Sat.1, ORF, SRF und alle Sky- und DAZN-Pakete – ohne mehrere Streaming-Verträge gleichzeitig zu unterhalten.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            { flag: "🇩🇪", title: "Deutschland", desc: "Das Erste, ZDF, RTL, ProSieben, Sat.1, Sky Deutschland, DAZN, WOW – inklusive Bundesliga, Champions League und Formel 1 in 4K." },
+            { flag: "🇦🇹", title: "Österreich", desc: "ORF 1, ORF 2, ORF Sport+, ATV, PULS 4, ServusTV – plus Bundesliga Österreich und ÖFB-Spiele live im Stream." },
+            { flag: "🇨🇭", title: "Schweiz", desc: "SRF 1, SRF 2, SRF info, RTS, RSI, Blue Sport – inklusive Super League und nationaler Sportübertragungen aus der Schweiz." },
+          ].map((r) => (
+            <Card key={r.title} className="border-border/60 bg-card/60 p-6">
+              <div className="text-3xl">{r.flag}</div>
+              <h3 className="mt-3 font-display text-xl">{r.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <Card className="bg-gradient-to-r from-primary to-primary-glow p-10 text-center text-primary-foreground">
