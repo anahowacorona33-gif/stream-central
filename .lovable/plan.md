@@ -1,17 +1,23 @@
-## Regenerate the DACH region image
+## Fix the "Features" section image on desktop
 
-The current `src/assets/iptv-dach-region.jpg` has garbled fake text/logos ("ALCTH", "ALACH") on the floating tiles, which looks unprofessional.
+### Problem
+On desktop the `iptv-features-player.jpg` shows a TV-in-a-room composition. With the section image rendered full-width and capped at `max-h-72`, the TV ends up centered with large empty white/gray wall areas on the left and right — it looks broken and wastes space.
 
-### Action
-Regenerate the same file (`src/assets/iptv-dach-region.jpg`, 1280×736) with a cleaner prompt that explicitly avoids any text, letters, logos, or symbols.
+### Fix
+Regenerate `src/assets/iptv-features-player.jpg` as an **edge-to-edge Smart TV / IPTV player UI** that fills the entire 16:9 frame — no room, no TV bezel, no walls. Just the on-screen interface itself, so it looks clean at every width.
 
-### New prompt direction
-Stylized glowing outline map of the DACH region (Germany, Austria, Switzerland) on a deep dark background, neon red and blue gradient borders, three small flag accents (German, Austrian, Swiss flags rendered as simple color bars — black/red/gold, red/white/red, red/white cross), subtle TV signal waves and broadcast pulses radiating from major cities, premium cinematic look. Absolutely no text, no letters, no words, no fake logos, no UI elements.
+New prompt direction:
+- Full-bleed Smart TV streaming app UI, edge-to-edge, no device bezel, no surrounding room
+- Dark premium UI with EPG timeline at top, multi-view 4-stream split panel, catch-up timeline strip at bottom
+- Sport thumbnails as content tiles
+- Blue and red accent glows matching the site's primary color
+- 1280×736, premium model (cleaner, fewer text artifacts)
+- No real text labels, no fake logos, no garbled writing
 
 ### What stays
-- Same file path (replaces existing) → no code changes needed.
-- Same alt text and dimensions in `src/routes/index.tsx` → SEO unchanged.
-- Same placement, layout, mobile sizing.
+- Same file path → no code changes needed
+- Same alt, dimensions, lazy loading, mobile/desktop classes in `src/routes/index.tsx`
+- All SEO unchanged
 
 ### Out of scope
-No code edits. No other images touched.
+No code edits, no other images, no layout changes.
