@@ -6,7 +6,7 @@ const PRODUCT_JSONLD = {
   "@type": "Product",
   name: "IPTV Abo 12 Monate",
   description: "Premium IPTV-Abo für 12 Monate (€3,75/Monat): 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.",
-  brand: { "@type": "Brand", name: "IPTV-Anbieter" },
+  brand: { "@type": "Brand", name: "IPTV Anbieter" },
   offers: {
     "@type": "Offer",
     price: "45.00",

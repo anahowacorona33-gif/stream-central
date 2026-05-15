@@ -13,13 +13,13 @@ export const Route = createFileRoute("/blog/$slug")({
           headline: p.title,
           description: p.excerpt,
           datePublished: p.published_at,
-          author: { "@type": "Organization", name: "IPTV-Anbieter" },
-          publisher: { "@type": "Organization", name: "IPTV-Anbieter" },
+          author: { "@type": "Organization", name: "IPTV Anbieter" },
+          publisher: { "@type": "Organization", name: "IPTV Anbieter" },
         }
       : null;
     return {
       meta: [
-        { title: `${p?.title ?? "Artikel"} | IPTV-Anbieter Blog` },
+        { title: `${p?.title ?? "Artikel"} | IPTV Anbieter Blog` },
         { name: "description", content: p?.excerpt ?? "" },
         { property: "og:title", content: p?.title ?? "Artikel" },
         { property: "og:description", content: p?.excerpt ?? "" },

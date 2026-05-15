@@ -51,8 +51,8 @@ const guarantees = [
 const tarifGuide = [
   { to: "/abonnement-3-monate" as const, badge: "Tester", title: "3 Monate – €19", desc: "Perfekt zum Ausprobieren. Du willst zuerst sehen, ob ein IPTV Anbieter wirklich hält, was er verspricht? Drei Monate kosten €19 – ohne Folgekosten." },
   { to: "/abonnement-6-monate" as const, badge: "Halbjahr", title: "6 Monate – €35", desc: "Für die Sport-Saison oder ein halbes Jahr Auslandsaufenthalt. €5,83/Monat und du hast alle Bundesliga-Spiele und 145.000+ Filme inklusive." },
-  { to: "/abonnement-12-monate" as const, badge: "Beliebt", title: "12 Monate – €45", desc: "Unser meistgewählter Tarif. Mit €3,75/Monat das beste Preis-Leistungs-Verhältnis bei einem Premium-IPTV-Anbieter – ein ganzes Jahr volle Sender." },
-  { to: "/abonnement-24-monate" as const, badge: "Bester Preis", title: "24 Monate – €80", desc: "Für Sparfüchse: nur €3,33/Monat. Zwei Jahre Premium-IPTV-Anbieter ohne Preiserhöhung – günstiger geht es nicht." },
+  { to: "/abonnement-12-monate" as const, badge: "Beliebt", title: "12 Monate – €45", desc: "Unser meistgewählter Tarif. Mit €3,75/Monat das beste Preis-Leistungs-Verhältnis bei einem Premium-IPTV Anbieter – ein ganzes Jahr volle Sender." },
+  { to: "/abonnement-24-monate" as const, badge: "Bester Preis", title: "24 Monate – €80", desc: "Für Sparfüchse: nur €3,33/Monat. Zwei Jahre Premium-IPTV Anbieter ohne Preiserhöhung – günstiger geht es nicht." },
 ];
 
 const inclusions = [

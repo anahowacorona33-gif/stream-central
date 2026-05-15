@@ -144,7 +144,7 @@ function HomePage() {
             Der Vorteil: Du brauchst nur eine stabile Internetverbindung und ein kompatibles Gerät – Smart TV, Fire TV Stick, Apple TV, Android, iOS, MAG-Box oder einfach VLC und Kodi auf deinem Computer. Sky, DAZN, WOW und alle Bundesliga-Spiele kommen über einen einzigen IPTV Anbieter ins Wohnzimmer, statt drei Streaming-Abos parallel zu bezahlen.
           </p>
           <p className="mt-3 text-muted-foreground">
-            Wer 2026 noch monatlich 50–80 € für Kabel oder Sat zahlt, verschenkt Geld. Ein Premium-IPTV-Anbieter wie wir kostet ab €3,75 pro Monat – inklusive Live-Sport, internationaler Sender, EPG, Catch-Up und Anti-Freeze-Streaming. Kein Vertrag, jederzeit kündbar, 30 Tage Geld-zurück.
+            Wer 2026 noch monatlich 50–80 € für Kabel oder Sat zahlt, verschenkt Geld. Ein Premium-IPTV Anbieter wie wir kostet ab €3,75 pro Monat – inklusive Live-Sport, internationaler Sender, EPG, Catch-Up und Anti-Freeze-Streaming. Kein Vertrag, jederzeit kündbar, 30 Tage Geld-zurück.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
@@ -286,7 +286,7 @@ function HomePage() {
         <div className="mb-8 max-w-3xl">
           <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter Vergleich – worauf solltest du achten?</h2>
           <p className="mt-3 text-muted-foreground">
-            Nicht jeder IPTV Anbieter liefert die gleiche Qualität. Diese sechs Kriterien trennen einen seriösen Premium-IPTV-Anbieter von einem unzuverlässigen Billig-Dienst – und genau hier liefern wir.
+            Nicht jeder IPTV Anbieter liefert die gleiche Qualität. Diese sechs Kriterien trennen einen seriösen Premium-IPTV Anbieter von einem unzuverlässigen Billig-Dienst – und genau hier liefern wir.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

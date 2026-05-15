@@ -58,7 +58,7 @@ const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://iptvs-anbieter.de/#organization",
-  name: "IPTV-Anbieter",
+  name: "IPTV Anbieter",
   alternateName: ["IPTV Anbieter", "IPTV Anbieter"],
   url: "https://iptvs-anbieter.de",
   logo: {
@@ -68,7 +68,7 @@ const ORGANIZATION_JSONLD = {
     height: 512,
   },
   description:
-    "Deutschsprachiger IPTV-Anbieter: Premium-Abos für 3, 6, 12 und 24 Monate mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Kompatibel mit Smart TV, Fire TV, Apple TV, Android, iOS, MAG, VLC und Kodi.",
+    "Deutschsprachiger IPTV Anbieter: Premium-Abos für 3, 6, 12 und 24 Monate mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Kompatibel mit Smart TV, Fire TV, Apple TV, Android, iOS, MAG, VLC und Kodi.",
   knowsAbout: [
     { "@type": "Thing", name: "Internet Protocol Television", sameAs: "https://de.wikipedia.org/wiki/Internet_Protocol_Television" },
     { "@type": "Thing", name: "Smart TV", sameAs: "https://de.wikipedia.org/wiki/Smart-TV" },
