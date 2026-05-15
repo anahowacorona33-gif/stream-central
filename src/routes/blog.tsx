@@ -34,9 +34,9 @@ function BlogLayout() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-      <h1 className="font-display text-5xl md:text-6xl">Blog & Ratgeber</h1>
+      <h1 className="font-display text-5xl md:text-6xl">IPTVs Anbieter Blog & Ratgeber</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Hilfreiche Artikel rund um IPTV, Geräte, Sport-Streaming und mehr. Täglich kommt ein neuer KI-generierter Artikel hinzu.
+        Hilfreiche Artikel vom IPTVs Anbieter rund um Setup, Geräte, Sport-Streaming und mehr. Täglich kommt ein neuer KI-generierter Artikel hinzu.
       </p>
 
       {posts.length === 0 ? (
