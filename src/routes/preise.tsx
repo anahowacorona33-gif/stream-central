@@ -146,16 +146,14 @@ function PreisePage() {
           <h2 className="font-display text-3xl md:text-4xl">Auf allen Geräten verfügbar</h2>
           <p className="mt-2 text-sm text-muted-foreground">Funktioniert auf Smart TV, Fire TV, Apple TV, Android, iOS, MAG, Nvidia Shield, Xbox, Windows u.v.m.</p>
         </div>
-        <div className="rounded-2xl border border-border/60 bg-white p-6 md:p-10">
-          <img
-            src={supportedDevicesImg}
-            alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
-            width={1024}
-            height={350}
-            loading="lazy"
-            className="mx-auto w-full max-w-4xl h-auto"
-          />
-        </div>
+        <img
+          src={supportedDevicesImg}
+          alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
+          width={1024}
+          height={350}
+          loading="lazy"
+          className="mx-auto w-full max-w-4xl h-auto"
+        />
       </section>
 
       <section className="mx-auto mt-20 max-w-5xl">
