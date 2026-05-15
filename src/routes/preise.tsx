@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { PricingTabs } from "@/components/PricingTabs";
 import { SeoChunks } from "@/components/SeoChunks";
+import supportedDevicesImg from "@/assets/supported-devices.jpg";
 
 const pricingFaq = [
   { q: "Welcher IPTV Anbieter Tarif lohnt sich am meisten?", a: "Der 12-Monats-Tarif für €45 ist mit nur €3,75/Monat unser beliebtester Tarif – das beste Verhältnis aus Preis, Laufzeit und Flexibilität. Wer langfristig sparen möchte, wählt 24 Monate für €80 (€3,33/Monat)." },
@@ -136,11 +137,25 @@ function PreisePage() {
             Bestes Paket sichern – 12 Monate
           </Link>
           <p className="text-xs text-muted-foreground">30 Tage Geld-zurück-Garantie</p>
-        </div>
       </section>
 
-      <section className="mx-auto mt-20 max-w-5xl">
-        <h2 className="text-center font-display text-3xl md:text-4xl">Unsere Garantien</h2>
+      {/* Supported devices band */}
+      <section className="mx-auto mt-16 max-w-6xl">
+        <div className="mb-6 text-center">
+          <h2 className="font-display text-3xl md:text-4xl">Auf allen Geräten verfügbar</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Funktioniert auf Smart TV, Fire TV, Apple TV, Android, iOS, MAG, Nvidia Shield, Xbox, Windows u.v.m.</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-white p-6 md:p-10">
+          <img
+            src={supportedDevicesImg}
+            alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
+            width={1024}
+            height={350}
+            loading="lazy"
+            className="mx-auto w-full max-w-4xl h-auto"
+          />
+        </div>
+      </section>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {guarantees.map((g) => (
             <Card key={g.t} className="border-border/60 bg-card/60 p-5">
