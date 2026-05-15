@@ -21,7 +21,7 @@ export function Footer() {
               <span className="font-display text-2xl">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Premium IPTV mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD.
+              IPTVs Anbieter für Deutschland, Österreich und die Schweiz – mit über 20.000 Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD.
             </p>
           </div>
           <div>
