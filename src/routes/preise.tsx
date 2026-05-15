@@ -36,9 +36,9 @@ function PreisePage() {
     <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
       <div className="text-center">
         <span className="inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">Transparent · Fair · Premium</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl">Ein Preis. Alles drin.</h1>
+        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTVs Anbieter – ein Preis. Alles drin.</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          Wir glauben an einfache Preise – kein Paket-Wirrwarr, keine versteckten Kosten.
+          Wir sind ein IPTVs Anbieter mit einfachen Preisen – kein Paket-Wirrwarr, keine versteckten Kosten.
         </p>
       </div>
 
