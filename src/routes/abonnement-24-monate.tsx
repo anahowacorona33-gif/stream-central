@@ -39,9 +39,9 @@ function Page() {
         <span className="inline-flex rounded-full bg-success px-3 py-1 text-xs font-semibold uppercase tracking-wider text-success-foreground">
           Bester Preis
         </span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTV Abo 24 Monate – €80</h1>
+        <h1 className="mt-4 font-display text-5xl md:text-7xl">IPTVs Anbieter – 24 Monate Abo für €80</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          Zwei Jahre Premium-IPTV für nur €80 – das sind unschlagbare €3,33 pro Monat. 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.
+          Zwei Jahre beim Premium-IPTVs Anbieter für nur €80 – das sind unschlagbare €3,33 pro Monat. 20.000+ Live-Sender, 145.000+ Filme, 44.000+ Serien in 4K UHD.
         </p>
       </div>
       <div className="mt-10">
