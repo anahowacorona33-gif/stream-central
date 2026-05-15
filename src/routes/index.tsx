@@ -235,7 +235,7 @@ function HomePage() {
       {/* Final CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <Card className="bg-gradient-to-r from-primary to-primary-glow p-10 text-center text-primary-foreground">
-          <h2 className="font-display text-4xl md:text-5xl">Bereit für besseres TV?</h2>
+          <h2 className="font-display text-4xl md:text-5xl">Bereit für deinen neuen IPTVs Anbieter?</h2>
           <p className="mx-auto mt-3 max-w-xl opacity-90">Sofort-Aktivierung, kein Vertrag, 30 Tage Geld-zurück.</p>
           <Button asChild size="lg" variant="secondary" className="mt-6">
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
