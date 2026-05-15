@@ -1,11 +1,11 @@
 const chunks = [
   {
     id: "anbieter-de",
-    title: "IPTV Anbieter in Deutschland",
+    title: "IPTVs Anbieter in Deutschland",
     content: (
       <>
         <p className="text-foreground/90">
-          Ein <strong>IPTV Anbieter</strong> liefert Fernsehen über das Internetprotokoll statt über <strong>DVB-T2</strong>, <strong>Kabel</strong> oder <strong>Satellit</strong>. Premium-Dienste in <strong>Deutschland</strong>, <strong>Österreich</strong> und der <strong>Schweiz</strong> bündeln <strong>Bundesliga</strong>, <strong>Sky</strong>, <strong>DAZN</strong>, <strong>WOW</strong> sowie internationale Sender in einem einzigen Abo. Ausgespielt wird über <strong>HLS</strong>- und <strong>MPEG-DASH</strong>-Streams, kompatibel mit jedem modernen Endgerät.
+          Ein <strong>IPTVs Anbieter</strong> liefert Fernsehen über das Internetprotokoll statt über <strong>DVB-T2</strong>, <strong>Kabel</strong> oder <strong>Satellit</strong>. Premium-Dienste in <strong>Deutschland</strong>, <strong>Österreich</strong> und der <strong>Schweiz</strong> bündeln <strong>Bundesliga</strong>, <strong>Sky</strong>, <strong>DAZN</strong>, <strong>WOW</strong> sowie internationale Sender in einem einzigen Abo. Ausgespielt wird über <strong>HLS</strong>- und <strong>MPEG-DASH</strong>-Streams, kompatibel mit jedem modernen Endgerät.
         </p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground/85">
           <li>Über <strong>20.000</strong> Live-Sender weltweit, davon <strong>3.500+</strong> deutschsprachig</li>
