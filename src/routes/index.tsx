@@ -157,6 +157,33 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Was ist IPTV */}
+      <section className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+        <h2 className="font-display text-3xl md:text-5xl">Was ist IPTV?</h2>
+        <p className="mt-4 text-muted-foreground">
+          IPTV steht für „Internet Protocol Television" – also Fernsehen, das nicht über Antenne, Satellit oder Kabel, sondern direkt über das Internet zu dir nach Hause gestreamt wird. Statt einer Schüssel auf dem Dach oder einem Kabelanschluss in der Wand brauchst du nur eine stabile Internetverbindung und ein kompatibles Gerät.
+        </p>
+        <p className="mt-3 text-muted-foreground">
+          Ein moderner IPTV Anbieter bündelt Live-TV, Pay-TV, Sport-Pakete und eine riesige On-Demand-Bibliothek mit Filmen und Serien in einer einzigen App. Du wechselst per Knopfdruck zwischen Bundesliga, Netflix-ähnlichen VOD-Inhalten und internationalen Sendern aus über 50 Ländern – alles in 4K UHD, ohne zusätzliche Hardware.
+        </p>
+        <p className="mt-3 text-muted-foreground">
+          Der größte Unterschied zum klassischen Fernsehen: Du bist nicht an feste Sendezeiten gebunden. EPG, 7-Tage Catch-Up und Multi-View geben dir die volle Kontrolle über dein TV-Erlebnis – wann und wo du willst.
+        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {[
+            { icon: Wifi, title: "1. Internet", desc: "Eine stabile Verbindung ab 25 Mbit/s reicht für 4K-Streams." },
+            { icon: Smartphone, title: "2. App / Player", desc: "IPTV Smarters, TiviMate, VLC oder die App deines Smart TVs." },
+            { icon: Tv, title: "3. Bildschirm", desc: "Smart TV, Fire Stick, Apple TV, Tablet oder Smartphone – freie Wahl." },
+          ].map((s) => (
+            <Card key={s.title} className="border-border/60 bg-card/60 p-5">
+              <s.icon className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Why IPTV Anbieter */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:items-center">

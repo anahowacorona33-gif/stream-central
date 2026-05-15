@@ -1,28 +1,29 @@
-## Fix the "Features" image — make it an ultra-wide banner so nothing gets cropped
+## Add 3 new SEO content sections to the homepage
 
-### Problem
-The new image is full-bleed UI, but at desktop width with `max-h-72` (288px) and `object-cover`, the top EPG bar and bottom catch-up timeline get cropped — only the middle multi-view band is visible. Removing the cap would make the image too tall (a 16:9 image at full container width is ~720px tall, dominating the screen).
+Add three new German-language content sections to `src/routes/index.tsx`, each targeting a clear SEO/intent topic. All sections use existing design tokens (Card, Button, lucide icons) — no new components, no backend, no images.
 
-### Fix
-Regenerate `src/assets/iptv-features-player.jpg` at an **ultra-wide banner aspect** (1920×576, ~10:3) so the entire UI fits in a short horizontal strip. Then we can drop the height cap and use `h-auto` — the image displays in full at a naturally compact height (~377px on desktop, proportional on mobile) with nothing cropped.
+### 1. "Was ist IPTV?" (What is IPTV)
+- Placement: right after the **Stats** section, before "Warum einen IPTV Anbieter wählen?"
+- Layout: single-column max-w-4xl, H2 + 2–3 paragraphs explaining IPTV (streaming TV via internet, how it works, vs. classic TV) + a 3-tile "So funktioniert IPTV" mini-grid (Internet → Player/App → Bildschirm) with icons (Wifi, Smartphone, Tv)
+- ~180–220 words, naturally includes "IPTV", "IPTV Anbieter", "Streaming"
 
-New image composition (ultra-wide, full-bleed, no TV bezel/room):
-- Left third: EPG channel guide column with timeline rows
-- Middle third: 4-stream multi-view sport split (already great in current render)
-- Right third: catch-up timeline scrubber strip with content tile thumbnails
-- Dark navy background, blue + red accent glows
-- Premium model, no readable text / fake logos
+### 2. "Warum nutzen deutsche Zuschauer einen IPTV Anbieter?" (Why German users use IPTV)
+- Placement: after the existing "Warum einen IPTV Anbieter wählen?" comparison section, before **Features**
+- Layout: H2 + intro paragraph + 4–6 reason cards in a responsive grid (icons: Trophy for Bundesliga/Sport, Film for Sky/DAZN bündeln, CreditCard for Kostenersparnis vs. Kabel, Layers for internationale Sender, Clock for zeitversetztes Schauen, ShieldCheck for kein Vertrag)
+- Each card: short title + 1–2 sentence description tailored to DACH audience
 
-### Code change
-Update only the image's class + dimension attrs in `src/routes/index.tsx`:
-- width: 1920, height: 576 (no CLS)
-- className: `mb-8 w-full h-auto rounded-xl` (drop `object-cover max-h-56 md:max-h-72`)
-- Keep alt, lazy loading, decoding async
+### 3. "Warum uns als IPTV Anbieter wählen?" (Why choose us)
+- Placement: after the **Devices** section, before "IPTV Anbieter Vergleich"
+- Layout: H2 + intro + 6 differentiator cards (icons: Zap Sofort-Aktivierung, ShieldCheck 30 Tage Geld-zurück, Wifi Anti-Freeze 4K Server, MessageCircle 24/7 WhatsApp, RefreshCcw kein Vertrag, Trophy Sport komplett) + a CTA button row (WhatsApp + "Pakete ansehen")
+- Distinct from the existing "IPTV Anbieter Vergleich" section: that one lists generic criteria; this one is explicitly about *us*
 
-### What stays
-- Same import path
-- Same German alt text with "IPTV Anbieter" keyword → SEO unchanged
-- No layout/section/copy changes elsewhere
+### Technical notes
+- Pure JSX additions inside `HomePage()` in `src/routes/index.tsx`
+- Reuse existing imports (Card, Button, Link, lucide icons, whatsappLink) — add any missing icons to the existing lucide-react import line
+- Follow existing section pattern: `<section className="mx-auto max-w-7xl px-4 py-12 md:py-20">` with H2 `font-display text-3xl md:text-5xl`
+- No new files, no image generation, no route changes, no SEO meta changes (page title/description already cover the topic)
 
 ### Out of scope
-No other images, no other sections.
+- Image generation
+- New routes or blog posts
+- Restructuring existing sections
