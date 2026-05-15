@@ -19,10 +19,10 @@ const PRODUCT_JSONLD = {
 export const Route = createFileRoute("/abonnement-3-monate")({
   head: () => ({
     meta: [
-      { title: "IPTV Abo 3 Monate – €19 | IPTVs-Anbieter" },
-      { name: "description", content: "IPTV-Abo 3 Monate für nur €19. Über 20.000 Live-Sender, 145.000+ Filme, 4K UHD. Sofortige Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
-      { property: "og:title", content: "IPTV Abo 3 Monate – €19" },
-      { property: "og:description", content: "Premium IPTV für 3 Monate ab €19. 20.000+ Sender in 4K." },
+      { title: "IPTVs Anbieter – IPTV Abo 3 Monate für €19" },
+      { name: "description", content: "IPTVs Anbieter: IPTV-Abo 3 Monate für nur €19. Über 20.000 Live-Sender, 145.000+ Filme, 4K UHD. Sofortige Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
+      { property: "og:title", content: "IPTVs Anbieter – 3 Monate Abo für €19" },
+      { property: "og:description", content: "Premium IPTVs Anbieter für 3 Monate ab €19. 20.000+ Sender in 4K." },
       { property: "og:url", content: "/abonnement-3-monate" },
       { property: "og:type", content: "product" },
     ],
