@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-stadium.jpg";
 import sportImg from "@/assets/sport-highlight.jpg";
+import multiDeviceImg from "@/assets/iptv-anbieter-multidevice.jpg";
+import supportedDevicesImg from "@/assets/supported-devices.jpg";
 import { whatsappLink } from "@/lib/contact";
 import { SeoChunks } from "@/components/SeoChunks";
 import { PricingTabs } from "@/components/PricingTabs";
@@ -87,35 +89,46 @@ function HomePage() {
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/50 via-background/70 to-background" />
-        <div className="mx-auto max-w-7xl px-4 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTV Anbieter 2026
-            </span>
-            <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl lg:text-8xl">
-              Dein <span className="text-primary">IPTV Anbieter</span><br />
-              20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Als zuverlässiger IPTV Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
-              kein Vertrag, 30 Tage Geld-zurück-Garantie.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
-                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp bestellen
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary/40">
-                <Link to="/preise">Pakete ansehen</Link>
-              </Button>
+        <div className="mx-auto max-w-7xl px-4 py-20 md:py-28">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTV Anbieter 2026
+              </span>
+              <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl lg:text-7xl">
+                Dein <span className="text-primary">IPTV Anbieter</span><br />
+                20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+                Als zuverlässiger IPTV Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
+                kein Vertrag, 30 Tage Geld-zurück-Garantie.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
+                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp bestellen
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-primary/40">
+                  <Link to="/preise">Pakete ansehen</Link>
+                </Button>
+              </div>
+              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                {trust.map((t) => (
+                  <div key={t.label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <t.icon className="h-4 w-4 text-primary" /> {t.label}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {trust.map((t) => (
-                <div key={t.label} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <t.icon className="h-4 w-4 text-primary" /> {t.label}
-                </div>
-              ))}
+            <div className="relative">
+              <img
+                src={multiDeviceImg}
+                alt="IPTV Anbieter auf Smart TV, Apple TV, Fire TV Stick, Tablet und Smartphone"
+                width={1600}
+                height={700}
+                className="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              />
             </div>
           </div>
         </div>
@@ -271,11 +284,20 @@ function HomePage() {
           <h2 className="font-display text-4xl md:text-5xl">IPTV Anbieter für jedes Gerät</h2>
           <p className="mt-3 text-muted-foreground">Schau, wo und wie du willst – nahtlos auf allen Plattformen.</p>
         </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+        <div className="rounded-2xl border border-border/60 bg-white p-6 md:p-10">
+          <img
+            src={supportedDevicesImg}
+            alt="Unterstützte Geräte: Fire TV Stick, Samsung Smart TV, Android TV, iOS, MagBox, Nvidia Shield, Android, IPTV Smarters, Xbox Live, Webplayer, LG Smart TV, Windows"
+            width={1024}
+            height={350}
+            loading="lazy"
+            className="mx-auto w-full max-w-4xl h-auto"
+          />
+        </div>
+        <div className="mt-6 grid grid-cols-2 gap-4 text-sm text-muted-foreground md:grid-cols-3 lg:grid-cols-6">
           {devices.map((d) => (
-            <div key={d.name} className="flex flex-col items-center gap-3 rounded-xl border border-border/60 bg-card/40 p-6 text-center transition hover:border-primary/50">
-              <d.icon className="h-8 w-8 text-primary" />
-              <span className="text-sm font-medium">{d.name}</span>
+            <div key={d.name} className="flex items-center gap-2">
+              <d.icon className="h-4 w-4 text-primary" /> {d.name}
             </div>
           ))}
         </div>
