@@ -159,17 +159,28 @@ function HomePage() {
 
       {/* Why IPTV Anbieter */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
-        <div className="mb-8 max-w-3xl md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">Warum einen IPTV Anbieter wählen?</h2>
-          <p className="mt-4 text-muted-foreground">
-            Ein IPTV Anbieter liefert klassisches Fernsehen über das Internet – ohne Satellitenschüssel, ohne Kabelanschluss, ohne lange Vertragsbindung. Statt nur 100 Free-TV-Sender zu empfangen, hast du mit einem modernen IPTV Anbieter Zugriff auf über 20.000 Live-Kanäle aus aller Welt, dazu eine riesige On-Demand-Bibliothek mit Filmen und Serien in 4K UHD.
-          </p>
-          <p className="mt-3 text-muted-foreground">
-            Der Vorteil: Du brauchst nur eine stabile Internetverbindung und ein kompatibles Gerät – Smart TV, Fire TV Stick, Apple TV, Android, iOS, MAG-Box oder einfach VLC und Kodi auf deinem Computer. Sky, DAZN, WOW und alle Bundesliga-Spiele kommen über einen einzigen IPTV Anbieter ins Wohnzimmer, statt drei Streaming-Abos parallel zu bezahlen.
-          </p>
-          <p className="mt-3 text-muted-foreground">
-            Wer 2026 noch monatlich 50–80 € für Kabel oder Sat zahlt, verschenkt Geld. Ein Premium-IPTV Anbieter wie wir kostet ab €3,75 pro Monat – inklusive Live-Sport, internationaler Sender, EPG, Catch-Up und Anti-Freeze-Streaming. Kein Vertrag, jederzeit kündbar, 30 Tage Geld-zurück.
-          </p>
+        <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:items-center">
+          <img
+            src={vsKabelSatImg}
+            alt="IPTV Anbieter ersetzt Kabel- und Satellitenfernsehen — 4K Smart-TV im Wohnzimmer"
+            width={1280}
+            height={736}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto rounded-xl object-cover max-h-64 md:max-h-none"
+          />
+          <div className="max-w-3xl">
+            <h2 className="font-display text-3xl md:text-5xl">Warum einen IPTV Anbieter wählen?</h2>
+            <p className="mt-4 text-muted-foreground">
+              Ein IPTV Anbieter liefert klassisches Fernsehen über das Internet – ohne Satellitenschüssel, ohne Kabelanschluss, ohne lange Vertragsbindung. Statt nur 100 Free-TV-Sender zu empfangen, hast du mit einem modernen IPTV Anbieter Zugriff auf über 20.000 Live-Kanäle aus aller Welt, dazu eine riesige On-Demand-Bibliothek mit Filmen und Serien in 4K UHD.
+            </p>
+            <p className="mt-3 text-muted-foreground">
+              Der Vorteil: Du brauchst nur eine stabile Internetverbindung und ein kompatibles Gerät – Smart TV, Fire TV Stick, Apple TV, Android, iOS, MAG-Box oder einfach VLC und Kodi auf deinem Computer. Sky, DAZN, WOW und alle Bundesliga-Spiele kommen über einen einzigen IPTV Anbieter ins Wohnzimmer, statt drei Streaming-Abos parallel zu bezahlen.
+            </p>
+            <p className="mt-3 text-muted-foreground">
+              Wer 2026 noch monatlich 50–80 € für Kabel oder Sat zahlt, verschenkt Geld. Ein Premium-IPTV Anbieter wie wir kostet ab €3,75 pro Monat – inklusive Live-Sport, internationaler Sender, EPG, Catch-Up und Anti-Freeze-Streaming. Kein Vertrag, jederzeit kündbar, 30 Tage Geld-zurück.
+            </p>
+          </div>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {[
