@@ -1,19 +1,28 @@
-## Regenerate the multi-device hero image from scratch
+## Split hero — compact above-the-fold + supporting copy below
 
-Replace `src/assets/iptv-anbieter-multidevice.png` with a fresh AI-generated image (description-based, transparent background) — same approach we just used for the device-logos strip.
+Restructure the home page hero so only essential, high-impact content sits in the first viewport. SEO text stays on the page — it just moves into a new section directly below the hero (still in the same DOM, still crawled, still inside the H1's content flow).
 
-### What I'll do
-Use `imagegen--generate_image` with `model: premium`, `transparent_background: true`, aspect ratio ~21:9 (e.g. 1792×768), prompt describing:
+### New structure
 
-A premium product-shot composition of multiple consumer streaming devices clustered together, all powered on showing colorful TV/streaming content on their screens:
-- Center-back: large modern flat-screen Smart TV displaying a cinematic film scene with the white wordmark "IPTV Anbieter" overlaid in the top-left
-- Open MacBook/laptop on the left showing a music/concert stream
-- iPad/tablet on the right showing a movie grid UI
-- Smartphone on the far right showing an EPG/guide UI
-- Foreground: Apple TV box, Roku stick, Amazon Fire TV Stick, Google Chromecast with remote, Nvidia Shield remote, Mag box — arranged naturally
-- Photoreal, studio lighting, no white background (transparent), soft contact shadows only
+**Hero (compact, above the fold)**
+- Badge: "Premium IPTV Anbieter 2026"
+- H1: "Dein IPTV Anbieter — 20.000+ Sender. 4K. Ab €3,75/Monat." (text-4xl mobile, text-6xl desktop — was 5xl/7xl/8xl)
+- One-line subhead: "Live-Sport, Filme & Serien auf Smart TV, Fire TV, Apple TV, Android & iOS — sofort aktiviert, kein Vertrag." (was a 3-line paragraph)
+- Two CTAs (WhatsApp bestellen + Pakete ansehen) — unchanged
+- Multi-device hero image — keeps side-by-side on desktop (lg:grid-cols-2), inline below copy on mobile but capped at `max-h-72`
+- Padding: `py-10 md:py-20` (was `py-20 md:py-28`)
 
-Save to `src/assets/iptv-anbieter-multidevice.png` (overwrites). The existing import in `src/routes/index.tsx` already points to that path — no code changes needed.
+**New "Hero details" band (immediately below, no visual gap)**
+- The full original descriptive paragraph ("Als zuverlässiger IPTV Anbieter liefern wir…") — kept verbatim for SEO
+- The 4 trust signals (30 Tage Geld-zurück, Sofort-Aktivierung, 24/7 WhatsApp, Kein Vertrag) — moved here as the same icon row
+- Wrapped in a `<section aria-label="Über unseren IPTV Anbieter">` directly under the hero so it reads as one continuous unit
+
+### What stays for SEO
+- H1 still contains the primary keyword "IPTV Anbieter" plus "20.000+ Sender", "4K", price
+- Full descriptive paragraph kept verbatim, just one section lower
+- Trust signals + image alt text unchanged
+- All existing meta/OG tags + JSON-LD untouched
+- No content removed — only re-arranged into two sibling sections
 
 ### Out of scope
-No layout or copy changes; only the image bytes change.
+No new copy, no design system changes, no other sections touched. Pricing tabs, sport, devices, etc. all stay where they are.

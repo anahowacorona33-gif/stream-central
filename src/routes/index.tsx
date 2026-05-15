@@ -89,21 +89,19 @@ function HomePage() {
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/50 via-background/70 to-background" />
-        <div className="mx-auto max-w-7xl px-4 py-20 md:py-28">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto max-w-7xl px-4 py-10 md:py-20">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTV Anbieter 2026
               </span>
-              <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl lg:text-7xl">
-                Dein <span className="text-primary">IPTV Anbieter</span><br />
-                20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
+              <h1 className="mt-4 font-display text-4xl leading-[1.1] md:text-6xl lg:text-6xl">
+                Dein <span className="text-primary">IPTV Anbieter</span> — 20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                Als zuverlässiger IPTV Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
-                kein Vertrag, 30 Tage Geld-zurück-Garantie.
+              <p className="mt-4 text-base text-muted-foreground md:text-lg">
+                Live-Sport, Filme & Serien auf Smart TV, Fire TV, Apple TV, Android & iOS — sofort aktiviert, kein Vertrag.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
                   <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5" /> Jetzt per WhatsApp bestellen
@@ -113,13 +111,6 @@ function HomePage() {
                   <Link to="/preise">Pakete ansehen</Link>
                 </Button>
               </div>
-              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                {trust.map((t) => (
-                  <div key={t.label} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <t.icon className="h-4 w-4 text-primary" /> {t.label}
-                  </div>
-                ))}
-              </div>
             </div>
             <div className="relative">
               <img
@@ -127,9 +118,26 @@ function HomePage() {
                 alt="IPTV Anbieter auf Smart TV, Apple TV, Fire TV Stick, Tablet und Smartphone"
                 width={1600}
                 height={700}
-                className="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="mx-auto w-full max-h-72 lg:max-h-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero supporting copy + trust signals */}
+      <section aria-label="Über unseren IPTV Anbieter" className="border-b border-border/60 bg-card/20">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:py-10">
+          <p className="max-w-4xl text-sm text-muted-foreground md:text-base">
+            Als zuverlässiger IPTV Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
+            kein Vertrag, 30 Tage Geld-zurück-Garantie.
+          </p>
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {trust.map((t) => (
+              <div key={t.label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <t.icon className="h-4 w-4 text-primary" /> {t.label}
+              </div>
+            ))}
           </div>
         </div>
       </section>
