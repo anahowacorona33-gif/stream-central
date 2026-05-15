@@ -90,14 +90,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-24 md:py-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTV 2026
+              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" /> Premium IPTVs Anbieter 2026
             </span>
             <h1 className="mt-6 font-display text-5xl leading-[1.05] md:text-7xl lg:text-8xl">
-              Über <span className="text-primary">20.000 Sender.</span><br />
-              4K. Nur <span className="text-primary">€3,75</span>/Monat.
+              Dein <span className="text-primary">IPTVs Anbieter</span><br />
+              20.000+ Sender. 4K. Ab <span className="text-primary">€3,75</span>/Monat.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
+              Als zuverlässiger IPTVs Anbieter liefern wir Live-Sport, Filme, Serien und Premium-Pakete – auf Smart TV, Fire TV Stick, Apple TV, Android und iOS. Sofortige Aktivierung,
               kein Vertrag, 30 Tage Geld-zurück-Garantie.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
