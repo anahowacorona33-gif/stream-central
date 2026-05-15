@@ -136,7 +136,7 @@ function HomePage() {
       {/* Features */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <div className="mb-8 max-w-2xl md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">Alles, was du erwartest – und mehr</h2>
+          <h2 className="font-display text-3xl md:text-5xl">Was unseren IPTVs Anbieter ausmacht</h2>
           <p className="mt-2 text-sm text-muted-foreground md:mt-3 md:text-base">
             Modernste Player-Technologie, durchdachte Funktionen und ein TV-Erlebnis auf höchstem Niveau.
           </p>
