@@ -32,10 +32,10 @@ const FAQ_JSONLD = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "IPTVs-Anbieter – 20.000+ Sender & 4K für €3,75/Monat" },
-      { name: "description", content: "Premium IPTV mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
-      { property: "og:title", content: "IPTVs-Anbieter – Premium IPTV in 4K" },
-      { property: "og:description", content: "20.000+ Sender, 145.000+ Filme, 44.000+ Serien für nur €45/Jahr." },
+      { title: "IPTVs Anbieter – 20.000+ Sender & 4K UHD ab €3,75/Monat" },
+      { name: "description", content: "IPTVs Anbieter mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
+      { property: "og:title", content: "IPTVs Anbieter – Premium IPTV in 4K" },
+      { property: "og:description", content: "IPTVs Anbieter mit 20.000+ Sendern, 145.000+ Filmen und 44.000+ Serien für nur €45/Jahr." },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
