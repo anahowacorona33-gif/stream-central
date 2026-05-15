@@ -249,6 +249,22 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Pricing tiers */}
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div className="mb-8 text-center md:mb-12">
+          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter – wähle dein Paket</h2>
+          <p className="mt-2 text-sm text-muted-foreground md:text-base">
+            Faire Preise. Alle Features inklusive. Kein Vertrag.
+          </p>
+        </div>
+        <PricingTabs compact />
+        <div className="mt-6 text-center">
+          <Link to="/preise" className="text-sm text-primary hover:underline">
+            Garantien & Zahlungsmethoden ansehen →
+          </Link>
+        </div>
+      </section>
+
       {/* Devices */}
       <section className="mx-auto max-w-7xl px-4 py-20">
         <div className="mb-10 text-center">
@@ -294,22 +310,6 @@ function HomePage() {
           <Button asChild size="lg" className="bg-success text-success-foreground hover:bg-success/90">
             <Link to="/preise">Pakete vergleichen</Link>
           </Button>
-        </div>
-      </section>
-
-      {/* Pricing tiers */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <div className="mb-8 text-center md:mb-12">
-          <h2 className="font-display text-3xl md:text-5xl">IPTV Anbieter – wähle dein Paket</h2>
-          <p className="mt-2 text-sm text-muted-foreground md:text-base">
-            Faire Preise. Alle Features inklusive. Kein Vertrag.
-          </p>
-        </div>
-        <PricingTabs compact />
-        <div className="mt-6 text-center">
-          <Link to="/preise" className="text-sm text-primary hover:underline">
-            Garantien & Zahlungsmethoden ansehen →
-          </Link>
         </div>
       </section>
 
