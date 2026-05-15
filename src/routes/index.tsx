@@ -233,6 +233,15 @@ function HomePage() {
             Modernste Player-Technologie, durchdachte Funktionen und ein TV-Erlebnis auf höchstem Niveau.
           </p>
         </div>
+        <img
+          src={featuresPlayerImg}
+          alt="IPTV Anbieter Player mit EPG, Multi-View und 7-Tage Catch-Up auf Smart TV"
+          width={1280}
+          height={736}
+          loading="lazy"
+          decoding="async"
+          className="mb-8 w-full h-auto rounded-xl object-cover max-h-56 md:max-h-72"
+        />
         {/* Mobile: compact 2-col tiles */}
         <div className="grid grid-cols-2 gap-3 md:hidden">
           {features.map((f) => (
