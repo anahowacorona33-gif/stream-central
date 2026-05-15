@@ -175,7 +175,7 @@ function HomePage() {
             <Trophy className="h-10 w-10 text-primary" />
             <h2 className="mt-4 font-display text-4xl md:text-5xl">Premium Sport. Live. In 4K.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Bundesliga, Champions League, Premier League, Formel 1, NFL, NBA, UFC, Boxen, Tennis und mehr –
+              Als IPTVs Anbieter mit Sport-Fokus bündeln wir Bundesliga, Champions League, Premier League, Formel 1, NFL, NBA, UFC, Boxen, Tennis und mehr –
               jedes Spiel, jede Sekunde, ohne Kompromisse.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-2 text-sm">
