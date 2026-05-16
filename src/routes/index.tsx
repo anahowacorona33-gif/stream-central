@@ -18,10 +18,14 @@ import { SeoChunks } from "@/components/SeoChunks";
 import { PricingTabs } from "@/components/PricingTabs";
 
 const faq = [
-  { q: "Wie schnell erhalte ich meinen Zugang?", a: "Nach Zahlungseingang wird dein Zugang innerhalb weniger Minuten freigeschaltet – meist sofort." },
-  { q: "Brauche ich einen Vertrag?", a: "Nein. Es gibt keine Vertragsbindung. Du kannst jederzeit kündigen oder einfach nicht verlängern." },
-  { q: "Welche Geräte werden unterstützt?", a: "Smart TVs, Fire Stick, Apple TV, iOS, Android, MAG, VLC, Kodi und viele mehr." },
-  { q: "Bekomme ich mein Geld zurück, wenn ich unzufrieden bin?", a: "Ja – wir bieten eine 30-Tage Geld-zurück-Garantie ohne Wenn und Aber." },
+  { q: "Welcher IPTV-Anbieter ist der beste?", a: "Der beste IPTV-Anbieter für den deutschsprachigen Raum kombiniert ein großes Senderangebot, echte 4K-Qualität, sofortige Aktivierung und eine Geld-zurück-Garantie. Genau das liefern wir: über 20.000 Live-Sender, 145.000+ Filme und 44.000+ Serien in 4K UHD, sofort aktiv nach Zahlung und 30 Tage Geld-zurück-Garantie." },
+  { q: "Welcher IPTV-Anbieter hat das beste Senderangebot?", a: "Wir liefern über 20.000 Live-TV-Sender aus Deutschland, Österreich, der Schweiz und mehr als 50 weiteren Ländern – inklusive Sport-, Film-, Kinder-, Nachrichten- und internationaler Sender in HD und 4K UHD." },
+  { q: "Welcher IPTV-Anbieter hat die besten Sport-Sender?", a: "Unser Sport-Paket umfasst nationalen und internationalen Fußball, Motorsport, US-Sport, Kampfsport und Wintersport in HD und 4K UHD – alles im IPTV-Abo enthalten, ohne zusätzliche Sport-Abos." },
+  { q: "Was kostet ein gutes IPTV-Abo?", a: "Bei uns startet ein IPTV-Abo bei nur 19 € für 3 Monate (rund 6,30 €/Monat). Das 12-Monats-Paket kostet 45 € (3,75 €/Monat) und enthält das volle Angebot mit 20.000+ Sendern, 4K UHD und 24/7 Support." },
+  { q: "Wie schnell ist die Aktivierung nach dem Kauf?", a: "Sofort. Nach Zahlungseingang erhältst du deine Zugangsdaten in der Regel innerhalb weniger Minuten per E-Mail oder WhatsApp und kannst direkt loslegen." },
+  { q: "Gibt es einen IPTV-Test oder eine Geld-zurück-Garantie?", a: "Ja. Du kannst unseren IPTV-Dienst 30 Tage lang risikofrei testen. Wenn du nicht zufrieden bist, bekommst du dein Geld vollständig zurück – ohne Diskussion." },
+  { q: "Auf welchen Geräten läuft das IPTV-Abo?", a: "Unser IPTV-Abo läuft auf Smart TV (Samsung, LG, Sony), Amazon Fire TV / Fire TV Stick, Apple TV, Android TV, Android-Smartphones und -Tablets, iOS (iPhone / iPad), MAG-Boxen (Infomir), Kodi, VLC und allen gängigen M3U-Playern." },
+  { q: "Wie funktioniert der 24/7 WhatsApp-Support?", a: "Du erreichst uns rund um die Uhr per WhatsApp – auf Deutsch. Egal ob Einrichtung, Player-Konfiguration, Senderliste oder Abrechnung: Antwort in der Regel innerhalb weniger Minuten." },
 ];
 
 const FAQ_JSONLD = {
