@@ -1,40 +1,42 @@
-## Goal
+## Problems detected by the rich-results validator
 
-Capture the high-volume "iptv anbieter" cluster from the keyword research, while pointing every funnel back to `/preise` and `/abonnement-*`.
+1. **`isPartOf` invalid target** — `WebPage#webpage.isPartOf` references `#organization` (a `ProfessionalService`). `isPartOf` on `WebPage` expects a `CreativeWork`, typically a `WebSite`.
+2. **`contactPoint` not allowed on `Service`** — `#service-support` has a `contactPoint`, which is only valid on `Organization`/`Person`. The Organization already carries the correct `contactPoint`.
+3. **Only 2 schemas detected (should be 3)** — the validator picks up `FAQPage` and `BreadcrumbList` (emitted from `src/routes/index.tsx` via TanStack's `head().scripts`) but misses the big `@graph` (Organization + WebPage + Person) because it's injected manually with `dangerouslySetInnerHTML` inside `RootShell`, before `<HeadContent />` renders the per-route scripts. Some crawlers/validators stop at the first ld+json block when the surrounding markup confuses them.
 
-(Meta + JSON-LD keyword updates on `__root.tsx` are already done from the previous turn.)
+## Fixes (all in `src/routes/__root.tsx`)
 
-## 1. Three SEO landing routes
+**A. Add a `WebSite` node and re-wire `isPartOf`**
+- Insert a new `@graph` entry:
+  ```
+  {
+    "@type": "WebSite",
+    "@id": "https://iptvs-anbieter.de/#website",
+    url: "https://iptvs-anbieter.de/",
+    name: "IPTV Anbieter",
+    inLanguage: "de-DE",
+    publisher: { "@id": "https://iptvs-anbieter.de/#organization" },
+  }
+  ```
+- Change `WebPage#webpage.isPartOf` from `{ "@id": ".../#organization" }` to `{ "@id": ".../#website" }`.
 
-| File | URL | Primary keyword (volume) |
-|---|---|---|
-| `src/routes/iptv-kaufen.tsx` | `/iptv-kaufen` | iptv kaufen (8,100/mo) |
-| `src/routes/iptv-test.tsx` | `/iptv-test` | iptv test (1,600/mo) |
-| `src/routes/bester-iptv-anbieter.tsx` | `/bester-iptv-anbieter` | bester iptv anbieter (170/mo + variants) |
+**B. Remove invalid `contactPoint` from Service**
+- In `#service-support`, delete the `contactPoint` block (lines 373–378). Keep `hoursAvailable` and `availableLanguage` — those are valid on `Service`.
 
-Each page:
-- H1 with the target keyword verbatim, intro paragraph (~80 words)
-- 4-6 USP bullets (20.000+ Sender, 4K UHD, sofort aktiv, 30 Tage Geld-zurück, 24/7 WhatsApp, Multi-Device)
-- 4 pricing cards linking to `/abonnement-3/6/12/24-monate` + primary CTA → `/preise`
-- 3-Q mini-FAQ specific to that page
-- Per-route `head()`: title, description, og:*, canonical (relative paths)
-- Per-route JSON-LD: `Service` + `FAQPage` + `BreadcrumbList`
-- Reuses Header/Footer from `__root.tsx`
+**C. Emit the sitewide `@graph` via TanStack `head().scripts` instead of `dangerouslySetInnerHTML`**
+- Remove the inline `<script type="application/ld+json" dangerouslySetInnerHTML=...>` from `RootShell`.
+- Add it to the root route's `head()` return:
+  ```
+  scripts: [
+    { type: "application/ld+json", children: JSON.stringify(SITE_JSONLD) },
+  ],
+  ```
+- This way all three JSON-LD blocks (Organization graph, FAQPage, BreadcrumbList) are emitted by the same `<HeadContent />` pipeline and validators reliably parse all of them.
 
-## 2. Homepage FAQ + FAQPage schema
+## Files touched
+- `src/routes/__root.tsx` only.
 
-- New `src/components/HomeFaq.tsx` — accordion with 8 Q&As drawn from the Semrush question keywords (welcher iptv-anbieter ist der beste, bestes Senderangebot, beste Sport-Sender, Kosten, Aktivierungszeit, Geld-zurück, Geräte, Support).
-- Mount on `src/routes/index.tsx` above the footer.
-- Append a `FAQPage` node to the existing JSON-LD `@graph` in `__root.tsx`. Visible markup and schema text must match exactly.
-
-## 3. Sitemap
-
-Add the 3 new URLs to `src/routes/sitemap[.]xml.ts` (priority 0.9, weekly).
-
-## Files
-
-**New:** `src/routes/iptv-kaufen.tsx`, `src/routes/iptv-test.tsx`, `src/routes/bester-iptv-anbieter.tsx`, `src/components/HomeFaq.tsx`
-
-**Edited:** `src/routes/index.tsx`, `src/routes/__root.tsx`, `src/routes/sitemap[.]xml.ts`
-
-**Header nav:** unchanged — these are SEO landing pages.
+## Verification
+After the edits, re-run the rich-results test on `https://iptvs-anbieter.de/`:
+- "Détectés" should show **3 items**: Organization (ProfessionalService), FAQPage, BreadcrumbList.
+- The two flagged errors (`isPartOf` target, `contactPoint` on Service) should disappear.
