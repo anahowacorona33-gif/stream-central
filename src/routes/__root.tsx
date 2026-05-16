@@ -572,7 +572,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSONLD) }}
         />
       </head>
       <body>
