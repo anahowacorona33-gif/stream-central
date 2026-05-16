@@ -96,8 +96,20 @@ const SITE_JSONLD = {
         "@type": "ImageObject",
         name: "IPTV Anbieter – Premium IPTV in 4K UHD für Deutschland",
         url: "https://iptvs-anbieter.de/logo.png",
-        creator: "IPTV Anbieter",
-        author: "Abo Hamza",
+        contentUrl: "https://iptvs-anbieter.de/logo.png",
+        creator: {
+          "@type": "Organization",
+          "@id": "https://iptvs-anbieter.de/#organization",
+          name: "IPTV Anbieter",
+        },
+        author: { "@type": "Person", name: "Abo Hamza" },
+        creditText: "IPTV Anbieter",
+        copyrightNotice: "© 2019–2026 IPTV Anbieter. Alle Rechte vorbehalten.",
+        copyrightHolder: {
+          "@id": "https://iptvs-anbieter.de/#organization",
+        },
+        license: "https://iptvs-anbieter.de/",
+        acquireLicensePage: "https://iptvs-anbieter.de/",
         contentLocation: "Berlin, Deutschland",
         description:
           "IPTV Anbieter — Premium IPTV für Deutschland, Österreich und die Schweiz mit 20.000+ Live-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD.",
