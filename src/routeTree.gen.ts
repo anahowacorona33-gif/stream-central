@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as IptvTestRouteImport } from './routes/iptv-test'
+import { Route as IptvKaufenRouteImport } from './routes/iptv-kaufen'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BesterIptvAnbieterRouteImport } from './routes/bester-iptv-anbieter'
 import { Route as Abonnement6MonateRouteImport } from './routes/abonnement-6-monate'
 import { Route as Abonnement3MonateRouteImport } from './routes/abonnement-3-monate'
 import { Route as Abonnement24MonateRouteImport } from './routes/abonnement-24-monate'
@@ -30,9 +33,24 @@ const PreiseRoute = PreiseRouteImport.update({
   path: '/preise',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IptvTestRoute = IptvTestRouteImport.update({
+  id: '/iptv-test',
+  path: '/iptv-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IptvKaufenRoute = IptvKaufenRouteImport.update({
+  id: '/iptv-kaufen',
+  path: '/iptv-kaufen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BesterIptvAnbieterRoute = BesterIptvAnbieterRouteImport.update({
+  id: '/bester-iptv-anbieter',
+  path: '/bester-iptv-anbieter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Abonnement6MonateRoute = Abonnement6MonateRouteImport.update({
@@ -77,7 +95,10 @@ export interface FileRoutesByFullPath {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-kaufen': typeof IptvKaufenRoute
+  '/iptv-test': typeof IptvTestRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -89,7 +110,10 @@ export interface FileRoutesByTo {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-kaufen': typeof IptvKaufenRoute
+  '/iptv-test': typeof IptvTestRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -102,7 +126,10 @@ export interface FileRoutesById {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-kaufen': typeof IptvKaufenRoute
+  '/iptv-test': typeof IptvTestRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -116,7 +143,10 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-kaufen'
+    | '/iptv-test'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -128,7 +158,10 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-kaufen'
+    | '/iptv-test'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -140,7 +173,10 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-kaufen'
+    | '/iptv-test'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -153,7 +189,10 @@ export interface RootRouteChildren {
   Abonnement24MonateRoute: typeof Abonnement24MonateRoute
   Abonnement3MonateRoute: typeof Abonnement3MonateRoute
   Abonnement6MonateRoute: typeof Abonnement6MonateRoute
+  BesterIptvAnbieterRoute: typeof BesterIptvAnbieterRoute
   BlogRoute: typeof BlogRouteWithChildren
+  IptvKaufenRoute: typeof IptvKaufenRoute
+  IptvTestRoute: typeof IptvTestRoute
   PreiseRoute: typeof PreiseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
@@ -175,11 +214,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreiseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/iptv-test': {
+      id: '/iptv-test'
+      path: '/iptv-test'
+      fullPath: '/iptv-test'
+      preLoaderRoute: typeof IptvTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iptv-kaufen': {
+      id: '/iptv-kaufen'
+      path: '/iptv-kaufen'
+      fullPath: '/iptv-kaufen'
+      preLoaderRoute: typeof IptvKaufenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bester-iptv-anbieter': {
+      id: '/bester-iptv-anbieter'
+      path: '/bester-iptv-anbieter'
+      fullPath: '/bester-iptv-anbieter'
+      preLoaderRoute: typeof BesterIptvAnbieterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/abonnement-6-monate': {
@@ -250,7 +310,10 @@ const rootRouteChildren: RootRouteChildren = {
   Abonnement24MonateRoute: Abonnement24MonateRoute,
   Abonnement3MonateRoute: Abonnement3MonateRoute,
   Abonnement6MonateRoute: Abonnement6MonateRoute,
+  BesterIptvAnbieterRoute: BesterIptvAnbieterRoute,
   BlogRoute: BlogRouteWithChildren,
+  IptvKaufenRoute: IptvKaufenRoute,
+  IptvTestRoute: IptvTestRoute,
   PreiseRoute: PreiseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,
