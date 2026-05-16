@@ -15,6 +15,7 @@ import { Route as IptvTestRouteImport } from './routes/iptv-test'
 import { Route as IptvKaufenRouteImport } from './routes/iptv-kaufen'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BesterIptvAnbieterRouteImport } from './routes/bester-iptv-anbieter'
+import { Route as AutorRouteImport } from './routes/autor'
 import { Route as Abonnement6MonateRouteImport } from './routes/abonnement-6-monate'
 import { Route as Abonnement3MonateRouteImport } from './routes/abonnement-3-monate'
 import { Route as Abonnement24MonateRouteImport } from './routes/abonnement-24-monate'
@@ -51,6 +52,11 @@ const BlogRoute = BlogRouteImport.update({
 const BesterIptvAnbieterRoute = BesterIptvAnbieterRouteImport.update({
   id: '/bester-iptv-anbieter',
   path: '/bester-iptv-anbieter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutorRoute = AutorRouteImport.update({
+  id: '/autor',
+  path: '/autor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Abonnement6MonateRoute = Abonnement6MonateRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   Abonnement24MonateRoute: typeof Abonnement24MonateRoute
   Abonnement3MonateRoute: typeof Abonnement3MonateRoute
   Abonnement6MonateRoute: typeof Abonnement6MonateRoute
+  AutorRoute: typeof AutorRoute
   BesterIptvAnbieterRoute: typeof BesterIptvAnbieterRoute
   BlogRoute: typeof BlogRouteWithChildren
   IptvKaufenRoute: typeof IptvKaufenRoute
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/bester-iptv-anbieter'
       fullPath: '/bester-iptv-anbieter'
       preLoaderRoute: typeof BesterIptvAnbieterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autor': {
+      id: '/autor'
+      path: '/autor'
+      fullPath: '/autor'
+      preLoaderRoute: typeof AutorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/abonnement-6-monate': {
@@ -310,6 +330,7 @@ const rootRouteChildren: RootRouteChildren = {
   Abonnement24MonateRoute: Abonnement24MonateRoute,
   Abonnement3MonateRoute: Abonnement3MonateRoute,
   Abonnement6MonateRoute: Abonnement6MonateRoute,
+  AutorRoute: AutorRoute,
   BesterIptvAnbieterRoute: BesterIptvAnbieterRoute,
   BlogRoute: BlogRouteWithChildren,
   IptvKaufenRoute: IptvKaufenRoute,
@@ -321,3 +342,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
