@@ -2,6 +2,24 @@ import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-route
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { listPosts } from "@/lib/blog.functions";
+import { breadcrumbJsonLd, ORG_ID, SITE } from "@/lib/seo-jsonld";
+
+const BLOG_BREADCRUMB = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Blog", path: "/blog" },
+]);
+
+const BLOG_COLLECTION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${SITE}/blog#blog`,
+  name: "IPTV Anbieter Blog & Ratgeber",
+  description: "Tipps, Anleitungen und Hintergründe rund um IPTV, Streaming und Live-Sport.",
+  url: `${SITE}/blog`,
+  inLanguage: "de-DE",
+  publisher: { "@id": ORG_ID },
+  mainEntityOfPage: { "@id": `${SITE}/blog#webpage` },
+};
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -13,6 +31,10 @@ export const Route = createFileRoute("/blog")({
       { property: "og:url", content: "/blog" },
     ],
     links: [{ rel: "canonical", href: "/blog" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(BLOG_COLLECTION_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(BLOG_BREADCRUMB) },
+    ],
   }),
   loader: () => listPosts(),
   component: BlogLayout,

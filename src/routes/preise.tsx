@@ -8,6 +8,7 @@ import {
 import { PricingTabs } from "@/components/PricingTabs";
 import { SeoChunks } from "@/components/SeoChunks";
 import supportedDevicesImg from "@/assets/supported-devices.png";
+import { breadcrumbJsonLd, ORG_ID, SITE } from "@/lib/seo-jsonld";
 
 const pricingFaq = [
   { q: "Welcher IPTV Anbieter Tarif lohnt sich am meisten?", a: "Der 12-Monats-Tarif für €45 ist mit nur €3,75/Monat unser beliebtester Tarif – das beste Verhältnis aus Preis, Laufzeit und Flexibilität. Wer langfristig sparen möchte, wählt 24 Monate für €80 (€3,33/Monat)." },
@@ -20,12 +21,22 @@ const pricingFaq = [
 const PRICING_FAQ_JSONLD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: pricingFaq.map((f) => ({
+  "@id": `${SITE}/preise#faq`,
+  mainEntityOfPage: { "@id": `${SITE}/preise#webpage` },
+  inLanguage: "de-DE",
+  about: { "@id": ORG_ID },
+  mainEntity: pricingFaq.map((f, i) => ({
     "@type": "Question",
+    "@id": `${SITE}/preise#faq-q${i + 1}`,
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
 };
+
+const PRICING_BREADCRUMB = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Preise", path: "/preise" },
+]);
 
 export const Route = createFileRoute("/preise")({
   head: () => ({
@@ -37,7 +48,10 @@ export const Route = createFileRoute("/preise")({
       { property: "og:url", content: "/preise" },
     ],
     links: [{ rel: "canonical", href: "/preise" }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(PRICING_FAQ_JSONLD) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(PRICING_FAQ_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(PRICING_BREADCRUMB) },
+    ],
   }),
   component: PreisePage,
 });
