@@ -39,6 +39,25 @@ const FAQ_JSONLD = {
   })),
 };
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://iptvs-anbieter.de/#breadcrumb",
+  name: "Breadcrumb",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "WebPage",
+        "@id": "https://iptvs-anbieter.de/#webpage",
+        url: "https://iptvs-anbieter.de/",
+        name: "IPTV Anbieter – Startseite",
+      },
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -49,6 +68,7 @@ export const Route = createFileRoute("/")({
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(BREADCRUMB_JSONLD) },
     ],
   }),
   component: HomePage,
