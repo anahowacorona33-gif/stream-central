@@ -27,8 +27,13 @@ const faq = [
 const FAQ_JSONLD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faq.map((f) => ({
+  "@id": "https://iptvs-anbieter.de/#faq",
+  mainEntityOfPage: { "@id": "https://iptvs-anbieter.de/#webpage" },
+  inLanguage: "de-DE",
+  about: { "@id": "https://iptvs-anbieter.de/#organization" },
+  mainEntity: faq.map((f, i) => ({
     "@type": "Question",
+    "@id": `https://iptvs-anbieter.de/#faq-q${i + 1}`,
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
