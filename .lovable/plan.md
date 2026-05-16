@@ -1,79 +1,34 @@
-## Problem
+## Audit result
 
-You spotted that `https://www.wikidata.org/wiki/Q239295` (used for "Apple TV") actually points to **Stadionul Zimbru** (a football stadium). I audited every Wikidata Q-ID in `src/routes/__root.tsx` — **most are wrong**. Examples:
+I HTTP-checked all 91 unique external URLs in the JSON-LD scripts. **84 return 200, 6 return 404, 2 are harmless** (font preconnect roots).
 
-| Used for | Q-ID in code | What it actually is |
-|---|---|---|
-| IPTV | Q170453 | Amazonas (Venezuelan state) |
-| Streaming-Medien | Q1153191 | online newspaper |
-| OTT-Dienst | Q1029752 | Shenhe District, China |
-| Video-on-Demand | Q193162 | Usenet |
-| ? | Q673708 | Bremen-class frigate |
-| Pay-TV | Q2659904 | government organization |
-| 4K UHD | Q1153692 | Politics of Peru |
-| UEFA Champions League | Q18761 | "Made in Japan" album |
-| Sky Deutschland | Q160665 | Cossern (settlement) |
-| DAZN | Q1141477 | 2009 Cross-Country Championships |
-| Smart-TV | Q1145135 | Curt Herfurth (architect) |
-| Apple TV | Q239295 | Zimbru Stadium |
-| Android TV | Q15706620 | Macrones (ancient tribe) |
-| Kodi | Q399 | Armenia |
-| WhatsApp | Q1049511 | (unrelated) |
-| Kundenservice | Q1142586 | Ford Field stadium |
-| EPG | Q1326233 | Tápiószecső FC |
-| Catch-up TV | Q1052021 | Craig interpolation theorem |
-| MagentaTV | Q1879696 | railway station in Lugny |
-| Waipu.tv | Q29466944 | a frog species paper |
-| Zattoo | Q593412 | Hippasa haryanensis (spider) |
+### Broken links (404) to fix
 
-Only Q289 (Fernsehen), Q193424 (Webservice), Q82595 (Bundesliga), Q1968 (Formel 1), Q171477 (VLC), Q183 (Deutschland), and Q131524 (Unternehmer) are correct.
-
-## Plan
-
-### 1. Replace every Q-ID with a verified correct one
-
-I've already searched Wikidata for the intended entities. The corrected mapping:
-
-| Label | Correct Q-ID |
+| Current URL | Fix |
 |---|---|
-| IPTV | Q177518 |
-| Streaming media | Q220499 |
-| Over-the-top media service | Q829548 |
-| Video on demand | Q723685 |
-| Pay-TV / subscription TV | Q721830 |
-| Live television | Q431102 |
-| Television | Q289 (kept) |
-| 4K resolution | Q238162 |
-| Web service | Q193424 (kept) |
-| Bundesliga | Q82595 (kept) |
-| UEFA Champions League | Q18756 |
-| Formula One | Q1968 (kept) |
-| Sky Deutschland (Sky Germany) | Q652282 |
-| DAZN | Q30133334 |
-| Smart TV | Q564635 |
-| Amazon Fire TV | Q16203668 |
-| Apple TV (device) | Q270285 |
-| Android TV | Q17298682 |
-| Kodi | Q919760 |
-| VLC media player | Q171477 (kept) |
-| Germany | Q183 (kept) |
-| Entrepreneur | Q131524 (kept) |
+| `de.wikipedia.org/wiki/Catch-up-TV` | → `en.wikipedia.org/wiki/Catch-up_TV` (no dewiki page exists) |
+| `de.wikipedia.org/wiki/Geld-zur%C3%BCck-Garantie` | → `en.wikipedia.org/wiki/Money-back_guarantee` |
+| `de.wikipedia.org/wiki/Infomir` | → `en.wikipedia.org/wiki/Infomir` |
+| `de.wikipedia.org/wiki/Over-the-Top-Inhalt` | → `en.wikipedia.org/wiki/Over-the-top_media_service` |
+| `de.wikipedia.org/wiki/RTL_(Fernsehsender)` | → `de.wikipedia.org/wiki/RTL_Television` |
+| `de.wikipedia.org/wiki/Streaming-Medien` | → `de.wikipedia.org/wiki/Streaming_Media` |
 
-For the remaining concepts that don't have a clear obvious match (EPG, Catch-up TV, MagentaTV, Waipu.tv, Zattoo, WhatsApp, Kundenservice, Geld-zurück-Garantie, Infomir, the "additionalType" filler IDs Q673708/Q15265344/Q466410/Q47461344/Q5532358/Q19842766), I will look each one up via the Wikidata search API during implementation and either substitute the verified ID or **remove the entry** if no clean match exists. Better no Q-ID than a wrong one.
+### Not broken but worth cleaning up
 
-### 2. Apply the same audit to other route files
+- 3× `https://www.google.com/search?q=...&kponly` — these return 200 but `&kponly` is not a valid Google parameter; they just open a normal SERP, not a Knowledge Panel. They add no SEO value inside a `sameAs` array (Google ignores SERPs in entity stitching). **Recommend removing**.
+- 2× `https://fonts.googleapis.com` and `https://fonts.gstatic.com` — used as `<link rel="preconnect">` roots. The 404 on the bare hostname is expected and harmless (browsers only open the connection, never request `/`). **Leave as-is.**
 
-I'll grep all `src/routes/*.tsx` for `wikidata.org` and run the same verification on any Q-IDs found there (preise, subscription pages, blog, etc.).
+### All 80 Wikidata Q-IDs
 
-### 3. Verification step (mandatory before writing)
+Already verified label-for-label in the previous fix. Every Q-ID page returns 200 and points to the correct entity.
 
-For every Q-ID I keep or add, I'll call the Wikidata `wbgetentities` API to confirm the German/English label matches the name in the schema. Only verified IDs are written.
+### Plan
 
-### Files
-
-- `src/routes/__root.tsx` — fix `additionalType`, `knowsAbout` (Wikidata variants), and all per-service `sameAs` arrays
-- Any other route files that turn out to contain Wikidata links
+1. Edit `src/routes/__root.tsx` to replace the 6 broken Wikipedia URLs with the working substitutes above (all occurrences via global string replace).
+2. Remove the 3 `www.google.com/search?...&kponly` entries from the `sameAs` arrays.
+3. Re-run the URL checker on the modified file to confirm 0 remaining 404s.
 
 ### Out of scope
 
-Wikipedia URLs (`de.wikipedia.org/wiki/...`) and productontology URLs are human-readable slugs and have been spot-checked as correct — I will not touch them unless a Q-ID change forces a paired update.
+- The Wayback URL `web.archive.org/web/20260514203741/...` is a real snapshot (today's date is May 16, 2026 — matches). Leaving it.
+- Internal `#id` fragment URLs are JSON-LD anchors, not navigable URLs — no check needed.
