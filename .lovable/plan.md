@@ -1,27 +1,26 @@
-## Two more JSON-LD validation errors on `Service` nodes
+## Plan
 
-Validator output:
-- `availableLanguage` is not valid on `Service` (schema.org defines it on `ContactPoint`, `LodgingBusiness`, etc. — not `Service`).
-- `availableOnDevice` is not a schema.org property at all (it does not exist).
+Update the homepage structured data so Google's validator can detect a third valid rich-result item again.
 
-Both live inside the `@graph` in `src/routes/__root.tsx`.
+### What I will change
 
-## Fixes (in `src/routes/__root.tsx`)
+1. **Replace the root `ProfessionalService` node with a richer, valid `Organization` node**
+   - The current `ProfessionalService` graph is valid schema.org in general, but Google’s Rich Results tool is not listing it as a detected rich-result item.
+   - I’ll switch the top-level entity to `Organization` and keep the important business details: name, logo, URL, contact, languages, founder, offers, area served, descriptions, and references.
 
-**A. `#service-multidevice` (line ~318)**
-- Remove the entire `availableOnDevice: [...]` array (7 device entries).
-- The device list is already covered by the `description` text and the `sameAs` Wikipedia/Wikidata links right below it — no information is lost.
+2. **Avoid properties that triggered validator errors**
+   - Keep `contactPoint` only on `Organization` where it is recognized.
+   - Keep invalid `Service` properties removed (`availableLanguage`, `availableOnDevice`).
+   - Avoid using `ProfessionalService` as a target where the validator complained.
 
-**B. `#service-support` (line ~366)**
-- Remove `availableLanguage: ["de", "en"]`.
-- Keep `hoursAvailable` — it IS valid on `Service` per schema.org (domain includes `Service` and `ContactPoint`).
-- Language info is already declared at the Organization level (`#organization.availableLanguage` via its `contactPoint`, line 129), so the language coverage is not lost from the graph.
+3. **Keep the existing homepage rich-result items intact**
+   - Leave the existing `FAQPage` and `BreadcrumbList` scripts on `/` in place.
+   - The expected result should be 3 detected items again: `Organization`, `FAQPage`, and `BreadcrumbList`.
 
-## Verification
+### File to edit
 
-After the edits, re-run the rich-results test on `https://iptvs-anbieter.de/`:
-- The two new errors (`availableLanguage`, `availableOnDevice` on `Service`) should disappear.
-- The 3 detected items (Organization graph, FAQPage, BreadcrumbList) should remain intact.
+- `src/routes/__root.tsx`
 
-## Files touched
-- `src/routes/__root.tsx` only (2 small deletions, no other changes).
+### Verification
+
+After implementation, the code should output valid JSON-LD with the root item as `Organization`. Then you can rerun the Rich Results test for `https://iptvs-anbieter.de/` and confirm the detected items count increases from 2 to 3.
