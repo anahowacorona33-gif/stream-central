@@ -58,17 +58,13 @@ const SITE_JSONLD = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       "@id": "https://iptvs-anbieter.de/#organization",
       name: "IPTV Anbieter",
       alternateName: ["IPTV Anbieter Deutschland", "IPTVs Anbieter", "Premium IPTV Anbieter"],
       url: "https://iptvs-anbieter.de",
       telephone: "+44-7446-431335",
       email: "support@iptvs-anbieter.de",
-      priceRange: "€",
-      currenciesAccepted: "EUR",
-      paymentAccepted: "Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay, Klarna, iDeal, Bancontact, Maestro, Discover, Bitcoin, Ethereum, USDT",
-      openingHours: "Mo-Su 00:00-23:59",
       foundingDate: "2019",
       slogan: "Bester IPTV Anbieter in Deutschland – Premium IPTV in 4K UHD, sofort aktiv, 30 Tage Geld-zurück.",
       knowsLanguage: ["de", "en"],
@@ -114,11 +110,22 @@ const SITE_JSONLD = {
         addressRegion: "Berlin",
         addressCountry: "DE",
       },
-      geo: {
-        "@type": "GeoCoordinates",
+      location: {
+        "@type": "Place",
         name: "IPTV Anbieter – Standort Deutschland",
-        latitude: "52.5200",
-        longitude: "13.4050",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Friedrichstraße 123",
+          postalCode: "10117",
+          addressLocality: "Berlin",
+          addressRegion: "Berlin",
+          addressCountry: "DE",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "52.5200",
+          longitude: "13.4050",
+        },
         description: "Deutschsprachiger IPTV Anbieter mit Sitz in Berlin, Deutschland — aktiv im gesamten DACH-Raum.",
       },
       contactPoint: {
@@ -128,6 +135,12 @@ const SITE_JSONLD = {
         email: "support@iptvs-anbieter.de",
         availableLanguage: ["de", "en"],
         areaServed: ["DE", "AT", "CH"],
+        hoursAvailable: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: "00:00",
+          closes: "23:59",
+        },
       },
       areaServed: [
         { "@type": "Country", name: "Deutschland", sameAs: "https://de.wikipedia.org/wiki/Deutschland" },
