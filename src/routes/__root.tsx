@@ -315,15 +315,6 @@ const SITE_JSONLD = {
                 provider: { "@id": "https://iptvs-anbieter.de/#organization" },
                 description:
                   "Kompatibel mit Smart TV (Samsung, LG, Sony), Amazon Fire TV / Fire TV Stick, Apple TV, Android TV, Android-Smartphones & -Tablets, iOS (iPhone / iPad), MAG-Boxen (Infomir), Kodi, VLC und allen gängigen M3U-Playern. Optimierte Anti-Freeze-Server für ruckelfreie Wiedergabe in HD und 4K.",
-                availableOnDevice: [
-                  { "@type": "Thing", name: "Smart-TV", sameAs: "https://de.wikipedia.org/wiki/Smart-TV" },
-                  { "@type": "Thing", name: "Amazon Fire TV", sameAs: "https://de.wikipedia.org/wiki/Amazon_Fire_TV" },
-                  { "@type": "Thing", name: "Apple TV", sameAs: "https://de.wikipedia.org/wiki/Apple_TV" },
-                  { "@type": "Thing", name: "Android TV", sameAs: "https://de.wikipedia.org/wiki/Android_TV" },
-                  { "@type": "Thing", name: "Kodi", sameAs: "https://de.wikipedia.org/wiki/Kodi_(Software)" },
-                  { "@type": "Thing", name: "VLC media player", sameAs: "https://de.wikipedia.org/wiki/VLC_media_player" },
-                  { "@type": "Thing", name: "MAG Set-Top-Box (Infomir)", sameAs: "https://en.wikipedia.org/wiki/Infomir" },
-                ],
                 sameAs: [
                   "https://de.wikipedia.org/wiki/Smart-TV",
                   "https://www.wikidata.org/wiki/Q564635",
@@ -363,7 +354,6 @@ const SITE_JSONLD = {
                 url: "https://iptvs-anbieter.de/",
                 serviceType: "Customer Support",
                 provider: { "@id": "https://iptvs-anbieter.de/#organization" },
-                availableLanguage: ["de", "en"],
                 hoursAvailable: {
                   "@type": "OpeningHoursSpecification",
                   dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
