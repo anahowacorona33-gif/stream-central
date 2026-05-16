@@ -370,12 +370,6 @@ const SITE_JSONLD = {
                   opens: "00:00",
                   closes: "23:59",
                 },
-                contactPoint: {
-                  "@type": "ContactPoint",
-                  telephone: "+44-7446-431335",
-                  contactType: "customer support",
-                  availableLanguage: ["de", "en"],
-                },
                 description:
                   "Persönlicher Support per WhatsApp rund um die Uhr — Einrichtung, Player-Konfiguration, Senderlisten, Abrechnungsfragen. Antwort in der Regel innerhalb weniger Minuten.",
                 sameAs: [
@@ -441,12 +435,20 @@ const SITE_JSONLD = {
       },
     },
     {
+      "@type": "WebSite",
+      "@id": "https://iptvs-anbieter.de/#website",
+      url: "https://iptvs-anbieter.de/",
+      name: "IPTV Anbieter",
+      inLanguage: "de-DE",
+      publisher: { "@id": "https://iptvs-anbieter.de/#organization" },
+    },
+    {
       "@type": "WebPage",
       "@id": "https://iptvs-anbieter.de/#webpage",
       url: "https://iptvs-anbieter.de/",
       name: "IPTV Anbieter Deutschland – Premium IPTV in 4K UHD | 20.000+ Sender",
       inLanguage: "de-DE",
-      isPartOf: { "@id": "https://iptvs-anbieter.de/#organization" },
+      isPartOf: { "@id": "https://iptvs-anbieter.de/#website" },
       publisher: { "@id": "https://iptvs-anbieter.de/#organization" },
       about: [
         { "@type": "Thing", name: "IPTV", sameAs: "https://de.wikipedia.org/wiki/Internet_Protocol_Television" },
@@ -504,6 +506,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "de_DE" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(SITE_JSONLD) },
+    ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/logo.png", type: "image/png" },
@@ -523,10 +528,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="de" className="dark">
       <head>
         <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSONLD) }}
-        />
       </head>
       <body>
         {children}
