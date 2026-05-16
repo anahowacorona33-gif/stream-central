@@ -18,6 +18,9 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/preise", changefreq: "weekly", priority: "0.9" },
+          { path: "/iptv-kaufen", changefreq: "weekly", priority: "0.9" },
+          { path: "/iptv-test", changefreq: "weekly", priority: "0.9" },
+          { path: "/bester-iptv-anbieter", changefreq: "weekly", priority: "0.9" },
           { path: "/abonnement-3-monate", changefreq: "monthly", priority: "0.8" },
           { path: "/abonnement-6-monate", changefreq: "monthly", priority: "0.8" },
           { path: "/abonnement-12-monate", changefreq: "monthly", priority: "0.9" },
