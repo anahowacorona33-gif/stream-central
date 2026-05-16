@@ -1,26 +1,37 @@
-## Plan
+## Plan: Fix the 5 non-critical ImageObject warnings on `/`
 
-Update the homepage structured data so Google's validator can detect a third valid rich-result item again.
+Google's Rich Results test flagged the homepage `Organization.image` ImageObject. All 5 are optional, but fixing them makes the logo eligible for image rich results with proper attribution.
 
 ### What I will change
 
-1. **Replace the root `ProfessionalService` node with a richer, valid `Organization` node**
-   - The current `ProfessionalService` graph is valid schema.org in general, but Google’s Rich Results tool is not listing it as a detected rich-result item.
-   - I’ll switch the top-level entity to `Organization` and keep the important business details: name, logo, URL, contact, languages, founder, offers, area served, descriptions, and references.
+Edit only the `image` ImageObject block in `src/routes/__root.tsx` (lines 95–104). The `logo` block stays as-is (Google reads it separately and didn't complain).
 
-2. **Avoid properties that triggered validator errors**
-   - Keep `contactPoint` only on `Organization` where it is recognized.
-   - Keep invalid `Service` properties removed (`availableLanguage`, `availableOnDevice`).
-   - Avoid using `ProfessionalService` as a target where the validator complained.
+**1. Fix `creator` type** — currently the string `"IPTV Anbieter"`, which is invalid. Replace with a proper Organization reference:
+```js
+creator: { "@type": "Organization", "@id": "https://iptvs-anbieter.de/#organization", name: "IPTV Anbieter" }
+```
+Same fix for `author` — change from string to `{ "@type": "Person", name: "Abo Hamza" }`.
 
-3. **Keep the existing homepage rich-result items intact**
-   - Leave the existing `FAQPage` and `BreadcrumbList` scripts on `/` in place.
-   - The expected result should be 3 detected items again: `Organization`, `FAQPage`, and `BreadcrumbList`.
+**2. Add `creditText`** — the byline Google shows under the image:
+```
+creditText: "IPTV Anbieter"
+```
 
-### File to edit
+**3. Add `copyrightNotice` + `copyrightHolder`**:
+```
+copyrightNotice: "© 2019–2026 IPTV Anbieter. Alle Rechte vorbehalten."
+copyrightHolder: { "@id": "https://iptvs-anbieter.de/#organization" }
+```
 
-- `src/routes/__root.tsx`
+**4. Add `license` + `acquireLicensePage`** — both point to a license/terms page. Since you don't have a dedicated license URL, I'll point to the homepage (`https://iptvs-anbieter.de/`) which is acceptable, or we can use the imprint/AGB if one exists.
+
+### Question before I implement
+
+For the `license` / `acquireLicensePage` URLs, which do you prefer?
+- **(a)** Point both to `https://iptvs-anbieter.de/` (homepage) — quick, satisfies Google, no new page needed
+- **(b)** Point to an existing legal page if you have one (AGB/Impressum) — tell me the URL
+- **(c)** I skip these two fields — they remain as "missing optional" warnings but everything else clears
 
 ### Verification
 
-After implementation, the code should output valid JSON-LD with the root item as `Organization`. Then you can rerun the Rich Results test for `https://iptvs-anbieter.de/` and confirm the detected items count increases from 2 to 3.
+After the edit, re-run https://search.google.com/test/rich-results on `https://iptvs-anbieter.de/` — the ImageObject should show 0 issues (or 2 remaining if you pick option c), and Organization + FAQPage + BreadcrumbList stay detected.
