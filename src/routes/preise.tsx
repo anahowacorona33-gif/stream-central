@@ -38,6 +38,22 @@ const PRICING_BREADCRUMB = breadcrumbJsonLd([
   { name: "Preise", path: "/preise" },
 ]);
 
+const PRICING_ITEMLIST_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE}/preise#pricing-list`,
+  name: "IPTV Anbieter – Abo-Pakete",
+  inLanguage: "de-DE",
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  numberOfItems: 4,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, url: `${SITE}/abonnement-3-monate`, name: "IPTV Abo 3 Monate – €19", item: { "@id": `${SITE}/abonnement-3-monate#product` } },
+    { "@type": "ListItem", position: 2, url: `${SITE}/abonnement-6-monate`, name: "IPTV Abo 6 Monate – €35", item: { "@id": `${SITE}/abonnement-6-monate#product` } },
+    { "@type": "ListItem", position: 3, url: `${SITE}/abonnement-12-monate`, name: "IPTV Abo 12 Monate – €45", item: { "@id": `${SITE}/abonnement-12-monate#product` } },
+    { "@type": "ListItem", position: 4, url: `${SITE}/abonnement-24-monate`, name: "IPTV Abo 24 Monate – €80", item: { "@id": `${SITE}/abonnement-24-monate#product` } },
+  ],
+};
+
 export const Route = createFileRoute("/preise")({
   head: () => ({
     meta: [
@@ -50,6 +66,7 @@ export const Route = createFileRoute("/preise")({
     links: [{ rel: "canonical", href: "/preise" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(PRICING_FAQ_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(PRICING_ITEMLIST_JSONLD) },
       { type: "application/ld+json", children: JSON.stringify(PRICING_BREADCRUMB) },
     ],
   }),

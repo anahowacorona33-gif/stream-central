@@ -69,7 +69,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "IPTV Anbieter mit über 20.000 Live-TV-Sendern, 145.000+ Filmen und 44.000+ Serien in 4K UHD. Sofort-Aktivierung, 30 Tage Geld-zurück, kein Vertrag." },
       { property: "og:title", content: "IPTV Anbieter – Premium IPTV in 4K" },
       { property: "og:description", content: "IPTV Anbieter mit 20.000+ Sendern, 145.000+ Filmen und 44.000+ Serien für nur €45/Jahr." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(FAQ_JSONLD) },
       { type: "application/ld+json", children: JSON.stringify(BREADCRUMB_JSONLD) },

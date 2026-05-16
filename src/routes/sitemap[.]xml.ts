@@ -26,6 +26,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/abonnement-12-monate", changefreq: "monthly", priority: "0.9" },
           { path: "/abonnement-24-monate", changefreq: "monthly", priority: "0.8" },
           { path: "/blog", changefreq: "daily", priority: "0.8" },
+          { path: "/autor", changefreq: "monthly", priority: "0.6" },
+          { path: "/kontakt", changefreq: "monthly", priority: "0.7" },
         ];
 
         const { data: posts } = await supabase

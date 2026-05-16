@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IptvTestRouteImport } from './routes/iptv-test'
 import { Route as IptvKaufenRouteImport } from './routes/iptv-kaufen'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BesterIptvAnbieterRouteImport } from './routes/bester-iptv-anbieter'
+import { Route as AutorRouteImport } from './routes/autor'
 import { Route as Abonnement6MonateRouteImport } from './routes/abonnement-6-monate'
 import { Route as Abonnement3MonateRouteImport } from './routes/abonnement-3-monate'
 import { Route as Abonnement24MonateRouteImport } from './routes/abonnement-24-monate'
@@ -31,6 +33,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PreiseRoute = PreiseRouteImport.update({
   id: '/preise',
   path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IptvTestRoute = IptvTestRouteImport.update({
@@ -51,6 +58,11 @@ const BlogRoute = BlogRouteImport.update({
 const BesterIptvAnbieterRoute = BesterIptvAnbieterRouteImport.update({
   id: '/bester-iptv-anbieter',
   path: '/bester-iptv-anbieter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutorRoute = AutorRouteImport.update({
+  id: '/autor',
+  path: '/autor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Abonnement6MonateRoute = Abonnement6MonateRouteImport.update({
@@ -95,10 +107,12 @@ export interface FileRoutesByFullPath {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -110,10 +124,12 @@ export interface FileRoutesByTo {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -126,10 +142,12 @@ export interface FileRoutesById {
   '/abonnement-24-monate': typeof Abonnement24MonateRoute
   '/abonnement-3-monate': typeof Abonnement3MonateRoute
   '/abonnement-6-monate': typeof Abonnement6MonateRoute
+  '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -143,10 +161,12 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -158,10 +178,12 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -173,10 +195,12 @@ export interface FileRouteTypes {
     | '/abonnement-24-monate'
     | '/abonnement-3-monate'
     | '/abonnement-6-monate'
+    | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -189,10 +213,12 @@ export interface RootRouteChildren {
   Abonnement24MonateRoute: typeof Abonnement24MonateRoute
   Abonnement3MonateRoute: typeof Abonnement3MonateRoute
   Abonnement6MonateRoute: typeof Abonnement6MonateRoute
+  AutorRoute: typeof AutorRoute
   BesterIptvAnbieterRoute: typeof BesterIptvAnbieterRoute
   BlogRoute: typeof BlogRouteWithChildren
   IptvKaufenRoute: typeof IptvKaufenRoute
   IptvTestRoute: typeof IptvTestRoute
+  KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
@@ -212,6 +238,13 @@ declare module '@tanstack/react-router' {
       path: '/preise'
       fullPath: '/preise'
       preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/iptv-test': {
@@ -240,6 +273,13 @@ declare module '@tanstack/react-router' {
       path: '/bester-iptv-anbieter'
       fullPath: '/bester-iptv-anbieter'
       preLoaderRoute: typeof BesterIptvAnbieterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autor': {
+      id: '/autor'
+      path: '/autor'
+      fullPath: '/autor'
+      preLoaderRoute: typeof AutorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/abonnement-6-monate': {
@@ -310,10 +350,12 @@ const rootRouteChildren: RootRouteChildren = {
   Abonnement24MonateRoute: Abonnement24MonateRoute,
   Abonnement3MonateRoute: Abonnement3MonateRoute,
   Abonnement6MonateRoute: Abonnement6MonateRoute,
+  AutorRoute: AutorRoute,
   BesterIptvAnbieterRoute: BesterIptvAnbieterRoute,
   BlogRoute: BlogRouteWithChildren,
   IptvKaufenRoute: IptvKaufenRoute,
   IptvTestRoute: IptvTestRoute,
+  KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,
