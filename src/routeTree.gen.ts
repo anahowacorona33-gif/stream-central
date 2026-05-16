@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IptvTestRouteImport } from './routes/iptv-test'
 import { Route as IptvKaufenRouteImport } from './routes/iptv-kaufen'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -32,6 +33,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PreiseRoute = PreiseRouteImport.update({
   id: '/preise',
   path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IptvTestRoute = IptvTestRouteImport.update({
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -122,6 +129,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -139,6 +147,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/iptv-kaufen'
     | '/iptv-test'
+    | '/kontakt'
     | '/preise'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -206,6 +218,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   IptvKaufenRoute: typeof IptvKaufenRoute
   IptvTestRoute: typeof IptvTestRoute
+  KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiPublicBlogCronRoute: typeof ApiPublicBlogCronRoute
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       path: '/preise'
       fullPath: '/preise'
       preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/iptv-test': {
@@ -335,6 +355,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   IptvKaufenRoute: IptvKaufenRoute,
   IptvTestRoute: IptvTestRoute,
+  KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiPublicBlogCronRoute: ApiPublicBlogCronRoute,

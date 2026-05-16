@@ -72,7 +72,8 @@ export const Route = createFileRoute("/autor")({
 
 function AuthorPage() {
   const fetchPosts = useServerFn(listPosts);
-  const { data: posts } = useQuery({ queryKey: ["posts", "author"], queryFn: () => fetchPosts() });
+  const { data } = useQuery({ queryKey: ["posts", "author"], queryFn: () => fetchPosts() });
+  const posts = data?.posts ?? [];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
@@ -119,7 +120,7 @@ function AuthorPage() {
         </Link>
       </div>
 
-      {posts && posts.length > 0 && (
+      {posts.length > 0 && (
         <section className="mt-16">
           <h2 className="font-display text-3xl">Artikel von Abo Hamza</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
