@@ -61,7 +61,7 @@ const SITE_JSONLD = {
       "@type": "Organization",
       "@id": "https://iptvs-anbieter.de/#organization",
       name: "IPTV Anbieter",
-      alternateName: ["IPTV Anbieter Deutschland", "IPTVs Anbieter", "Premium IPTV Anbieter"],
+      alternateName: ["IPTV Anbieter Deutschland", "IPTV-Anbieter", "Premium IPTV Anbieter", "IPTV Anbieter DE"],
       url: "https://iptvs-anbieter.de",
       telephone: "+44-7446-431335",
       email: "support@iptvs-anbieter.de",

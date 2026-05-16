@@ -14,6 +14,7 @@ import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IptvTestRouteImport } from './routes/iptv-test'
 import { Route as IptvKaufenRouteImport } from './routes/iptv-kaufen'
+import { Route as IptvAnbieterRouteImport } from './routes/iptv-anbieter'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BesterIptvAnbieterRouteImport } from './routes/bester-iptv-anbieter'
 import { Route as AutorRouteImport } from './routes/autor'
@@ -48,6 +49,11 @@ const IptvTestRoute = IptvTestRouteImport.update({
 const IptvKaufenRoute = IptvKaufenRouteImport.update({
   id: '/iptv-kaufen',
   path: '/iptv-kaufen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IptvAnbieterRoute = IptvAnbieterRouteImport.update({
+  id: '/iptv-anbieter',
+  path: '/iptv-anbieter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-anbieter': typeof IptvAnbieterRoute
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
   '/kontakt': typeof KontaktRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-anbieter': typeof IptvAnbieterRoute
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
   '/kontakt': typeof KontaktRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/autor': typeof AutorRoute
   '/bester-iptv-anbieter': typeof BesterIptvAnbieterRoute
   '/blog': typeof BlogRouteWithChildren
+  '/iptv-anbieter': typeof IptvAnbieterRoute
   '/iptv-kaufen': typeof IptvKaufenRoute
   '/iptv-test': typeof IptvTestRoute
   '/kontakt': typeof KontaktRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-anbieter'
     | '/iptv-kaufen'
     | '/iptv-test'
     | '/kontakt'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-anbieter'
     | '/iptv-kaufen'
     | '/iptv-test'
     | '/kontakt'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/autor'
     | '/bester-iptv-anbieter'
     | '/blog'
+    | '/iptv-anbieter'
     | '/iptv-kaufen'
     | '/iptv-test'
     | '/kontakt'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   AutorRoute: typeof AutorRoute
   BesterIptvAnbieterRoute: typeof BesterIptvAnbieterRoute
   BlogRoute: typeof BlogRouteWithChildren
+  IptvAnbieterRoute: typeof IptvAnbieterRoute
   IptvKaufenRoute: typeof IptvKaufenRoute
   IptvTestRoute: typeof IptvTestRoute
   KontaktRoute: typeof KontaktRoute
@@ -259,6 +272,13 @@ declare module '@tanstack/react-router' {
       path: '/iptv-kaufen'
       fullPath: '/iptv-kaufen'
       preLoaderRoute: typeof IptvKaufenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iptv-anbieter': {
+      id: '/iptv-anbieter'
+      path: '/iptv-anbieter'
+      fullPath: '/iptv-anbieter'
+      preLoaderRoute: typeof IptvAnbieterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -353,6 +373,7 @@ const rootRouteChildren: RootRouteChildren = {
   AutorRoute: AutorRoute,
   BesterIptvAnbieterRoute: BesterIptvAnbieterRoute,
   BlogRoute: BlogRouteWithChildren,
+  IptvAnbieterRoute: IptvAnbieterRoute,
   IptvKaufenRoute: IptvKaufenRoute,
   IptvTestRoute: IptvTestRoute,
   KontaktRoute: KontaktRoute,
@@ -363,13 +384,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
