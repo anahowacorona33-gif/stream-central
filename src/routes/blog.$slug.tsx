@@ -2,20 +2,35 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { getPost } from "@/lib/blog.functions";
 import { MarkdownBody } from "@/lib/markdown";
+import { breadcrumbJsonLd, ORG_ID, SITE } from "@/lib/seo-jsonld";
 
 export const Route = createFileRoute("/blog/$slug")({
-  head: ({ loaderData }) => {
+  head: ({ params, loaderData }) => {
     const p = (loaderData as { post?: { title: string; excerpt: string; published_at: string } } | undefined)?.post;
+    const slug = params.slug;
+    const path = `/blog/${slug}`;
     const articleJsonLd = p
       ? {
           "@context": "https://schema.org",
           "@type": "Article",
+          "@id": `${SITE}${path}#article`,
           headline: p.title,
           description: p.excerpt,
           datePublished: p.published_at,
-          author: { "@type": "Organization", name: "IPTV Anbieter" },
-          publisher: { "@type": "Organization", name: "IPTV Anbieter" },
+          dateModified: p.published_at,
+          inLanguage: "de-DE",
+          mainEntityOfPage: { "@id": `${SITE}${path}#webpage` },
+          author: { "@id": ORG_ID, "@type": "Organization", name: "IPTV Anbieter" },
+          publisher: { "@id": ORG_ID, "@type": "Organization", name: "IPTV Anbieter" },
+          isPartOf: { "@id": `${SITE}/blog#blog` },
         }
+      : null;
+    const breadcrumbJson = p
+      ? breadcrumbJsonLd([
+          { name: "Startseite", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: p.title, path },
+        ])
       : null;
     return {
       meta: [
@@ -24,10 +39,13 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p?.title ?? "Artikel" },
         { property: "og:description", content: p?.excerpt ?? "" },
         { property: "og:type", content: "article" },
+        { property: "og:url", content: path },
       ],
-      scripts: articleJsonLd
-        ? [{ type: "application/ld+json", children: JSON.stringify(articleJsonLd) }]
-        : [],
+      links: [{ rel: "canonical", href: path }],
+      scripts: [
+        ...(articleJsonLd ? [{ type: "application/ld+json", children: JSON.stringify(articleJsonLd) }] : []),
+        ...(breadcrumbJson ? [{ type: "application/ld+json", children: JSON.stringify(breadcrumbJson) }] : []),
+      ],
     };
   },
   loader: async ({ params }) => {
