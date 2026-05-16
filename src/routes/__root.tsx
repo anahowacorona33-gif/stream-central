@@ -496,7 +496,9 @@ const SITE_JSONLD = {
         "Gründer von IPTV Anbieter — seit 2019 spezialisiert auf Premium-IPTV in 4K UHD für Deutschland, Österreich und die Schweiz.",
       worksFor: { "@id": "https://iptvs-anbieter.de/#organization" },
       workLocation: "https://iptvs-anbieter.de/",
-      url: "https://iptvs-anbieter.de/",
+      url: "https://iptvs-anbieter.de/autor",
+      mainEntityOfPage: "https://iptvs-anbieter.de/autor",
+      sameAs: ["https://iptvs-anbieter.de/autor"],
       additionalType: [
         "https://de.wikipedia.org/wiki/Unternehmer",
         "https://www.wikidata.org/wiki/Q131524",
