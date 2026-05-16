@@ -1,42 +1,27 @@
-## Problems detected by the rich-results validator
+## Two more JSON-LD validation errors on `Service` nodes
 
-1. **`isPartOf` invalid target** — `WebPage#webpage.isPartOf` references `#organization` (a `ProfessionalService`). `isPartOf` on `WebPage` expects a `CreativeWork`, typically a `WebSite`.
-2. **`contactPoint` not allowed on `Service`** — `#service-support` has a `contactPoint`, which is only valid on `Organization`/`Person`. The Organization already carries the correct `contactPoint`.
-3. **Only 2 schemas detected (should be 3)** — the validator picks up `FAQPage` and `BreadcrumbList` (emitted from `src/routes/index.tsx` via TanStack's `head().scripts`) but misses the big `@graph` (Organization + WebPage + Person) because it's injected manually with `dangerouslySetInnerHTML` inside `RootShell`, before `<HeadContent />` renders the per-route scripts. Some crawlers/validators stop at the first ld+json block when the surrounding markup confuses them.
+Validator output:
+- `availableLanguage` is not valid on `Service` (schema.org defines it on `ContactPoint`, `LodgingBusiness`, etc. — not `Service`).
+- `availableOnDevice` is not a schema.org property at all (it does not exist).
 
-## Fixes (all in `src/routes/__root.tsx`)
+Both live inside the `@graph` in `src/routes/__root.tsx`.
 
-**A. Add a `WebSite` node and re-wire `isPartOf`**
-- Insert a new `@graph` entry:
-  ```
-  {
-    "@type": "WebSite",
-    "@id": "https://iptvs-anbieter.de/#website",
-    url: "https://iptvs-anbieter.de/",
-    name: "IPTV Anbieter",
-    inLanguage: "de-DE",
-    publisher: { "@id": "https://iptvs-anbieter.de/#organization" },
-  }
-  ```
-- Change `WebPage#webpage.isPartOf` from `{ "@id": ".../#organization" }` to `{ "@id": ".../#website" }`.
+## Fixes (in `src/routes/__root.tsx`)
 
-**B. Remove invalid `contactPoint` from Service**
-- In `#service-support`, delete the `contactPoint` block (lines 373–378). Keep `hoursAvailable` and `availableLanguage` — those are valid on `Service`.
+**A. `#service-multidevice` (line ~318)**
+- Remove the entire `availableOnDevice: [...]` array (7 device entries).
+- The device list is already covered by the `description` text and the `sameAs` Wikipedia/Wikidata links right below it — no information is lost.
 
-**C. Emit the sitewide `@graph` via TanStack `head().scripts` instead of `dangerouslySetInnerHTML`**
-- Remove the inline `<script type="application/ld+json" dangerouslySetInnerHTML=...>` from `RootShell`.
-- Add it to the root route's `head()` return:
-  ```
-  scripts: [
-    { type: "application/ld+json", children: JSON.stringify(SITE_JSONLD) },
-  ],
-  ```
-- This way all three JSON-LD blocks (Organization graph, FAQPage, BreadcrumbList) are emitted by the same `<HeadContent />` pipeline and validators reliably parse all of them.
-
-## Files touched
-- `src/routes/__root.tsx` only.
+**B. `#service-support` (line ~366)**
+- Remove `availableLanguage: ["de", "en"]`.
+- Keep `hoursAvailable` — it IS valid on `Service` per schema.org (domain includes `Service` and `ContactPoint`).
+- Language info is already declared at the Organization level (`#organization.availableLanguage` via its `contactPoint`, line 129), so the language coverage is not lost from the graph.
 
 ## Verification
+
 After the edits, re-run the rich-results test on `https://iptvs-anbieter.de/`:
-- "Détectés" should show **3 items**: Organization (ProfessionalService), FAQPage, BreadcrumbList.
-- The two flagged errors (`isPartOf` target, `contactPoint` on Service) should disappear.
+- The two new errors (`availableLanguage`, `availableOnDevice` on `Service`) should disappear.
+- The 3 detected items (Organization graph, FAQPage, BreadcrumbList) should remain intact.
+
+## Files touched
+- `src/routes/__root.tsx` only (2 small deletions, no other changes).
