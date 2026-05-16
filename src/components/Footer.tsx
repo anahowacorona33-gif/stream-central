@@ -27,6 +27,7 @@ export function Footer() {
           <div>
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Produkt</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link to="/iptv-anbieter" className="hover:text-primary">IPTV Anbieter</Link></li>
               <li><Link to="/preise" className="hover:text-primary">Preise</Link></li>
               <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
               <li><Link to="/autor" className="hover:text-primary">Über den Autor</Link></li>
